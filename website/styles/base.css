@@ -1,0 +1,30 @@
+:root {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    @apply bg-surface-10 text-surface-950 transition-colors;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    @apply bg-surface-10;
+}
+::-webkit-scrollbar-thumb {
+    @apply bg-surface-300 rounded-sm;
+}
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-500;
+}
+
+::selection {
+    @apply bg-accent-200/55 text-accent-950;
+}

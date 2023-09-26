@@ -1,0 +1,50 @@
+{
+  "name": "whirlombre",
+  "version": "1.0.0",
+  "description": "💫 A super-minimal library to generate smooth shades",
+  "author": "Jeffrey Turns <jeffreyturns@protonmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/jeffreyturns/whirlombre#README",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffreyturns/whirlombre.git"
+  },
+  "bugs": "https://github.com/jeffreyturns/whirlombre/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build-fast": "tsup src/index.ts --format cjs,esm",
+    "build": "pnpm build-fast --dts-resolve",
+    "lint": "eslint .",
+    "prepublishOnly": "pnpm build",
+    "release": "bumpp && npm publish",
+    "test": "vitest",
+    "update-deps": "taze -w && pnpm i",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.37.0",
+    "bumpp": "^9.0.0",
+    "eslint": "^8.36.0",
+    "taze": "^0.9.1",
+    "tsup": "6.7.0",
+    "typescript": "^5.0.2",
+    "vitest": "^0.29.7"
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
+  }
+}
