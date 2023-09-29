@@ -6,9 +6,9 @@ useHead({
 
 <template>
     <div>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 space-y-4 pt-20">
-            <div class="w-full h-64 flex items-center justify-center rounded-sm ring-1 ring-surface-950/12">
-                <Logo class="h-24 w-24 text-surface-950" />
+        <div class="mx-auto max-w-7xl px-4 py-4 pt-20 space-y-4 lg:px-8 sm:px-6">
+            <div class="h-64 w-full flex items-center justify-center rounded-sm ring-1 ring-surface-950/12">
+                <NavLogo class="h-24 w-24 text-surface-950" />
                 <svg
                     width="100%"
                     height="100%"

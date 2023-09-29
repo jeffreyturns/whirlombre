@@ -6,7 +6,7 @@ import presetTheme from 'unocss-preset-theme'
 
 import { generateTheme } from './config/theme.config'
 
-import { DEFAULT } from './config/prose.config'
+// import { DEFAULT } from './config/prose.config'
 
 const { light, dark } = generateTheme({
     light: {
@@ -22,7 +22,7 @@ const { light, dark } = generateTheme({
     dark: {
         accent: {
             hue: 35,
-            chroma: 0.15
+            chroma: 0.3
         },
         surface: {
             hue: 35,
@@ -200,9 +200,10 @@ export default defineConfig({
                 }
             }
         }),
+        // @ts-ignore
         presetTheme<Theme>({
             theme: {
-                dark: dark
+                dark
             }
         }),
         presetWebFonts({
@@ -215,5 +216,8 @@ export default defineConfig({
         })
     ],
     transformers: [transformerDirectives()],
-    theme: light
+    theme: light,
+    shortcuts: {
+        '': ''
+    }
 })

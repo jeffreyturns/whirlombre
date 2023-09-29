@@ -1,6 +1,8 @@
-export default defineNuxtRouteMiddleware((to, from) => {
-    window.scroll({
-        top: 0,
-        left: 0,
-    })
+export default defineNuxtRouteMiddleware(() => {
+    if (process.client) {
+        window.scroll({
+            top: 0,
+            left: 0
+        })
+    }
 })

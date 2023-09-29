@@ -37,12 +37,6 @@ const themeHuesArray = [
         hexText: '#001000'
     },
     {
-        title: 'oxide',
-        hue: 25,
-        hexBg: '#ffaaa8',
-        hexText: '#390000'
-    },
-    {
         title: 'nebula',
         hue: 270,
         hexBg: '#8acdff',
@@ -87,10 +81,10 @@ const themeHuesArray = [
         <div class="space-x-1">
             <h3>Presets:</h3>
         <a
-            v-for="it in themeHuesArray"
+            v-for="it in themeHuesArray.sort((a, b) => a.hue - b.hue)"
             @click="changePreset(it.hue)"
             :style="{ backgroundColor: it.hexBg, color: it.hexText }"
-            class="text-sm mt-4 h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6">
+            class="text-sm mt-4 inline-flex items-center px-4 py-2.5 rounded-sm leading-6">
            {{ it.title }}
         </a>
         </div>
@@ -153,17 +147,6 @@ const themeHuesArray = [
                             class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
                     </p>
                 </div>
-                <span
-                    class="pointer-events-none absolute right-6 top-6 text-surface-300 group-hover:text-surface-400"
-                    aria-hidden="true">
-                    <svg
-                        class="h-6 w-6"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                    </svg>
-                </span>
             </div>
             <div class="group relative bg-surface-50 p-6 focus:ring-none">
                 <div class="mt-8">
@@ -204,17 +187,6 @@ const themeHuesArray = [
                             class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
                     </p>
                 </div>
-                <span
-                    class="pointer-events-none absolute right-6 top-6 text-surface-300 group-hover:text-surface-400"
-                    aria-hidden="true">
-                    <svg
-                        class="h-6 w-6"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                    </svg>
-                </span>
             </div>
         </div>
         <h3 class="text-2xl pt-6">Dark Theme</h3>
@@ -254,17 +226,6 @@ const themeHuesArray = [
                             class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
                     </p>
                 </div>
-                <span
-                    class="pointer-events-none absolute right-6 top-6 text-surface-300 group-hover:text-surface-400"
-                    aria-hidden="true">
-                    <svg
-                        class="h-6 w-6"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                    </svg>
-                </span>
             </div>
             <div class="group relative bg-surface-50 p-6 focus:ring-none">
                 <div class="mt-8">
@@ -305,28 +266,7 @@ const themeHuesArray = [
                             class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
                     </p>
                 </div>
-                <span
-                    class="pointer-events-none absolute right-6 top-6 text-surface-300 group-hover:text-surface-400"
-                    aria-hidden="true">
-                    <svg
-                        class="h-6 w-6"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                    </svg>
-                </span>
             </div>
         </div>
-        <!-- <a
-            @click="inject()"
-            class="text-sm mt-4 h-10 inline-flex items-center px-4 py-2.5 rounded-full leading-6 bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 focus:outline-none">
-            <span
-                class="material-symbols-outlined text-[18px] mr-1.5 w-4.5 h-4.5"
-                aria-hidden="true">
-                save
-            </span>
-            Apply
-        </a> -->
     </div>
 </template>

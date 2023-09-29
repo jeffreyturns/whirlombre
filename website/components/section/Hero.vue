@@ -5,8 +5,7 @@
             height="100%"
             viewBox="0 0 1060 720"
             fill="none"
-            class="absolute inset-0 -z-10 h-full w-full opacity-25"
-            xmlns="http://www.w3.org/2000/svg">
+            class="absolute inset-0 -z-10 h-full w-full opacity-25">
             <g filter="url(#filter0_f_1_436)">
                 <path
                     d="M1202.24 -57.5132C1103.96 -151.154 1058.75 -319.947 923.781 -333.097C785.498 -346.57 692.557 -206.193 585.353 -117.618C585.094 -117.403 584.834 -117.191 584.575 -116.976L923.139 221.588L1202.24 -57.5132Z"
@@ -56,72 +55,52 @@
         <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-32">
             <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
                 <div class="mt-12 sm:mt-24">
-                    <a class="inline-flex space-x-6">
-                        <span class="rounded-sm px-3 py-1 text-sm items-center flex font-semibold leading-6 text-accent-600 hover:bg-accent-600/12">
-                            See what's new in v1.0.0
-                            <span
-                                class="ml-1"
-                                aria-hidden="true">
-                                <svg
-                                    width="18px"
-                                    height="18px"
-                                    fill="none"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        stroke="currentColor"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M6 19 19 6m0 0v12.48M19 6H6.52"></path>
-                                </svg>
+                    <AnimFadeIn>
+                        <a class="inline-flex space-x-6">
+                            <span class="rounded-sm px-3 py-1 text-sm items-center flex font-semibold transition-colors leading-6 text-accent-600 hover:bg-accent-600/12">
+                                See what's new in v1.0.0
+                                <BaseIcon
+                                    class="ml-1"
+                                    icon="arrowTr"
+                                    :size="16" />
                             </span>
-                        </span>
-                    </a>
+                        </a>
+                    </AnimFadeIn>
                 </div>
-                <h1
-                    class="mt-6 text-4xl font-headline tracking-tight sm:text-6xl text-transparent drop-shadow-sm bg-gradient-to-br from-surface-950 to-surface-500 bg-clip-text">
-                    Elevate Your Designs with Seamless Shades
-                </h1>
-                <p class="mt-6 text-lg leading-8 text-surface-600">
-                    Super-minimal library empowers you to effortlessly create and generate smooth shades, elevating your projects to a new level of
-                    sophistication.
-                </p>
-                <div class="mt-10 flex items-center gap-x-6">
-
-                    <a
-                        class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6 bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 focus:outline-none">
-                        Get Started
-                    </a>
-                    <a
-                        class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm ring-1 ring-surface-950/12 leading-6 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12">
-                        Learn more
-                        <span
-                            class="ml-1"
-                            aria-hidden="true">
-                            <svg
-                                width="18px"
-                                height="18px"
-                                fill="none"
-                                stroke-width="1.5"
-                                viewBox="0 0 24 24">
-                                <path
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M6 19 19 6m0 0v12.48M19 6H6.52"></path>
-                            </svg>
-                        </span>
-                    </a>
-                </div>
+                <AnimFadeIn :delay="120">
+                    <h1
+                        class="mt-6 text-4xl font-headline tracking-tight sm:text-6xl text-transparent drop-shadow-sm bg-gradient-to-br from-surface-950 to-surface-500 bg-clip-text">
+                        Elevate Your Designs with Seamless Shades
+                    </h1>
+                </AnimFadeIn>
+                <AnimFadeIn :delay="240">
+                    <p class="mt-6 text-lg leading-8 text-surface-600">
+                        Super-minimal library empowers you to effortlessly create and generate smooth shades, elevating your projects to a new level of
+                        sophistication.
+                    </p>
+                </AnimFadeIn>
+                <AnimFadeIn :delay="360">
+                    <div class="mt-10 flex items-center gap-x-6">
+                        <NuxtLink
+                            to="docs/get-started/introduction"
+                            class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6 transition-colors bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 focus:outline-none">
+                            Get Started
+                        </NuxtLink>
+                        <a
+                            class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm ring-1 transition-colors ring-surface-950/12 leading-6 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12">
+                            Learn more
+                            <BaseIcon class="ml-1" icon="arrowTr" :size="16" />
+                        </a>
+                    </div>
+                </AnimFadeIn>
             </div>
             <div class="mx-auto mt-24 flex max-w-2xl sm:mt-32 lg:ml-10 lg:mr-0 lg:mt-24 lg:max-w-none lg:flex-none xl:ml-32">
                 <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-                    <div class="font-minoan text-[300px] mt-6">𒾙·𒾚·𒾛·𒾜</div>
+                    <AnimFadeIn :delay="480">
+                        <div class="font-minoan text-[150px] sm:text-[300px] mt-6">𒾙·𒾚·𒾛·𒾜</div>
+                    </AnimFadeIn>
                 </div>
             </div>
         </div>
-        <!-- <div class="w-full h-[1px] bg-surface-200" /> -->
     </div>
 </template>

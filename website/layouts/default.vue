@@ -1,8 +1,7 @@
-
 <template>
-    <div>
+    <ProviderDynamicTheme>
         <NavHeader />
         <slot />
         <NavFooter />
-    </div>
+    </ProviderDynamicTheme>
 </template>

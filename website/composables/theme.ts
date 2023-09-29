@@ -15,7 +15,7 @@ export const useTheme = () =>
         dark: {
             accent: {
                 hue: 35,
-                chroma: 0.30
+                chroma: 0.3
             },
             surface: {
                 hue: 35,

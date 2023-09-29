@@ -4,108 +4,78 @@ import DefaultLayout from '~/layouts/default.vue'
 
 <template>
     <DefaultLayout>
-        <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col mt-20">
-            <div class="flex grow flex-col gap-y-5 overflow-y-auto px-6">
-                <nav class="flex flex-1 flex-col">
-                    <ContentNavigation v-slot="{ navigation }">
-                        <ul
-                            role="list"
-                            class="flex flex-1 flex-col gap-y-7">
-                            <li>
-                                <ul
-                                    role="list"
-                                    class="-mx-2 space-y-1">
-                                    <li
-                                        v-for="item of navigation"
-                                        :key="item.name">
-                                        <RouterLink
-                                            v-if="!item.children"
-                                            :to="`/docs${item._path}`"
+        <div class="pb-16 pt-8">
+            <div class="mx-auto max-w-6xl px-4 lg:px-8 sm:px-6">
+                <div class="relative grid gap-8 lg:grid-cols-4">
+                    <aside class="mr-3 hidden overflow-y-auto pb-8 lg:sticky lg:top-12 -ml-3 lg:block lg:self-start lg:pt-8 lg:-mt-8 sm:-mb-16">
+                        <button
+                            class="mb-6 w-full flex flex-shrink-0 items-center justify-center gap-x-1.5 rounded-sm bg-surface-50 px-2.5 py-2.5 text-sm font-medium hover:bg-surface-100 focus:outline-none"
+                            type="button">
+                            <span
+                                class="h-5 w-5 flex-shrink-0"
+                                aria-hidden="true">
+                                <svg
+                                    width="18px"
+                                    height="18px"
+                                    fill="none"
+                                    class="text-surface-500"
+                                    stroke-width="1.5"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        stroke-linecap="square"
+                                        stroke-linejoin="square"
+                                        d="m17 17 4 4M3 11a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z" />
+                                </svg>
+                            </span>
+                            Search
+                            <div class="ml-auto hidden gap-0.5 lg:inline-flex">
+                                <!-- <kbd
+                                    class="inline-flex items-center justify-center text-gray-900 dark:text-white h-5 min-w-[20px] text-[11px] px-1 rounded font-medium font-sans bg-gray-100 dark:bg-gray-800 ring-1 ring-gray-300 dark:ring-gray-700 ring-inset">
+                                    Ctrl
+                                </kbd>
+                                <kbd
+                                    class="inline-flex items-center justify-center text-gray-900 dark:text-white h-5 min-w-[20px] text-[11px] px-1 rounded font-medium font-sans bg-gray-100 dark:bg-gray-800 ring-1 ring-gray-300 dark:ring-gray-700 ring-inset">
+                                    K
+                                </kbd> -->
+                            </div>
+                        </button>
+                        <div class="space-y-3">
+                            <ContentNavigation v-slot="{ navigation }">
+                                <div
+                                    v-for="item of navigation"
+                                    :key="item.name"
+                                    class="relative">
+                                    <div class="text-surace-950 px-2.5 py-1 text-sm font-medium">
+                                        <span class="truncate">{{ item.title }}</span>
+                                    </div>
+                                    <nav
+                                        v-for="sub in item.children"
+                                        :key="sub.name"
+                                        class="relative mt-1">
+                                        <NuxtLink
+                                            :to="`/docs${sub._path}`"
                                             :class="[
-                                                $route.path == `/docs${item._path}`
+                                                $route.path == `/docs${sub._path}`
                                                     ? 'bg-accent-100 text-surface-950'
-                                                    : 'text-surface-700 hover:bg-surface-950/12',
-                                                'block rounded-sm py-2 pl-2 text-sm leading-6 font-semibold'
-                                            ]">
-                                            {{ item.title }}
-                                        </RouterLink>
-                                        <HeadlessDisclosure
-                                            as="div"
-                                            v-else
-                                            v-slot="{ open }">
-                                            <HeadlessDisclosureButton
-                                                :class="[
-                                                    'flex items-center w-full items-center justify-center flex rounded-sm p-2 gap-x-3 text-sm leading-6 font-semibold text-surface-700'
-                                                ]">
-                                                <p class="w-full text-left">{{ item.title }}</p>
-                                                <span
-                                                    class="shrink-0"
-                                                    aria-hidden="true">
-                                                    <svg
-                                                        v-if="open"
-                                                        width="18px"
-                                                        height="18px"
-                                                        fill="none"
-                                                        stroke-width="1.5"
-                                                        viewBox="0 0 24 24">
-                                                        <path
-                                                            stroke="currentColor"
-                                                            stroke-width="1.5"
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            d="m17 4-5 5-5-5M17 20l-5-5-5 5"></path>
-                                                    </svg>
-                                                    <svg
-                                                        v-else
-                                                        width="18px"
-                                                        height="18px"
-                                                        fill="none"
-                                                        stroke-width="1.5"
-                                                        viewBox="0 0 24 24">
-                                                        <path
-                                                            stroke="currentColor"
-                                                            stroke-width="1.5"
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            d="m17 8-5-5-5 5M17 16l-5 5-5-5"></path>
-                                                    </svg>
-                                                </span>
-                                            </HeadlessDisclosureButton>
-                                            <HeadlessDisclosurePanel
-                                                as="ul"
-                                                class="mt-1 px-2 space-y-1">
-                                                <li
-                                                    v-for="sub in item.children"
-                                                    :key="sub.name">
-                                                    <HeadlessDisclosureButton class="w-full text-left">
-                                                        <NuxtLink
-                                                            :to="`/docs${sub._path}`"
-                                                            :class="[
-                                                                $route.path == `/docs${sub._path}`
-                                                                    ? 'bg-accent-100 text-surface-950'
-                                                                    : 'text-surface-700 hover:bg-surface-950/12',
-                                                                'block rounded-sm py-2 pr-2 pl-6 text-sm leading-6 text-surface-700'
-                                                            ]">
-                                                            {{ sub.title }}
-                                                        </NuxtLink>
-                                                    </HeadlessDisclosureButton>
-                                                </li>
-                                            </HeadlessDisclosurePanel>
-                                        </HeadlessDisclosure>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </ContentNavigation>
-                </nav>
+                                                    : 'text-surface-700 hover:bg-surface-950/12'
+                                            ]"
+                                            class="group relative w-full flex items-center gap-2 rounded-sm px-3 py-1.5 text-sm font-medium focus:outline-none">
+                                            <span class="h-4 w-4 flex-shrink-0" />
+
+                                            <span class="relative truncate">{{ sub.title }}</span>
+                                        </NuxtLink>
+                                    </nav>
+                                </div>
+                            </ContentNavigation>
+                        </div>
+                    </aside>
+                    <main class="relative col-span-4 lg:col-span-3">
+                        <slot />
+                    </main>
+                </div>
             </div>
         </div>
-
-        <main class="py-10 lg:pl-72">
-            <div class="px-4 sm:px-6 lg:px-8">
-                <slot />
-            </div>
-        </main>
     </DefaultLayout>
 </template>
-

@@ -1,1 +1,1 @@
-export const useHue = () => useState<number>('hue', () => 0)
+export const useHue = () => useState<number>('hue', () => 35)

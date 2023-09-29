@@ -1,5 +1,4 @@
 <template>
-    <!-- <div class="w-full h-[1px] bg-surface-200" /> -->
     <div class="relative isolate">
         <svg
             width="100%"
@@ -62,11 +61,16 @@
             </h2>
             <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
                 <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                    <div class="space-y-8">
-                        <NuxtLink to="/">
-                            <Logo class="h-8 text-accent-600" />
+                    <div class="space-y-6">
+                        <NuxtLink
+                            class="inline-block"
+                            to="/">
+                            <NavLogo class="text-accent-600" />
                         </NuxtLink>
                         <p class="text-sm leading-6 text-surface-600">Minimal library to generate smooth shades.</p>
+                        <ClientOnly>
+                            <ThemeDropdown />
+                        </ClientOnly>
                         <div class="flex space-x-6">
                             <a
                                 v-for="item in navigation.social"

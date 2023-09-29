@@ -21,8 +21,7 @@ const links = [
         href: '#',
         symbols: '𒾜',
         description: 'Installation guides that cover popular setups.'
-    },
-    { name: 'Blog', href: '#', symbols: '𒾬', description: 'Read our latest news and articles.' }
+    }
 ]
 </script>
 
@@ -30,21 +29,21 @@ const links = [
     <div class="relative isolate">
         <main class="grid place-items-center py-16 sm:py-24">
             <div>
-                <p class="font-minoan text-[60px] text-center sm:text-[120px] text-accent-600">𒿗·𒾱·𒿑</p>
+                <p class="text-center text-[60px] font-minoan text-accent-600 sm:text-[120px]">𒿗·𒾱·𒿑</p>
 
-                <h1 class="text-xl text-surface-900 text-center sm:text-2xl">404 — Lost in the Digital Void!</h1>
-                <p class="mt-2 text-sm sm:text-base text-center max-w-xl text-surface-600">The page you're seeking isn't here. Double-check the URL.</p>
+                <h1 class="text-center text-xl text-surface-900 sm:text-2xl">404 — Lost in the Digital Void!</h1>
+                <p class="mt-2 max-w-xl text-center text-sm text-surface-600 sm:text-base">The page you're seeking isn't here. Double-check the URL.</p>
                 <div class="mt-6 flex items-center justify-center gap-x-6">
                     <div class="mx-auto mt-6 flow-root max-w-lg sm:mt-10">
                         <h2 class="sr-only">Popular pages</h2>
                         <ul
                             role="list"
-                            class="-mt-6 divide-y divide-surface-950/12 mb-3">
+                            class="mb-3 -mt-6 divide-y divide-surface-950/12">
                             <li
                                 v-for="(link, linkIdx) in links"
                                 :key="linkIdx"
-                                class="relative flex gap-x-6 py-6 px-3 hover:bg-surface-50 rounded-sm">
-                                <div class="flex h-10 w-10 flex-none items-center justify-center rounded-sm text-sm font-minoan bg-accent-50">
+                                class="relative flex gap-x-6 rounded-sm px-3 py-6 hover:bg-surface-50">
+                                <div class="h-10 w-10 flex flex-none items-center justify-center rounded-sm bg-accent-50 text-sm font-minoan">
                                     {{ link.symbols }}
                                 </div>
                                 <div class="flex-auto">
@@ -69,9 +68,9 @@ const links = [
                                             <path
                                                 stroke="currentColor"
                                                 stroke-width="1.5"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="m9 6 6 6-6 6"></path>
+                                                stroke-linecap="square"
+                                                stroke-linejoin="square"
+                                                d="m9 6 6 6-6 6" />
                                         </svg>
                                     </span>
                                 </div>
@@ -80,7 +79,7 @@ const links = [
                         <div class="text-center">
                             <NuxtLink to="/">
                                 <button
-                                    class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6 bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 focus:outline-none">
+                                    class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900">
                                     Go back home
                                     <span
                                         class="ml-1"
@@ -94,9 +93,9 @@ const links = [
                                             <path
                                                 stroke="currentColor"
                                                 stroke-width="1.5"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M6 19 19 6m0 0v12.48M19 6H6.52"></path>
+                                                stroke-linecap="square"
+                                                stroke-linejoin="square"
+                                                d="M6 19 19 6m0 0v12.48M19 6H6.52" />
                                         </svg>
                                     </span>
                                 </button>

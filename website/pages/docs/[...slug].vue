@@ -10,21 +10,23 @@ const splitPath = (path?: string) => path?.split('/').filter(item => item !== ''
 </script>
 
 <template>
-    <div class="px-4 sm:px-6 md:px-8">
-        <div class="max-w-3xl mx-auto">
-            <article class="text-base prose relative pt-10">
+    <div class="px-4 md:px-8 sm:px-6">
+        <div class="mx-auto max-w-3xl">
+            <article class="relative pt-10 text-base prose">
                 <ContentDoc
-                    :path="$route.path.slice(6)"
-                    v-slot="{ doc }">
+                    v-slot="{ doc }"
+                    :path="$route.path.slice(6)">
                     <article>
-                        <div class="pb-8">
-                            <span v-for="(it, i) in splitPath(`${doc._path}`)">
+                        <!-- <div class="pb-8">
+                            <span
+                                v-for="(it, i) in splitPath(`${doc._path}`)"
+                                :key="i">
                                 <span class="hover:text-accent-600">
                                     {{ it }}
                                 </span>
                                 {{ i != splitPath(`${doc._path}`).length - 1 ? '— ' : '' }}
                             </span>
-                        </div>
+                        </div> -->
                         <ContentRenderer :value="doc" />
                     </article>
                 </ContentDoc>

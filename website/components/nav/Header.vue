@@ -9,14 +9,16 @@ const navigation = [
 ]
 
 onMounted(() => {
-    // window.addEventListener('scroll', () => (isScrolled.value = window?.scrollY > 1))
+    if (process.client) {
+        window.addEventListener('scroll', () => (isScrolled.value = window.scrollY > 1))
+    }
 })
 </script>
 
 <template>
     <header
         :class="isScrolled && 'bg-surface-10/75'"
-        class="fixed z-10 w-full transition-colors backdrop-blur-xl">
+        class="fixed z-10 w-full transition-colors backdrop-blur-md">
         <nav
             class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8"
             aria-label="Global">
@@ -25,7 +27,7 @@ onMounted(() => {
                     to="/"
                     class="-m-1.5 p-1.5 inline-flex items-center">
                     <span class="sr-only">Whirlombre</span>
-                    <Logo class="text-accent-700" />
+                    <NavLogo class="text-accent-700" />
                     <h1 class="text-surface-950 text-xl ml-1.5 font-headline">Whirlombre</h1>
                 </NuxtLink>
             </div>
@@ -35,21 +37,7 @@ onMounted(() => {
                     class="-m-2.5 inline-flex items-center justify-center rounded-sm p-2 text-surface-950 hover:bg-surface-950/12"
                     @click="open = true">
                     <span class="sr-only">Open main menu</span>
-                    <span aria-hidden="true">
-                        <svg
-                            width="24px"
-                            height="24px"
-                            fill="none"
-                            stroke-width="1.5"
-                            viewBox="0 0 24 24">
-                            <path
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 5h18M3 12h18M3 19h18"></path>
-                        </svg>
-                    </span>
+                    <BaseIcon icon="menu" :size="24" />
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-4">
@@ -57,36 +45,20 @@ onMounted(() => {
                     v-for="item in navigation"
                     :key="item.name"
                     :to="item.href"
-                    class="text-sm leading-6 text-surface-900 hover:bg-surface-900/12 px-3 py-2 rounded-sm">
+                    :class="item.href == $route.path ? 'bg-surface-900/12 text-surface-950' : 'text-surface-700 hover:bg-surface-900/12'"
+                    class="text-sm leading-6 px-3 py-2 rounded-sm">
                     {{ item.name }}
                 </NuxtLink>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-3 items-center">
-                <ClientOnly>
-                    <ThemeToggle />
-                </ClientOnly>
-                <a
+                <NuxtLink
                     href="https://github.com/jeffreyturns/whirlombre"
-                    class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6 bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 focus:outline-none">
+                    target="_blank"
+                    rel="noopener"
+                    class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6 transition-colors bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 focus:outline-none">
                     Github
-                    <span
-                        class="ml-1"
-                        aria-hidden="true">
-                        <svg
-                            width="18px"
-                            height="18px"
-                            fill="none"
-                            stroke-width="1.5"
-                            viewBox="0 0 24 24">
-                            <path
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M6 19 19 6m0 0v12.48M19 6H6.52"></path>
-                        </svg>
-                    </span>
-                </a>
+                    <BaseIcon class="ml-1" icon="arrowTr" :size="18" />
+                </NuxtLink>
             </div>
         </nav>
         <ClientOnly>
@@ -102,28 +74,14 @@ onMounted(() => {
                             to="/"
                             class="-m-1.5 p-1.5">
                             <span class="sr-only">Whirlombre</span>
-                            <Logo class="text-accent-700" />
+                            <NavLogo class="text-accent-700" />
                         </NuxtLink>
                         <button
                             type="button"
                             class="-m-2.5 inline-flex items-center justify-center rounded-sm p-2 text-surface-950 hover:bg-surface-950/12"
                             @click="open = false">
                             <span class="sr-only">Close menu</span>
-                            <span aria-hidden="true">
-                                <svg
-                                    width="24px"
-                                    height="24px"
-                                    fill="none"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        stroke="currentColor"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M6.758 17.243 12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"></path>
-                                </svg>
-                            </span>
+                            <BaseIcon icon="cancel" :size="24" />
                         </button>
                     </div>
                     <div class="mt-6 flow-root">
@@ -137,11 +95,7 @@ onMounted(() => {
                                     {{ item.name }}
                                 </NuxtLink>
                             </div>
-                            <div class="py-6">
-                                <ClientOnly>
-                                    <ThemeToggle />
-                                </ClientOnly>
-                            </div>
+                            <!-- <div class="py-6" /> -->
                         </div>
                     </div>
                 </HeadlessDialogPanel>

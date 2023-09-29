@@ -1,64 +1,3 @@
-<template>
-    <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-36">
-        <div class="mx-auto max-w-4xl">
-            <h2 class="text-3xl text-center font-headline leading-10 tracking-tight text-surface-900 mt-6 mb-12">Frequently asked questions</h2>
-            <dl class="mt-10 space-y-1">
-                <HeadlessDisclosure
-                    as="div"
-                    v-for="faq in faqs"
-                    :key="faq.question"
-                    class="py-5 px-3 bg-surface-50 hover:bg-surface-100 rounded-sm"
-                    v-slot="{ open }">
-                    <dt>
-                        <HeadlessDisclosureButton class="flex w-full items-start justify-between text-left text-surface-900">
-                            <span class="text-base font-semibold leading-7">{{ faq.question }}</span>
-                            <span class="ml-6 flex h-7 items-center">
-                                <span
-                                    class="shrink-0"
-                                    aria-hidden="true">
-                                    <svg
-                                        v-if="open"
-                                        width="18px"
-                                        height="18px"
-                                        fill="none"
-                                        stroke-width="1.5"
-                                        viewBox="0 0 24 24">
-                                        <path
-                                            stroke="currentColor"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="m17 4-5 5-5-5M17 20l-5-5-5 5"></path>
-                                    </svg>
-                                    <svg
-                                        v-else
-                                        width="18px"
-                                        height="18px"
-                                        fill="none"
-                                        stroke-width="1.5"
-                                        viewBox="0 0 24 24">
-                                        <path
-                                            stroke="currentColor"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="m17 8-5-5-5 5M17 16l-5 5-5-5"></path>
-                                    </svg>
-                                </span>
-                            </span>
-                        </HeadlessDisclosureButton>
-                    </dt>
-                    <HeadlessDisclosurePanel
-                        as="dd"
-                        class="mt-2 pr-12">
-                        <p class="text-base leading-7 text-surface-600">{{ faq.answer }}</p>
-                    </HeadlessDisclosurePanel>
-                </HeadlessDisclosure>
-            </dl>
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 const faqs = [
     {
@@ -87,3 +26,42 @@ const faqs = [
     }
 ]
 </script>
+
+<template>
+    <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-36">
+        <div class="mx-auto max-w-4xl">
+            <AnimFadeIn>
+                <h2 class="text-3xl text-center font-headline leading-10 tracking-tight text-surface-900 mt-6 mb-12">Frequently asked questions</h2>
+            </AnimFadeIn>
+
+            <dl class="mt-10 space-y-1">
+                <AnimFadeIn
+                    v-for="it in faqs"
+                    :key="it.question">
+                    <!-- <HeadlessDisclosure
+                        as="div"
+                        class="bg-surface-50 hover:bg-surface-100 rounded-sm"
+                        v-slot="{ open }">
+                        <dt>
+                            <HeadlessDisclosureButton class="flex py-5 px-3 w-full items-start justify-between text-left text-surface-900">
+                                <span class="text-base font-semibold leading-7">{{ it.question }}</span>
+                                <span class="ml-6 flex h-7 items-center">
+                                    <BaseIcon
+                                        class="shrink-0"
+                                        :icon="open ? 'navArrowUp' : 'navArrowDown'"
+                                        :size="24" />
+                                </span>
+                            </HeadlessDisclosureButton>
+                        </dt>
+                        <HeadlessDisclosurePanel
+                            as="dd"
+                            class="pr-12 px-3 pb-3">
+                            <p class="text-base leading-7 text-surface-600">{{ it.answer }}</p>
+                        </HeadlessDisclosurePanel>
+                    </HeadlessDisclosure> -->
+                    <BaseAccordion :question="it.question" :answer="it.answer" />
+                </AnimFadeIn>
+            </dl>
+        </div>
+    </div>
+</template>
