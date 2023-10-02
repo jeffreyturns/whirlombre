@@ -10,6 +10,7 @@ type IconProps = {
 const props = defineProps<IconProps>()
 
 const ICONS_PATHS: Record<string, string> = {
+    copy: '<path stroke="currentColor" d="M19.4 20H9.6a.6.6 0 0 1-.6-.6V9.6a.6.6 0 0 1 .6-.6h9.8a.6.6 0 0 1 .6.6v9.8a.6.6 0 0 1-.6.6Z"></path><path stroke="currentColor" d="M15 9V4.6a.6.6 0 0 0-.6-.6H4.6a.6.6 0 0 0-.6.6v9.8a.6.6 0 0 0 .6.6H9" />',
     export: '<path stroke="currentColor" d="M6 20h12M12 4v12m0 0 3.5-3.5M12 16l-3.5-3.5" />',
     plus: '<path stroke="currentColor" d="M8 12h4m4 0h-4m0 0V8m0 4v4M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z" />',
     edit: '<path stroke="currentColor" d="m14.363 5.652 1.48-1.48a2 2 0 0 1 2.829 0l1.414 1.414a2 2 0 0 1 0 2.828l-1.48 1.48m-4.243-4.242-9.616 9.615a2 2 0 0 0-.578 1.238l-.242 2.74a1 1 0 0 0 1.084 1.085l2.74-.242a2 2 0 0 0 1.24-.578l9.615-9.616m-4.243-4.242 4.243 4.242" />',

@@ -16,9 +16,7 @@ const openItemEdit = (itemId: string) => {
 }
 
 const removeItem = (targetId: string) => {
-    console.log('Trying to remove item with id:', targetId)
     palette.value = palette.value.filter(item => item.id !== targetId)
-    console.log('Updated palette:', palette.value)
 }
 
 const updateItem = (updatedItem: ShadeItem) => {
@@ -101,11 +99,18 @@ const updateItem = (updatedItem: ShadeItem) => {
                                 <div
                                     class="h-10 w-10 rounded-sm sm:h-25 sm:w-full"
                                     :style="{ backgroundColor: it }" />
-                                <div class="px-1 md:py-2">
-                                    <div class="w-6 text-xl font-medium text-surface-900 2xl:w-full">{{ key }}</div>
-                                    <div class="text-base font-mono text-surface-500">
-                                        {{ it }}
+                                <div class="mt-4 flex justify-between px-1 md:py-2">
+                                    <div>
+                                        <h3 class="w-6 text-xl font-medium text-surface-900 2xl:w-full">
+                                            {{ it }}
+                                        </h3>
+                                        <p class="text-base font-mono text-surface-500">{{ key }}</p>
                                     </div>
+                                    <p class="text-sm font-medium text-surface-500">
+                                       <p class="hover:bg-surface-950/12 hover:text-surface-950 p-2 rounded-sm">
+                                        <BaseIcon icon="copy" :size="18" />
+                                       </p>
+                                    </p>
                                 </div>
                             </div>
                         </div>

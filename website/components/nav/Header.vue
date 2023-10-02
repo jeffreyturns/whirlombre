@@ -17,8 +17,8 @@ onMounted(() => {
 
 <template>
     <header
-        :class="isScrolled && 'bg-surface-10/75'"
-        class="fixed z-10 w-full transition-colors backdrop-blur-md">
+        :class="isScrolled && 'bg-surface-50'"
+        class="fixed z-10 w-full transition-colors">
         <nav
             class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8"
             aria-label="Global">
