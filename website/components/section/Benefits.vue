@@ -40,11 +40,10 @@ const benefits = [
 </script>
 
 <template>
-    <AnimFadeIn>
-        <h2 class="text-3xl text-center font-headline leading-10 tracking-tight text-surface-900 mt-8 mb-16">Benefits</h2>
-    </AnimFadeIn>
-
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 sm:px-8 py-4 space-y-4">
+    <BaseContainer>
+        <AnimFadeIn>
+            <h2 class="text-3xl text-center font-headline leading-10 tracking-tight text-surface-900 mb-16">Benefits</h2>
+        </AnimFadeIn>
         <div class="divide-y divide-surface-200 overflow-hidden rounded-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
             <AnimFadeIn
                 v-for="(it, i) in benefits"
@@ -73,12 +72,13 @@ const benefits = [
                             {{ it.description }}
                         </p>
                     </div>
-                    <span
-                        class="pointer-events-none absolute right-6 top-6 text-surface-300 group-hover:text-surface-400">
-                        <BaseIcon icon="arrowTr" :size="24" />
+                    <span class="pointer-events-none absolute right-6 top-6 text-surface-300 group-hover:text-surface-400">
+                        <BaseIcon
+                            icon="arrowTr"
+                            :size="24" />
                     </span>
                 </div>
             </AnimFadeIn>
         </div>
-    </div>
+    </BaseContainer>
 </template>

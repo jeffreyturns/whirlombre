@@ -95,7 +95,6 @@ onMounted(() => {
                                     {{ item.name }}
                                 </NuxtLink>
                             </div>
-                            <!-- <div class="py-6" /> -->
                         </div>
                     </div>
                 </HeadlessDialogPanel>

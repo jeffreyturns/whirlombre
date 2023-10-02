@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { generateTheme } from '~/config/theme.config'
 
-import { generateCssVariables } from '~/utils/generate-css'
-
 const theme = useTheme()
 const colorMode = useColorMode()
 
