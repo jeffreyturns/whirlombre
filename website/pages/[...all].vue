@@ -42,7 +42,7 @@ const links = [
                             <li
                                 v-for="(link, linkIdx) in links"
                                 :key="linkIdx"
-                                class="relative flex gap-x-6 rounded-sm px-3 py-6 hover:bg-surface-50">
+                                class="relative flex gap-x-6 rounded-sm px-3 py-6 transition-colors hover:bg-surface-50">
                                 <div class="h-10 w-10 flex flex-none items-center justify-center rounded-sm bg-accent-50 text-sm font-minoan">
                                     {{ link.symbols }}
                                 </div>
@@ -77,28 +77,14 @@ const links = [
                             </li>
                         </ul>
                         <div class="text-center">
-                            <NuxtLink to="/">
-                                <button
-                                    class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900">
-                                    Go back home
-                                    <span
-                                        class="ml-1"
-                                        aria-hidden="true">
-                                        <svg
-                                            width="18px"
-                                            height="18px"
-                                            fill="none"
-                                            stroke-width="1.5"
-                                            viewBox="0 0 24 24">
-                                            <path
-                                                stroke="currentColor"
-                                                stroke-width="1.5"
-                                                stroke-linecap="square"
-                                                stroke-linejoin="square"
-                                                d="M6 19 19 6m0 0v12.48M19 6H6.52" />
-                                        </svg>
-                                    </span>
-                                </button>
+                            <NuxtLink
+                                to="/"
+                                class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900">
+                                Go back home
+                                <BaseIcon
+                                    class="ml-1"
+                                    icon="arrowTr"
+                                    :size="18" />
                             </NuxtLink>
                         </div>
                     </div>

@@ -49,8 +49,7 @@ onMounted(() => {
         </dt>
         <dd
             :style="contentStyles"
-            ref="contentRef"
-            class="">
+            ref="contentRef">
             <p class="text-base leading-7 text-surface-600 mb-3 mx-3">{{ props.answer }}</p>
         </dd>
     </div>

@@ -68,9 +68,7 @@
                             <NavLogo class="text-accent-600" />
                         </NuxtLink>
                         <p class="text-sm leading-6 text-surface-600">Minimal library to generate smooth shades.</p>
-                        <ClientOnly>
-                            <ThemeDropdown />
-                        </ClientOnly>
+                        <ThemeDropdown />
                         <div class="flex space-x-6">
                             <a
                                 v-for="item in navigation.social"

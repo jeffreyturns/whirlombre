@@ -107,7 +107,7 @@ const themeHuesArray = [
                             v-model="hue"
                             :max="360"
                             :min="0"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
            </div>
         </div>
         <h3 class="text-2xl pt-6">Light Theme</h3>
@@ -130,7 +130,7 @@ const themeHuesArray = [
                             v-model="theme.light.accent.hue"
                             :max="360"
                             :min="0"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
                         </div>
                         <label
                             for="default-range"
@@ -144,7 +144,7 @@ const themeHuesArray = [
                             :max="0.5"
                             :min="0"
                             :step="0.001"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
                     </p>
                 </div>
             </div>
@@ -170,7 +170,7 @@ const themeHuesArray = [
                             v-model="theme.light.surface.hue"
                             :max="360"
                             :min="0"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
                         </div>
                         <label
                             for="default-range"
@@ -184,7 +184,7 @@ const themeHuesArray = [
                             :max="0.5"
                             :min="0"
                             :step="0.001"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
                     </p>
                 </div>
             </div>
@@ -209,7 +209,7 @@ const themeHuesArray = [
                             v-model="theme.dark.accent.hue"
                             :max="360"
                             :min="0"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
                         </div>
                         <label
                             for="default-range"
@@ -223,7 +223,7 @@ const themeHuesArray = [
                             :max="0.5"
                             :min="0"
                             :step="0.001"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
                     </p>
                 </div>
             </div>
@@ -249,7 +249,7 @@ const themeHuesArray = [
                             v-model="theme.dark.surface.hue"
                             :max="360"
                             :min="0"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
                         </div>
                         <label
                             for="default-range"
@@ -263,7 +263,7 @@ const themeHuesArray = [
                             :max="0.5"
                             :min="0"
                             :step="0.001"
-                            class="w-full h-2 bg-surface-200 rounded-lg accent-accent-500 appearance-none cursor-pointer" />
+                            class="w-full base-slider" />
                     </p>
                 </div>
             </div>

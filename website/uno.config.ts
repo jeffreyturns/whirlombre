@@ -218,6 +218,6 @@ export default defineConfig({
     transformers: [transformerDirectives()],
     theme: light,
     shortcuts: {
-        '': ''
+        'base-slider': 'appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-sm [&::-webkit-slider-runnabe-track]:h-auto [&::-webkit-slider-runnable-track]:p-1 [&::-webkit-slider-runnable-track]:bg-accent-500/25 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-sm [&::-webkit-slider-thumb]:bg-accent-500 [&::-webkit-slider-thumb]:hover:bg-accent-600 cursor-pointer focus:outline-none [&::-webkit-slider-thumb]:focus:bg-accent-600'
     }
 })

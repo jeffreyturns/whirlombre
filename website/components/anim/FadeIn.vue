@@ -1,12 +1,3 @@
-<template>
-    <div
-        ref="fadeInRef"
-        :class="{ 'fade-in-hidden': !isVisible, 'fade-in-visible': isVisible }"
-        :style="computedStyle">
-        <slot />
-    </div>
-</template>
-
 <script setup lang="ts">
 type FadeInProps = {
     delay?: number
@@ -27,7 +18,6 @@ let observer: IntersectionObserver | null = null
 
 onMounted(() => {
     observer = new IntersectionObserver(entries => {
-        // Якщо елемент видимий
         if (entries[0].isIntersecting) {
             isVisible.value = true
             if (observer && fadeInRef.value) {
@@ -47,6 +37,15 @@ onBeforeUnmount(() => {
     }
 })
 </script>
+
+<template>
+    <div
+        ref="fadeInRef"
+        :class="{ 'fade-in-hidden': !isVisible, 'fade-in-visible': isVisible }"
+        :style="computedStyle">
+        <slot />
+    </div>
+</template>
 
 <style scoped>
 .fade-in-hidden {
