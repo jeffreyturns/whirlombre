@@ -79,7 +79,7 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                         <HeadlessDialogPanel
                             class="relative transform overflow-hidden rounded-sm bg-surface-50 px-4 pb-4 pt-5 text-left transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                             <div>
-                                <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent-100 text-accent-950">
+                                <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-sm bg-accent-100 text-accent-950">
                                     <BaseIcon
                                         icon="plus"
                                         :size="24" />
@@ -109,19 +109,19 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                                             Hue: {{ data.hue }}
                                         </label>
                                         <input
-                                            id="chroma-range"
+                                            id="hue-range"
                                             v-model="data.hue"
                                             type="range"
                                             :max="360"
                                             :min="0"
                                             class="w-full base-slider" />
                                         <label
-                                            for="hue-range"
+                                            for="chroma-range"
                                             class="block mb-2 text-sm text-left font-medium">
                                             Chroma: {{ data.chroma }}
                                         </label>
                                         <input
-                                            id="hue-range"
+                                            id="chroma-range"
                                             v-model="data.chroma"
                                             type="range"
                                             :max="0.5"

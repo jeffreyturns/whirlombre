@@ -42,10 +42,9 @@ const updateItem = (updatedItem: ShadeItem) => {
 
         <BaseContainer>
             <div class="flex gap-x-3">
-                {{ palette }}
                 <a
-                    @click="showCreateShade = true"
-                    class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900">
+                    class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
+                    @click="showCreateShade = true">
                     <BaseIcon
                         class="mr-1"
                         icon="plus"
@@ -53,7 +52,7 @@ const updateItem = (updatedItem: ShadeItem) => {
                     Add Shade
                 </a>
                 <a
-                    class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm ring-1 transition-colors ring-surface-950/12 leading-6 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12">
+                    class="h-10 inline-flex items-center rounded-sm bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12">
                     <BaseIcon
                         class="mr-1"
                         icon="export"
@@ -66,18 +65,18 @@ const updateItem = (updatedItem: ShadeItem) => {
             </div>
             <div class="grid grid-cols-1 gap-x-2 gap-y-8">
                 <div
-                    class="text-center py-64"
-                    v-if="palette.length <= 0">
+                    v-if="palette.length <= 0"
+                    class="py-64 text-center">
                     No Shades!
                 </div>
                 <div
                     v-for="(item, i) in palette"
                     class="2xl:contents">
                     <div class="flex items-center gap-x-3">
-                        <div class="w-full">{{ item.name }} : {{ item }} {{ i }}</div>
+                        <div class="w-full">{{ item.name }}</div>
                         <a
-                            @click="openItemEdit(item.id)"
-                            class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900">
+                            class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
+                            @click="openItemEdit(item.id)">
                             <BaseIcon
                                 class="mr-1"
                                 icon="edit"

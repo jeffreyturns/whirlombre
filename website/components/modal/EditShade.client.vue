@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ShadeItem } from '~/types/shade'
-import { reactive, watch, computed } from 'vue';
+import { reactive, watch, computed } from 'vue'
 
 type EditShadeProps = {
     modelValue?: boolean
@@ -23,9 +23,12 @@ const value = computed({
 
 const localData = reactive<ShadeItem>({ ...props.item })
 
-watch(() => props.item, (newItem) => {
-    Object.assign(localData, newItem);
-});
+watch(
+    () => props.item,
+    newItem => {
+        Object.assign(localData, newItem)
+    }
+)
 
 const save = () => {
     emit('save-changes', { ...localData })
@@ -65,16 +68,16 @@ const save = () => {
                         <HeadlessDialogPanel
                             class="relative transform overflow-hidden rounded-sm bg-surface-50 px-4 pb-4 pt-5 text-left transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                             <div>
-                                <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent-100 text-accent-950">
+                                <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-sm bg-accent-100 text-accent-950">
                                     <BaseIcon
-                                        icon="plus"
+                                        icon="edit"
                                         :size="24" />
                                 </div>
                                 <div class="mt-3 text-center sm:mt-5">
                                     <HeadlessDialogTitle
                                         as="h3"
                                         class="text-base font-semibold leading-6 text-surface-900">
-                                        Edit Shade {{ props.item }}
+                                        Edit Shade
                                     </HeadlessDialogTitle>
                                     <div class="mt-2">
                                         <div class="mb-2">
@@ -95,19 +98,19 @@ const save = () => {
                                             Hue: {{ localData.hue }}
                                         </label>
                                         <input
-                                            id="chroma-range"
+                                            id="hue-range"
                                             v-model="localData.hue"
                                             type="range"
                                             :max="360"
                                             :min="0"
                                             class="w-full base-slider" />
                                         <label
-                                            for="hue-range"
+                                            for="chroma-range"
                                             class="block mb-2 text-sm text-left font-medium">
                                             Chroma: {{ localData.chroma }}
                                         </label>
                                         <input
-                                            id="hue-range"
+                                            id="chroma-range"
                                             v-model="localData.chroma"
                                             type="range"
                                             :max="0.5"
