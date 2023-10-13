@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ShadeItem } from '~/types/shade'
 import { reactive, watch, computed } from 'vue'
+import { ShadeItem } from '~/types/shade'
 
 type EditShadeProps = {
     modelValue?: boolean
@@ -66,7 +66,7 @@ const save = () => {
                         leave-from="opacity-100 translate-y-0 sm:scale-100"
                         leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
                         <HeadlessDialogPanel
-                            class="relative transform overflow-hidden rounded-sm bg-surface-50 px-4 pb-4 pt-5 text-left transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                            class="relative transform overflow-hidden rounded-sm bg-surface-50 px-4 pb-4 pt-5 text-left transition-all sm:my-8 w-full sm:max-w-lg sm:p-6">
                             <div>
                                 <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-sm bg-accent-100 text-accent-950">
                                     <BaseIcon

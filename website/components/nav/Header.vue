@@ -5,7 +5,8 @@ const isScrolled = ref(false)
 const navigation = [
     { name: 'Docs', href: '/docs/get-started/introduction' },
     { name: 'Pallete Generator', href: '/generator' },
-    { name: 'Site Color', href: '/theme' }
+    { name: 'Site Color', href: '/theme' },
+    { name: 'Blog', href: '/blog' }
 ]
 
 onMounted(() => {
@@ -20,7 +21,7 @@ onMounted(() => {
         :class="isScrolled && 'bg-surface-50'"
         class="fixed z-10 w-full transition-colors">
         <nav
-            class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8"
+            class="mx-auto flex max-w-7xl items-center justify-between px-3 py-3 lg:px-8"
             aria-label="Global">
             <div class="flex mr-12">
                 <NuxtLink
@@ -34,10 +35,11 @@ onMounted(() => {
             <div class="flex lg:hidden">
                 <button
                     type="button"
-                    class="-m-2.5 inline-flex items-center justify-center rounded-sm p-2 text-surface-950 hover:bg-surface-950/12"
+                    class="icon-btn-text"
                     @click="open = true">
-                    <span class="sr-only">Open main menu</span>
-                    <BaseIcon icon="menu" :size="24" />
+                    <BaseIcon
+                        icon="menu"
+                        :size="24" />
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-4">
@@ -55,50 +57,79 @@ onMounted(() => {
                     href="https://github.com/jeffreyturns/whirlombre"
                     target="_blank"
                     rel="noopener"
-                    class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6 transition-colors bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 focus:outline-none">
+                    class="btn-base btn-filled">
                     Github
-                    <BaseIcon class="ml-1" icon="arrowTr" :size="18" />
+                    <BaseIcon
+                        class="ml-1"
+                        icon="arrowTr"
+                        :size="18" />
                 </NuxtLink>
             </div>
         </nav>
         <ClientOnly>
-            <HeadlessDialog
-                as="div"
-                class="lg:hidden"
-                @close="open = false"
-                :open="open">
-                <div class="fixed inset-0 z-10" />
-                <HeadlessDialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-surface-100 px-6 py-3 sm:max-w-sm sm:rounded-l-sm">
-                    <div class="flex items-center justify-between">
-                        <NuxtLink
-                            to="/"
-                            class="-m-1.5 p-1.5">
-                            <span class="sr-only">Whirlombre</span>
-                            <NavLogo class="text-accent-700" />
-                        </NuxtLink>
-                        <button
-                            type="button"
-                            class="-m-2.5 inline-flex items-center justify-center rounded-sm p-2 text-surface-950 hover:bg-surface-950/12"
-                            @click="open = false">
-                            <span class="sr-only">Close menu</span>
-                            <BaseIcon icon="cancel" :size="24" />
-                        </button>
-                    </div>
-                    <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-surface-950/12">
-                            <div class="space-y-2 py-6">
+            <HeadlessTransitionRoot
+                :show="open"
+                appear
+                as="template">
+                <HeadlessDialog
+                    as="div"
+                    class="lg:hidden"
+                    @close="open = false"
+                    :open="open">
+                    <HeadlessTransitionChild
+                        as="template"
+                        enter="duration-300 ease-[cubic-bezier(.87,0,.13,1)]"
+                        enter-from="opacity-0"
+                        enter-to="opacity-100"
+                        leave="duration-200 ease-in"
+                        leave-from="opacity-100"
+                        leave-to="opacity-0">
+                        <div class="fixed inset-0 bg-surface-500 bg-opacity-75 transition-opacity z-10" />
+                    </HeadlessTransitionChild>
+
+                    <HeadlessTransitionChild
+                        as="template"
+                        enter="duration-300 ease-[cubic-bezier(.87,0,.13,1)]"
+                        enter-from="opacity-0 translate-x-12"
+                        enter-to="opacity-100"
+                        leave="duration-200 ease-in"
+                        leave-from="opacity-100"
+                        leave-to="opacity-0 -translate-x-12">
+                        <HeadlessDialogPanel
+                            class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-surface-100 px-6 py-3 sm:max-w-sm sm:rounded-l-sm">
+                            <div class="flex items-center justify-between">
                                 <NuxtLink
-                                    v-for="item in navigation"
-                                    :key="item.name"
-                                    :to="item.href"
-                                    class="-mx-3 block rounded-sm px-3 py-2 text-base leading-7 text-surface-950 hover:bg-surface-950/12">
-                                    {{ item.name }}
+                                    to="/"
+                                    class="-m-1.5 p-1.5">
+                                    <span class="sr-only">Whirlombre</span>
+                                    <NavLogo class="text-accent-700" />
                                 </NuxtLink>
+                                <button
+                                    type="button"
+                                    class="icon-btn-text"
+                                    @click="open = false">
+                                    <BaseIcon
+                                        icon="cancel"
+                                        :size="24" />
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                </HeadlessDialogPanel>
-            </HeadlessDialog>
+                            <div class="mt-6 flow-root">
+                                <div class="-my-6 divide-y divide-surface-950/12">
+                                    <div class="space-y-2 py-6">
+                                        <NuxtLink
+                                            v-for="item in navigation"
+                                            :key="item.name"
+                                            :to="item.href"
+                                            class="-mx-3 block rounded-sm px-3 py-2 text-base leading-7 text-surface-950 hover:bg-surface-950/12">
+                                            {{ item.name }}
+                                        </NuxtLink>
+                                    </div>
+                                </div>
+                            </div>
+                        </HeadlessDialogPanel>
+                    </HeadlessTransitionChild>
+                </HeadlessDialog>
+            </HeadlessTransitionRoot>
         </ClientOnly>
     </header>
 </template>

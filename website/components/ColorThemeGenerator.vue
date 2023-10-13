@@ -7,10 +7,12 @@ const theme = useTheme()
 watch(
     () => hue.value,
     () => {
-        theme.value.light.accent.hue = hue.value
-        theme.value.light.surface.hue = hue.value
-        theme.value.dark.accent.hue = hue.value
-        theme.value.dark.surface.hue = hue.value
+        if (!lockHue) {
+            theme.value.light.accent.hue = hue.value
+            theme.value.light.surface.hue = hue.value
+            theme.value.dark.accent.hue = hue.value
+            theme.value.dark.surface.hue = hue.value
+        }
     },
     { deep: true, immediate: true }
 )

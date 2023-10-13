@@ -1,5 +1,8 @@
 <template>
     <ProviderDynamicTheme>
+        <ClientOnly>
+            <NotificationGroup />
+        </ClientOnly>
         <NavHeader />
         <slot />
         <NavFooter />

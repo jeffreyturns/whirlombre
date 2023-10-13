@@ -55,6 +55,6 @@ onBeforeUnmount(() => {
 .fade-in-visible {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s cubic-bezier(.4,0,.2,1);
 }
 </style>

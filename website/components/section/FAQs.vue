@@ -34,13 +34,24 @@ const faqs = [
                 <h2 class="text-3xl text-center font-headline leading-10 tracking-tight text-surface-900 mb-16">Frequently asked questions</h2>
             </AnimFadeIn>
 
-            <dl class="mt-10 space-y-1">
+            <dl class="mt-10 lg:space-y-px divide-y divide-surface-200 lg:divide-none">
                 <AnimFadeIn
-                    v-for="it in faqs"
-                    :key="it.question">
-                    <BaseAccordion
-                        :question="it.question"
-                        :answer="it.answer" />
+                    v-for="{ answer, question } in faqs"
+                    :key="question">
+                    <BaseAccordion class="bg-surface-50 hover:bg-surface-100 transition-colors rounded-sm">
+                        <template #header="{ isExpanded }">
+                            <span class="text-base font-semibold leading-7">{{ question }}</span>
+                            <span class="ml-6 flex h-7 items-center">
+                                <BaseIcon
+                                    class="shrink-0"
+                                    :icon="isExpanded ? 'navArrowUp' : 'navArrowDown'"
+                                    :size="24" />
+                            </span>
+                        </template>
+                        <template #content>
+                            <p class="text-base leading-7 text-surface-600 mb-3 mx-3">{{ answer }}</p>
+                        </template>
+                    </BaseAccordion>
                 </AnimFadeIn>
             </dl>
         </div>

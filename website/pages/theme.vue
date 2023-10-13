@@ -2,6 +2,44 @@
 useHead({
     title: 'Theme'
 })
+
+type RGB = [number, number, number]
+
+function combineColorsWithAlpha(topHex: string, alpha: number, backHex: string): string {
+    if (alpha < 0 || alpha > 1) {
+        throw new Error('Alpha must be between 0 and 1')
+    }
+
+    // Convert a hex to RGB
+    const hexToRgb = (hex: string): RGB => {
+        const bigint = parseInt(hex.substring(1), 16)
+        const r = (bigint >> 16) & 255
+        const g = (bigint >> 8) & 255
+        const b = bigint & 255
+        return [r, g, b]
+    }
+
+    // Convert RGB to hex
+    const rgbToHex = (r: number, g: number, b: number): string => {
+        return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+    }
+
+    // Extract RGB values from hex colors
+    const [r1, g1, b1] = hexToRgb(topHex)
+    const [r2, g2, b2] = hexToRgb(backHex)
+
+    // Blend using the alpha blending formula
+    const r = Math.round(r1 * alpha + r2 * (1 - alpha))
+    const g = Math.round(g1 * alpha + g2 * (1 - alpha))
+    const b = Math.round(b1 * alpha + b2 * (1 - alpha))
+
+    // Convert blended RGB back to hex
+    return rgbToHex(r, g, b)
+}
+
+const blendedColor = combineColorsWithAlpha('#e09a8d', 0.3, '#201a19')
+
+const isOpenModal = ref(false)
 </script>
 
 <template>

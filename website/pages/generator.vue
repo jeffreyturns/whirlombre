@@ -7,6 +7,7 @@ const palette = usePalette()
 
 const showCreateShade = ref(false)
 const showEditShade = ref(false)
+const showExportTheme = ref(false)
 
 const editItemId = ref<string>('')
 
@@ -28,6 +29,24 @@ const updateItem = (updatedItem: ShadeItem) => {
         palette.value = updatedPalette
     }
 }
+
+const copyHEX = (hex: string) => {
+    copyToClipboard(hex).then(success => {
+        if (success) {
+            createNotification({
+                title: 'Copied Successfully',
+                message: 'The text has been copied to your clipboard.',
+                duration: 1500
+            })
+        } else {
+            createNotification({
+                title: 'Copy Failed!',
+                message: 'There was an error copying the text. Please try again.',
+                duration: 4500
+            })
+        }
+    })
+}
 </script>
 
 <template>
@@ -37,6 +56,7 @@ const updateItem = (updatedItem: ShadeItem) => {
             v-model="showEditShade"
             :item="palette.find(item => item.id === editItemId) || { id: '', name: '', hue: 0, chroma: 0, isDark: false }"
             @save-changes="updateItem" />
+        <ModalExportTheme v-model="showExportTheme" />
 
         <BaseContainer>
             <div class="flex gap-x-3">
@@ -50,7 +70,8 @@ const updateItem = (updatedItem: ShadeItem) => {
                     Add Shade
                 </a>
                 <a
-                    class="h-10 inline-flex items-center rounded-sm bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12">
+                    class="h-10 inline-flex items-center rounded-sm bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
+                    @click="showExportTheme = true">
                     <BaseIcon
                         class="mr-1"
                         icon="export"
@@ -68,7 +89,7 @@ const updateItem = (updatedItem: ShadeItem) => {
                     No Shades!
                 </div>
                 <div
-                    v-for="(item, i) in palette"
+                    v-for="item in palette"
                     class="2xl:contents">
                     <div class="flex items-center gap-x-3">
                         <div class="w-full">{{ item.name }}</div>
@@ -107,9 +128,13 @@ const updateItem = (updatedItem: ShadeItem) => {
                                         <p class="text-base font-mono text-surface-500">{{ key }}</p>
                                     </div>
                                     <p class="text-sm font-medium text-surface-500">
-                                       <p class="hover:bg-surface-950/12 hover:text-surface-950 p-2 rounded-sm">
-                                        <BaseIcon icon="copy" :size="18" />
-                                       </p>
+                                        <button
+                                            @click="copyHEX(it)"
+                                            class="rounded-sm p-2 hover:bg-surface-950/12 hover:text-surface-950">
+                                            <BaseIcon
+                                                icon="copy"
+                                                :size="18" />
+                                        </button>
                                     </p>
                                 </div>
                             </div>

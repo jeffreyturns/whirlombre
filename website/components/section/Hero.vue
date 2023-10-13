@@ -57,7 +57,8 @@
                 <div class="mt-12 sm:mt-24">
                     <AnimFadeIn>
                         <a class="inline-flex space-x-6">
-                            <span class="rounded-sm px-3 py-1 text-sm items-center flex font-semibold transition-colors leading-6 text-accent-600 hover:bg-accent-600/12">
+                            <span
+                                class="rounded-sm px-3 py-1 text-sm items-center flex font-semibold transition-colors leading-6 text-accent-600 hover:bg-accent-600/12">
                                 See what's new in v1.0.0
                                 <BaseIcon
                                     class="ml-1"
@@ -83,13 +84,15 @@
                     <div class="mt-10 flex items-center gap-x-6">
                         <NuxtLink
                             to="docs/get-started/introduction"
-                            class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6 transition-colors bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 focus:outline-none">
+                            class="btn-base btn-filled">
                             Get Started
                         </NuxtLink>
-                        <a
-                            class="text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm ring-1 transition-colors ring-surface-950/12 leading-6 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12">
+                        <a class="btn-base btn-outlined">
                             Learn more
-                            <BaseIcon class="ml-1" icon="arrowTr" :size="16" />
+                            <BaseIcon
+                                class="ml-1"
+                                icon="arrowTr"
+                                :size="16" />
                         </a>
                     </div>
                 </AnimFadeIn>

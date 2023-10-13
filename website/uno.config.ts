@@ -44,7 +44,7 @@ export default defineConfig({
                     'text-decoration': 'none'
                 },
                 a: {
-                    color: 'var(--un-prose-links)',
+                    color: 'rgba(var(--un-preset-theme-colors-accent-700), 1)',
                     'text-decoration': 'none',
                     'font-weight': '500'
                 },
@@ -52,7 +52,7 @@ export default defineConfig({
                     'text-decoration': 'underline'
                 },
                 'a code': {
-                    color: 'var(--un-prose-links)'
+                    color: 'rgba(var(--un-preset-theme-colors-accent-700), 1)'
                 },
                 'p,ul,ol,pre': {
                     margin: '1em 0',
@@ -62,7 +62,7 @@ export default defineConfig({
                     margin: '1em 0',
                     'padding-left': '1em',
                     'font-style': 'italic',
-                    'border-left': '.25em solid var(--un-prose-borders)'
+                    'border-left': '.25em solid rgba(var(--un-preset-theme-colors-surface-200), 1)'
                 },
                 // taking 16px as a base, we scale h1, h2, h3, and h4 like
                 // 16 (base) > 18 (h4) > 22 (h3) > 28 (h2) > 36 (h1)
@@ -94,7 +94,7 @@ export default defineConfig({
                     'font-size': '.875em'
                 },
                 code: {
-                    color: 'var(--un-prose-code)',
+                    color: 'rgba(var(--un-preset-theme-colors-surface-950), 1)',
                     'font-size': '.875em',
                     'font-weight': 600
                     //   'font-family': theme.fontFamily?.mono,
@@ -105,12 +105,12 @@ export default defineConfig({
                 pre: {
                     padding: '1.25rem 1.5rem',
                     'overflow-x': 'auto',
-                    'border-radius': '.125rem'
+                    'border-radius': '.125rem',
                 },
                 'pre,code': {
-                    'white-space': 'pre',
+                    'white-space': 'pre-wrap',
                     'word-spacing': 'normal',
-                    'word-break': 'normal',
+                    'word-break': 'break-word',
                     'word-wrap': 'normal',
                     '-moz-tab-size': 4,
                     '-o-tab-size': 4,
@@ -164,7 +164,7 @@ export default defineConfig({
                 },
                 hr: {
                     margin: '2em 0',
-                    border: '1px solid var(--un-prose-hr)'
+                    border: '1px solid rgba(var(--un-preset-theme-colors-surface-200), 1)'
                 },
                 table: {
                     display: 'block',
@@ -176,7 +176,7 @@ export default defineConfig({
                     background: 'var(--un-prose-bg-soft)'
                 },
                 'td,th': {
-                    border: '1px solid var(--un-prose-borders)',
+                    border: '1px solid rgba(var(--un-preset-theme-colors-surface-200), 1)',
                     padding: '.625em 1em'
                 },
                 abbr: {
@@ -218,6 +218,17 @@ export default defineConfig({
     transformers: [transformerDirectives()],
     theme: light,
     shortcuts: {
+        'btn-base': 'text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-sm leading-6 transition-colors focus:outline-none',
+        'btn-filled': 'btn-base bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900',
+        'btn-outlined': 'ring-1 ring-surface-950/12 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12',
+        //
+        'icon-btn-base': 'inline-flex items-center justify-center rounded-sm p-2',
+        'icon-btn-text': 'icon-btn-base text-surface-950 hover:bg-surface-950/12',
+        //
+        'chip-base': 'mx-0.5 mb-1 px-1.5 inline-flex rounded-sm items-center transition-colors',
+        'chip-active': 'chip-base bg-accent-100 text-accent-950',
+        'chip-inactive': 'chip-base ring-1 ring-surface-950/12 text-surface-950 hover:bg-surface-100',
+        //
         'base-slider':
             'appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-sm [&::-webkit-slider-runnabe-track]:h-auto [&::-webkit-slider-runnable-track]:p-1 [&::-webkit-slider-runnable-track]:bg-accent-500/25 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-sm [&::-webkit-slider-thumb]:bg-accent-500 [&::-webkit-slider-thumb]:hover:bg-accent-600 cursor-pointer focus:outline-none [&::-webkit-slider-thumb]:focus:bg-accent-600'
     }
