@@ -15,15 +15,13 @@
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/eslint-module": "^4.1.0",
+    "@stylistic/eslint-plugin": "^0.0.11",
     "@unocss/eslint-config": "^0.54.3",
     "@unocss/nuxt": "^0.55.7",
     "@unocss/transformer-directives": "^0.55.7",
     "eslint": "^8.50.0",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "nuxt": "^3.7.4",
     "nuxt-headlessui": "^1.1.4",
-    "prettier": "^2.8.8",
     "unocss-preset-theme": "^0.10.0"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <SectionHero />
-        <SectionBenefits />
-        <SectionFAQs />
-    </div>
+  <div>
+    <SectionHero />
+    <SectionBenefits />
+    <SectionFAQs />
+  </div>
 </template>
