@@ -43,11 +43,7 @@ export const generateTheme = (theme: Theme) => {
   }
 
   return {
-    light: {
-      colors: generateColorsForTheme(false)
-    },
-    dark: {
-      colors: generateColorsForTheme(true)
-    }
+    light: { colors: generateColorsForTheme(false) },
+    dark: { colors: generateColorsForTheme(true) }
   }
 }

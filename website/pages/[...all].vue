@@ -1,28 +1,27 @@
 <script setup lang="ts">
-useHead({
-  title: 'Not Found'
-})
+useHead({ title: 'Not Found' })
 
 const links = [
   {
-    name: 'Documentation',
-    href: '#',
+    name: 'Complete Documentation',
+    href: '/docs/get-started/introduction',
     symbols: '𒿤',
-    description: 'Learn how to integrate our tools with your app.'
+    description: 'Dive deep and seamlessly integrate our versatile library with your unique application.'
   },
   {
-    name: 'API Reference',
-    href: '#',
+    name: 'Palette Magic',
+    href: '/generator',
     symbols: '𒿓',
-    description: 'A complete API reference for our libraries.'
+    description: 'Craft stunning palettes instantly. Bring colors to life, everywhere!'
   },
   {
-    name: 'Guides',
+    name: 'Our Blog',
     href: '#',
     symbols: '𒾜',
-    description: 'Installation guides that cover popular setups.'
+    description: 'Stay updated! Discover the latest enhancements and innovations in our library.'
   }
 ]
+
 </script>
 
 <template>
@@ -50,20 +49,20 @@ const links = [
               <li
                 v-for="(link, linkIdx) in links"
                 :key="linkIdx"
-                class="relative flex gap-x-6 rounded-sm px-3 py-6 transition-colors hover:bg-surface-50">
-                <div class="h-10 w-10 flex flex-none items-center justify-center rounded-sm bg-accent-50 text-sm font-minoan">
+                class="relative flex gap-x-6 rounded-wl-small px-3 py-6 transition-colors hover:bg-surface-50">
+                <div class="h-10 w-10 flex flex-none items-center justify-center rounded-wl-small bg-accent-50 text-sm font-minoan">
                   {{ link.symbols }}
                 </div>
                 <div class="flex-auto">
                   <h3 class="text-sm font-semibold leading-6 text-surface-900">
-                    <a :href="link.href">
+                    <NuxtLink :href="link.href">
                       <span
                         class="absolute inset-0"
                         aria-hidden="true" />
                       {{ link.name }}
-                    </a>
+                    </NuxtLink>
                   </h3>
-                  <p class="mt-2 text-sm leading-6 text-surface-600">
+                  <p class="mt-1 text-sm leading-6 text-surface-600">
                     {{ link.description }}
                   </p>
                 </div>
@@ -89,7 +88,7 @@ const links = [
             <div class="text-center">
               <NuxtLink
                 to="/"
-                class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900">
+                class="h-10 inline-flex items-center rounded-wl-small bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900">
                 Go back home
                 <BaseIcon
                   class="ml-1"

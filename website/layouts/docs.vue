@@ -9,7 +9,7 @@ import DefaultLayout from '~/layouts/default.vue'
         <div class="relative gap-8 lg:grid lg:grid-cols-4">
           <aside class="mr-3 hidden overflow-y-auto pb-8 lg:sticky lg:top-12 -ml-3 lg:block lg:self-start lg:pt-8 lg:-mt-8 sm:-mb-16">
             <button
-              class="mb-6 w-full flex flex-shrink-0 items-center justify-center gap-x-1.5 rounded-sm bg-surface-50 px-2.5 py-2.5 text-sm font-medium hover:bg-surface-100 focus:outline-none"
+              class="mb-6 w-full flex flex-shrink-0 items-center justify-center gap-x-1.5 rounded-wl-small bg-surface-50 px-2.5 py-2.5 text-sm font-medium hover:bg-surface-100 focus:outline-none"
               type="button">
               <span
                 class="h-5 w-5 flex-shrink-0"
@@ -61,7 +61,7 @@ import DefaultLayout from '~/layouts/default.vue'
                           ? 'bg-accent-100 text-surface-950'
                           : 'text-surface-700 hover:bg-surface-950/12'
                       ]"
-                      class="group relative w-full flex items-center gap-2 rounded-sm px-3 py-1.5 text-sm font-medium focus:outline-none">
+                      class="group relative w-full flex items-center gap-2 rounded-wl-small px-3 py-1.5 text-sm font-medium focus:outline-none">
                       <span class="h-4 w-4 flex-shrink-0" />
 
                       <span class="relative truncate">{{ sub.title }}</span>
@@ -86,7 +86,7 @@ import DefaultLayout from '~/layouts/default.vue'
                   </template>
                   <template #content>
                     <button
-                      class="mb-6 w-full flex flex-shrink-0 gap-x-1.5 rounded-sm bg-surface-50 px-2.5 py-2.5 text-sm font-medium hover:bg-surface-100 focus:outline-none"
+                      class="mb-6 w-full flex flex-shrink-0 gap-x-1.5 rounded-wl-small bg-surface-50 px-2.5 py-2.5 text-sm font-medium hover:bg-surface-100 focus:outline-none"
                       type="button">
                       <span
                         class="h-5 w-5 flex-shrink-0"
@@ -127,7 +127,7 @@ import DefaultLayout from '~/layouts/default.vue'
                                 ? 'bg-accent-100 text-surface-950'
                                 : 'text-surface-700 hover:bg-surface-950/12'
                             ]"
-                            class="group relative w-full flex items-center gap-2 rounded-sm px-3 py-1.5 text-sm font-medium focus:outline-none">
+                            class="group relative w-full flex items-center gap-2 rounded-wl-small px-3 py-1.5 text-sm font-medium focus:outline-none">
                             <span class="h-4 w-4 flex-shrink-0" />
 
                             <span class="relative truncate">{{ sub.title }}</span>

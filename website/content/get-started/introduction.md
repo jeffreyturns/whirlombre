@@ -1,6 +1,5 @@
 ---
 title: 'Introduction'
-description: 'meta description of the page'
 foo: 'bar'
 ---
 
@@ -53,9 +52,3 @@ Before getting started, please **make sure to have installed the recommended set
 * Follow the [Nuxt 3 Prerequisites](https://nuxt.com/docs/getting-started/installation#prerequisites)
 * Download the [VS Code **MDC Extension**](https://marketplace.visualstudio.com/items?itemName=Nuxt.mdc)
 ::
-
-| Key | Type      | Description |
-| --- | --------- | ----------- |
-| 1   | Wonderful | Table       |
-| 2   | Wonderful | Data        |
-| 3   | Wonderful | Website     |

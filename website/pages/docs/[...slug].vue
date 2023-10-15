@@ -1,10 +1,6 @@
 <script setup lang="ts">
-useHead({
-  title: 'Home'
-})
-definePageMeta({
-  layout: 'docs'
-})
+useHead({ title: 'Home' })
+definePageMeta({ layout: 'docs' })
 
 const splitPath = (path?: string) => path?.split('/').filter(item => item !== '') ?? ['']
 </script>

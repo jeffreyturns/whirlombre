@@ -61,7 +61,7 @@ const copyHEX = (hex: string) => {
     <BaseContainer>
       <div class="flex gap-x-3">
         <a
-          class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
+          class="h-10 inline-flex items-center rounded-wl-small bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
           @click="showCreateShade = true">
           <BaseIcon
             class="mr-1"
@@ -70,7 +70,7 @@ const copyHEX = (hex: string) => {
           Add Shade
         </a>
         <a
-          class="h-10 inline-flex items-center rounded-sm bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
+          class="h-10 inline-flex items-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
           @click="showExportTheme = true">
           <BaseIcon
             class="mr-1"
@@ -97,7 +97,7 @@ const copyHEX = (hex: string) => {
               {{ item.name }}
             </div>
             <a
-              class="h-10 inline-flex items-center rounded-sm bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
+              class="h-10 inline-flex items-center rounded-wl-small bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
               @click="openItemEdit(item.id)">
               <BaseIcon
                 class="mr-1"
@@ -106,7 +106,7 @@ const copyHEX = (hex: string) => {
               Edit
             </a>
             <a
-              class="h-10 inline-flex items-center rounded-sm bg-transparent px-4 py-2.5 text-sm leading-6 text-red-700 transition-colors focus:bg-red-700/12 hover:bg-red-700/12 dark:text-red-300 hover:dark:bg-red-300/12"
+              class="h-10 inline-flex items-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-red-700 transition-colors focus:bg-red-700/12 hover:bg-red-700/12 dark:text-red-300 hover:dark:bg-red-300/12"
               @click="removeItem(item.id)">
               <BaseIcon
                 class="mr-1"
@@ -115,16 +115,16 @@ const copyHEX = (hex: string) => {
               Delete
             </a>
           </div>
-          <div class="grid grid-cols-1 mt-3 gap-x-2 gap-y-3 sm:grid-cols-6 2xl:mt-0 sm:mt-2">
+          <div class="grid grid-cols-1 mt-3 gap-x-2 gap-y-3 sm:grid-cols-4 xl:grid-cols-6 2xl:mt-0 sm:mt-2">
             <div
               v-for="(it, key) in generateShades(item.hue, item.chroma, item.isDark)"
               :key="key"
               class="relative flex">
-              <div class="w-full flex cursor-pointer items-center gap-x-3 ring-1 ring-surface-950/12 sm:block sm:space-y-1.5">
+              <div class="w-full flex cursor-pointer items-center gap-x-3 rounded-wl-small ring-1 ring-surface-950/12 sm:block sm:space-y-1.5">
                 <div
-                  class="h-10 w-10 rounded-sm sm:h-25 sm:w-full"
+                  class="h-full w-10 rounded-wl-small sm:h-25 sm:w-full"
                   :style="{ backgroundColor: it }" />
-                <div class="mt-4 flex justify-between px-1 md:py-2">
+                <div class="mt-2 flex justify-between px-1 md:py-2">
                   <div>
                     <h3 class="w-6 text-xl font-medium text-surface-900 2xl:w-full">
                       {{ it }}
@@ -135,7 +135,7 @@ const copyHEX = (hex: string) => {
                   </div>
                   <p class="text-sm font-medium text-surface-500">
                     <button
-                      class="rounded-sm p-2 hover:bg-surface-950/12 hover:text-surface-950"
+                      class="absolute bottom-2.5 right-2.5 rounded-wl-small p-2 hover:bg-surface-950/12 hover:text-surface-950"
                       @click="copyHEX(it)">
                       <BaseIcon
                         icon="copy"

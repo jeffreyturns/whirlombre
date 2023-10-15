@@ -5,25 +5,25 @@ const theme = useTheme()
 const colorMode = useColorMode()
 
 const inject = () => {
-    const styleTag = document.createElement('style')
-    styleTag.textContent = generateCssVariables(
-        colorMode.value === 'dark' ? generateTheme(theme.value).dark.colors : generateTheme(theme.value).light.colors
-    )
+  const styleTag = document.createElement('style')
+  styleTag.textContent = generateCssVariables(
+    colorMode.value === 'dark' ? generateTheme(theme.value).dark.colors : generateTheme(theme.value).light.colors
+  )
 
-    document.head.appendChild(styleTag)
+  document.head.appendChild(styleTag)
 }
 
 watch(
-    () => [colorMode.value, theme.value],
-    () => {
-        inject()
-    },
-    { deep: true }
+  () => [colorMode.value, theme.value],
+  () => {
+    inject()
+  },
+  { deep: true }
 )
 </script>
 
 <template>
-    <div>
-        <slot />
-    </div>
+  <div>
+    <slot />
+  </div>
 </template>

@@ -15,9 +15,7 @@ const defaultNotificationOptions = {
 }
 
 export function createNotification (options: { title?: string; message?: string; duration?: MessageDuration }) {
-  const _options = Object.assign({
-    ...defaultNotificationOptions
-  }, options)
+  const _options = Object.assign({ ...defaultNotificationOptions }, options)
 
   useNotifications().value?.push(
     ...[

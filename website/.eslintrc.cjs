@@ -1,9 +1,7 @@
 module.exports = {
   parser: 'vue-eslint-parser',
-  parserOptions: {
-    parser: '@typescript-eslint/parser'
-  },
-  extends: ['@nuxtjs/eslint-config-typescript', '@unocss'],
+  parserOptions: { parser: '@typescript-eslint/parser' },
+  extends: ['@nuxtjs/eslint-config-typescript', '@unocss', 'plugin:vue/vue3-recommended'],
   plugins: ['@stylistic'],
   rules: {
     'no-console': 'off',
@@ -11,6 +9,7 @@ module.exports = {
       singleline: 'never',
       multiline: 'never'
     }],
+    'vue/multi-word-component-names': 0,
     'vue/no-multiple-template-root': 0,
     '@stylistic/semi': ['error', 'never'],
     '@stylistic/comma-dangle': ['error', 'never'],
@@ -22,14 +21,10 @@ module.exports = {
       ignorePattern: 'class="[^"]*"|d="[^"]*"'
     }],
     'object-curly-newline': ['error', {
-      ObjectExpression: 'always',
-      ObjectPattern: {
-        multiline: true
-      },
+      ObjectExpression: { multiline: true },
+      ObjectPattern: { multiline: true },
       ImportDeclaration: 'never',
-      ExportDeclaration: {
-        multiline: true, minProperties: 3
-      }
+      ExportDeclaration: { multiline: true, minProperties: 3 }
     }],
     '@stylistic/object-curly-spacing': ['error', 'always']
   }

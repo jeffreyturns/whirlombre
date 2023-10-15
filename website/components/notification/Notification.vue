@@ -8,53 +8,57 @@ const emit = defineEmits<{
 }>()
 
 onMounted(() => {
-    if (notification.duration != -1) {
-        setTimeout(() => {
-            close()
-        }, notification.duration)
-    }
+  if (notification.duration != -1) {
+    setTimeout(() => {
+      close()
+    }, notification.duration)
+  }
 })
 
 const title = computed(() => {
-    return notification.title && notification.title !== null ? notification.title : 'Title'
+  return notification.title && notification.title !== null ? notification.title : 'Title'
 })
 
 const message = computed(() => {
-    return notification.message && notification.message !== null ? notification.message : 'Message'
+  return notification.message && notification.message !== null ? notification.message : 'Message'
 })
 
 const close = () => {
-    emit('close')
+  emit('close')
 }
 </script>
 
 <template>
-    <div
-        :ref="notification.id"
-        class="flex w-full flex-col items-center mb-2 sm:items-end">
-        <div class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-sm bg-surface-100 shadow-lg ring-1 ring-surface-200">
-            <div class="p-4">
-                <div class="flex items-start">
-                    <NotificationProgress
-                        class="h-full"
-                        :duration="notification.duration" />
-                    <div class="ml-3 w-0 flex-1 pt-0.5">
-                        <p class="text-sm font-medium text-surface-900">{{ title }}</p>
-                        <p class="mt-1 text-sm text-surface-600">{{ message }}</p>
-                    </div>
-                    <div class="ml-4 flex flex-shrink-0">
-                        <button
-                            type="button"
-                            @click="close"
-                            class="inline-flex rounded-sm p-1 transition-colors text-surface-600 hover:text-surface-900 hover:bg-surface-700/12">
-                            <span class="sr-only">Close</span>
-                            <BaseIcon
-                                :size="18"
-                                icon="cancel" />
-                        </button>
-                    </div>
-                </div>
-            </div>
+  <div
+    :ref="notification.id"
+    class="mb-2 w-full flex flex-col items-center sm:items-end">
+    <div class="pointer-events-auto max-w-sm w-full overflow-hidden rounded-wl-small bg-surface-100 shadow-lg ring-1 ring-surface-200">
+      <div class="p-4">
+        <div class="flex items-start">
+          <NotificationProgress
+            class="h-full"
+            :duration="notification.duration" />
+          <div class="ml-3 w-0 flex-1 pt-0.5">
+            <p class="text-sm font-medium text-surface-900">
+              {{ title }}
+            </p>
+            <p class="mt-1 text-sm text-surface-600">
+              {{ message }}
+            </p>
+          </div>
+          <div class="ml-4 flex flex-shrink-0">
+            <button
+              type="button"
+              class="inline-flex rounded-wl-small p-1 text-surface-600 transition-colors hover:bg-surface-700/12 hover:text-surface-900"
+              @click="close">
+              <span class="sr-only">Close</span>
+              <BaseIcon
+                :size="18"
+                icon="cancel" />
+            </button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
