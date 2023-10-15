@@ -62,7 +62,7 @@
                 See what's new in v1.0.0
                 <BaseIcon
                   class="ml-1"
-                  icon="arrowTr"
+                  icon="north_east"
                   :size="16" />
               </span>
             </a>
@@ -91,7 +91,7 @@
               Learn more
               <BaseIcon
                 class="ml-1"
-                icon="arrowTr"
+                icon="north_east"
                 :size="16" />
             </a>
           </div>

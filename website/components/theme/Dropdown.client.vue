@@ -40,13 +40,13 @@ const selected = ref(themes.find(it => it.value === colorMode.preference))
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <BaseIcon
             class="shrink-0"
-            :icon="open ? 'navArrowUp' : 'navArrowDown'"
+            :icon="open ? 'expand_less' : 'expand_more'"
             :size="18" />
         </span>
       </HeadlessListboxButton>
 
       <HeadlessListboxOptions
-        class="absolute z-10 mt-1 max-h-60 w-48 overflow-auto rounded-wl-small bg-surface-100 py-2 shadow-lg outline-none sm:text-sm">
+        class="absolute z-10 mt-1 max-h-60 w-48 overflow-auto rounded-wl-small bg-surface-100 px-1.5 py-2 shadow-lg outline-none sm:text-sm">
         <HeadlessListboxOption
           v-for="it in themes"
           :key="it.name"
@@ -57,7 +57,7 @@ const selected = ref(themes.find(it => it.value === colorMode.preference))
           <li
             :class="[
               active ? 'bg-accent-300 text-accent-950' : 'text-surface-950',
-              'relative cursor-default select-none px-2.5 py-2 transition-colors rounded-wl-small flex'
+              'relative cursor-default select-none px-2 py-2 transition-colors rounded-wl-small flex'
             ]">
             <span :class="[selected ? 'font-semibold' : 'font-normal', 'w-full truncate text-sm']">{{ it.name }}</span>
             <span

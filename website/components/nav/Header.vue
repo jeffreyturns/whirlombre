@@ -62,7 +62,7 @@ onMounted(() => {
           Github
           <BaseIcon
             class="ml-1"
-            icon="arrowTr"
+            icon="north_east"
             :size="18" />
         </NuxtLink>
       </div>
@@ -110,7 +110,7 @@ onMounted(() => {
                   class="icon-btn-text"
                   @click="open = false">
                   <BaseIcon
-                    icon="cancel"
+                    icon="close"
                     :size="24" />
                 </button>
               </div>

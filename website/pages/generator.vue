@@ -17,7 +17,24 @@ const openItemEdit = (itemId: string) => {
 }
 
 const removeItem = (targetId: string) => {
+  const removedItem = palette.value.find(item => item.id === targetId)
   palette.value = palette.value.filter(item => item.id !== targetId)
+  createNotification({
+    id: removedItem?.id,
+    title: 'Shade has been deleted',
+    duration: 3000,
+    actions: [
+      {
+        title: 'Undo',
+        action: () => {
+          if (removedItem) {
+            palette.value.push(removedItem)
+            dismissNotification(removedItem.id)
+          }
+        }
+      }
+    ]
+  })
 }
 
 const updateItem = (updatedItem: ShadeItem) => {
@@ -61,20 +78,20 @@ const copyHEX = (hex: string) => {
     <BaseContainer>
       <div class="flex gap-x-3">
         <a
-          class="h-10 inline-flex items-center rounded-wl-small bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
+          class="rounded-wl-small h-10 inline-flex items-center bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
           @click="showCreateShade = true">
           <BaseIcon
             class="mr-1"
-            icon="plus"
+            icon="add"
             :size="16" />
           Add Shade
         </a>
         <a
-          class="h-10 inline-flex items-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
+          class="rounded-wl-small h-10 inline-flex items-center bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
           @click="showExportTheme = true">
           <BaseIcon
             class="mr-1"
-            icon="export"
+            icon="download"
             :size="16" />
           Export
         </a>
@@ -97,7 +114,7 @@ const copyHEX = (hex: string) => {
               {{ item.name }}
             </div>
             <a
-              class="h-10 inline-flex items-center rounded-wl-small bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
+              class="rounded-wl-small h-10 inline-flex items-center bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
               @click="openItemEdit(item.id)">
               <BaseIcon
                 class="mr-1"
@@ -106,11 +123,11 @@ const copyHEX = (hex: string) => {
               Edit
             </a>
             <a
-              class="h-10 inline-flex items-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-red-700 transition-colors focus:bg-red-700/12 hover:bg-red-700/12 dark:text-red-300 hover:dark:bg-red-300/12"
+              class="rounded-wl-small h-10 inline-flex items-center bg-transparent px-4 py-2.5 text-sm leading-6 text-red-700 transition-colors focus:bg-red-700/12 hover:bg-red-700/12 dark:text-red-300 hover:dark:bg-red-300/12"
               @click="removeItem(item.id)">
               <BaseIcon
                 class="mr-1"
-                icon="trash"
+                icon="delete"
                 :size="16" />
               Delete
             </a>
@@ -120,9 +137,9 @@ const copyHEX = (hex: string) => {
               v-for="(it, key) in generateShades(item.hue, item.chroma, item.isDark)"
               :key="key"
               class="relative flex">
-              <div class="w-full flex cursor-pointer items-center gap-x-3 rounded-wl-small ring-1 ring-surface-950/12 sm:block sm:space-y-1.5">
+              <div class="rounded-wl-small w-full flex cursor-pointer items-center gap-x-3 ring-1 ring-surface-950/12 sm:block sm:space-y-1.5">
                 <div
-                  class="h-full w-10 rounded-wl-small sm:h-25 sm:w-full"
+                  class="rounded-wl-small h-full w-10 sm:h-25 sm:w-full"
                   :style="{ backgroundColor: it }" />
                 <div class="mt-2 flex justify-between px-1 md:py-2">
                   <div>
@@ -135,10 +152,10 @@ const copyHEX = (hex: string) => {
                   </div>
                   <p class="text-sm font-medium text-surface-500">
                     <button
-                      class="absolute bottom-2.5 right-2.5 rounded-wl-small p-2 hover:bg-surface-950/12 hover:text-surface-950"
+                      class="rounded-wl-small absolute bottom-2.5 right-2.5 icon-btn-base hover:bg-surface-950/12 hover:text-surface-950"
                       @click="copyHEX(it)">
                       <BaseIcon
-                        icon="copy"
+                        icon="content_copy"
                         :size="18" />
                     </button>
                   </p>

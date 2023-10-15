@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      link: [
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' }
+      ],
       htmlAttrs: { lang: 'en' }
     },
     pageTransition: { name: 'fade', mode: 'out-in' },

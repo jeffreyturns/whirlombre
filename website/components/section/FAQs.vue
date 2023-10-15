@@ -46,7 +46,7 @@ const faqs = [
               <span class="ml-6 h-7 flex items-center">
                 <BaseIcon
                   class="shrink-0"
-                  :icon="isExpanded ? 'navArrowUp' : 'navArrowDown'"
+                  :icon="isExpanded ? 'expand_less' : 'expand_more'"
                   :size="24" />
               </span>
             </template>

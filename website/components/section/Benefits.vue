@@ -76,7 +76,7 @@ const benefits = [
           </div>
           <span class="pointer-events-none absolute right-6 top-6 text-surface-300 group-hover:text-surface-400">
             <BaseIcon
-              icon="arrowTr"
+              icon="north_east"
               :size="24" />
           </span>
         </div>

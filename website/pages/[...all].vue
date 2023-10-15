@@ -92,7 +92,7 @@ const links = [
                 Go back home
                 <BaseIcon
                   class="ml-1"
-                  icon="arrowTr"
+                  icon="north_east"
                   :size="18" />
               </NuxtLink>
             </div>

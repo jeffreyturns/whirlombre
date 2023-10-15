@@ -80,7 +80,7 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
               <div>
                 <div class="mx-auto h-12 w-12 flex items-center justify-center rounded-wl-small bg-accent-100 text-accent-950">
                   <BaseIcon
-                    icon="plus"
+                    icon="add_box"
                     :size="24" />
                 </div>
                 <div class="mt-3 text-center sm:mt-5">

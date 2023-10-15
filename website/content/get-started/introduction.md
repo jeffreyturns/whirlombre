@@ -13,7 +13,7 @@ $ npm install whirlombre
 ```
 ::
 
-::callout
+::message
 ✨ Well done! A browser window should automatically open for http://localhost:3000
 ::
 
@@ -47,7 +47,7 @@ You will now have access to colors from your palette, like:
 ```
 ::
 
-::callout
+::message
 Before getting started, please **make sure to have installed the recommended setup**:
 * Follow the [Nuxt 3 Prerequisites](https://nuxt.com/docs/getting-started/installation#prerequisites)
 * Download the [VS Code **MDC Extension**](https://marketplace.visualstudio.com/items?itemName=Nuxt.mdc)

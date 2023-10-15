@@ -31,7 +31,7 @@ const shadesToString = (colorName: string, shades: Shades) => {
 }
 
 const shades = ref('')
-const icon = ref('copy')
+const icon = ref('content_copy')
 
 watch(
   () => [palette.value],
@@ -45,17 +45,17 @@ watch(
 const copy = () => {
   copyToClipboard(`${shades.value}`).then((success) => {
     if (success) {
-      icon.value = 'check'
-      setTimeout(() => (icon.value = 'copy'), 1500)
+      icon.value = 'done'
+      setTimeout(() => (icon.value = 'content_copy'), 1500)
     } else {
       icon.value = 'error'
     }
   })
 }
 
-// const selected = ref(0)
+const selected = ref(0)
 
-// const exportStyles = ref(['Tailwind CSS (HEX)', 'Tailwind CSS (OKLCH)', 'Tailwind (HSL)', 'SCSS (HEX)', 'CSS (HEX)', 'CSS (RGB)', 'SVG (Figma)'])
+const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)', 'SCSS (HEX)', 'CSS (HEX)', 'CSS (RGB)', 'SVG (Figma)'])
 </script>
 
 <template>
@@ -88,11 +88,11 @@ const copy = () => {
             leave-from="opacity-100 translate-y-0 sm:scale-100"
             leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <HeadlessDialogPanel
-              class="anim-all-short rounded-wl-small relative w-full transform overflow-hidden bg-surface-50 px-4 pb-4 pt-5 text-left sm:my-8 sm:max-w-xl sm:p-6">
+              class="anim-all-short relative w-full transform overflow-hidden rounded-wl-small bg-surface-50 px-4 pb-4 pt-5 text-left sm:my-8 sm:max-w-xl sm:p-6">
               <div>
-                <div class="rounded-wl-small mx-auto h-12 w-12 flex items-center justify-center bg-accent-100 text-accent-950">
+                <div class="mx-auto h-12 w-12 flex items-center justify-center rounded-wl-small bg-accent-100 text-accent-950">
                   <BaseIcon
-                    icon="export"
+                    icon="download"
                     :size="24" />
                 </div>
                 <div class="mt-3 text-center sm:mt-5">
@@ -101,7 +101,7 @@ const copy = () => {
                     class="text-xl font-headline text-surface-900">
                     Export Theme
                   </HeadlessDialogTitle>
-                  <!-- <div v-if="false" class="mt-4 flex flex-wrap text-left text-base">
+                  <div class="mt-4 flex flex-wrap text-left text-base">
                     <div
                       v-for="(it, i) in exportStyles"
                       :key="i"
@@ -109,12 +109,12 @@ const copy = () => {
                       @click="selected = i">
                       <BaseIcon
                         v-if="selected == i"
-                        icon="check"
+                        icon="done"
                         class="me-1"
                         :size="18" />
                       {{ it }}
                     </div>
-                  </div> -->
+                  </div>
                   <div class="relative">
                     <div class="relative static my-5">
                       <button
@@ -132,7 +132,7 @@ const copy = () => {
                         </Transition>
                       </button>
                       <div
-                        class="rounded-wl-small mt-2 max-h-[50vh] overflow-y-auto bg-surface-100 p-2 text-left font-mono">
+                        class="mt-2 max-h-[50vh] overflow-y-auto rounded-wl-small bg-surface-100 p-2 text-left font-mono">
                         <code>
                           <pre>{{ shades }}</pre>
                         </code>
@@ -143,7 +143,7 @@ const copy = () => {
               </div>
               <div class="mt-5 sm:grid sm:grid-flow-row-dense sm:mt-6 sm:gap-3">
                 <a
-                  class="rounded-wl-small h-10 inline-flex items-center justify-center bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
+                  class="h-10 inline-flex items-center justify-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
                   @click="value = false">
                   Cancel
                 </a>

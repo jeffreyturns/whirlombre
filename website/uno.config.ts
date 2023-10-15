@@ -45,8 +45,7 @@ export default defineConfig({
       fonts: {
         base: ['Inclusive Sans', 'Inclusive Sans:400'],
         headline: ['Dela Gothic One', 'Dela Gothic One:400'],
-        minoan: ['Noto Sans Cypro Minoan', 'Noto Sans Cypro Minoan:400'],
-        icons: ['Material Symbols Outlined']
+        minoan: ['Noto Sans Cypro Minoan', 'Noto Sans Cypro Minoan:400']
       }
     })
   ],
@@ -64,9 +63,10 @@ export default defineConfig({
      * Components
      *
      */
-    'btn-base': 'text-sm h-10 inline-flex items-center px-4 py-2.5 rounded-wl-small leading-6 transition-colors focus:outline-none',
+    'btn-base': 'text-sm inline-flex items-center px-4 py-2 rounded-wl-small leading-6 transition-colors focus:outline-none',
     'btn-filled': 'btn-base bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900',
     'btn-outlined': 'ring-1 ring-surface-950/12 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12',
+    'btn-text': 'btn-base bg-transparent text-surface-950 hover:bg-surface-950/12 focus:bg-surface-950/12',
     'icon-btn-base': 'inline-flex items-center justify-center rounded-wl-small p-2',
     'icon-btn-text': 'icon-btn-base text-surface-950 hover:bg-surface-950/12',
     'chip-base': 'mx-0.5 mb-1 px-1.5 inline-flex rounded-wl-small items-center transition-colors',
