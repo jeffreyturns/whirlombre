@@ -14,7 +14,7 @@ body {
     height: 10px;
 }
 ::-webkit-scrollbar-track {
-    @apply bg-surface-10;
+    @apply bg-surface-50;
 }
 ::-webkit-scrollbar-thumb {
     @apply bg-surface-300 rounded-wl-small;

@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: ['@unocss/nuxt', '@nuxtjs/color-mode', 'nuxt-headlessui', '@nuxt/content'],
   css: ['@unocss/reset/tailwind.css', '@/styles/base.css'],
   colorMode: { classSuffix: '' },
+  content: { navigation: { fields: ['desc', 'cover', 'publishedAt'] } },
   app: {
     head: {
       charset: 'utf-8',

@@ -2,7 +2,7 @@
 const faqs = [
   {
     question: 'What is Whirlombre?',
-    answer: 'Whirlombre is a super-minimal library designed to generate smooth shades. It\'s a lightweight tool meant to simplify and enhance the shading process in various design projects.'
+    answer: 'Whirlombre is a super-minimal library & tool designed to generate smooth shades. It\'s a lightweight tool meant to simplify and enhance the shading process in various design projects.'
   },
   {
     question: 'How do I integrate Whirlombre into my project?',
@@ -30,14 +30,14 @@ const faqs = [
 <template>
   <BaseContainer class="mb-12">
     <div class="mx-auto max-w-4xl">
-      <AnimFadeIn>
+      <MotionFadeIn>
         <h2 class="mb-16 text-center text-3xl leading-10 tracking-tight font-headline text-surface-900">
           Frequently asked questions
         </h2>
-      </AnimFadeIn>
+      </MotionFadeIn>
 
-      <dl class="mt-10 divide-y divide-surface-200 lg:space-y-px lg:divide-none">
-        <AnimFadeIn
+      <dl class="mt-10 space-y-px">
+        <MotionFadeIn
           v-for="{ answer, question } in faqs"
           :key="question">
           <BaseAccordion class="rounded-wl-small bg-surface-50 transition-colors hover:bg-surface-100">
@@ -56,7 +56,7 @@ const faqs = [
               </p>
             </template>
           </BaseAccordion>
-        </AnimFadeIn>
+        </MotionFadeIn>
       </dl>
     </div>
   </BaseContainer>

@@ -4,7 +4,7 @@ useHead({ title: 'Not Found' })
 const links = [
   {
     name: 'Complete Documentation',
-    href: '/docs/get-started/introduction',
+    href: '/docs',
     symbols: '𒿤',
     description: 'Dive deep and seamlessly integrate our versatile library with your unique application.'
   },
@@ -16,12 +16,11 @@ const links = [
   },
   {
     name: 'Our Blog',
-    href: '#',
+    href: '/blog',
     symbols: '𒾜',
     description: 'Stay updated! Discover the latest enhancements and innovations in our library.'
   }
 ]
-
 </script>
 
 <template>
@@ -68,33 +67,17 @@ const links = [
                 </div>
                 <div class="flex-none self-center">
                   <span aria-hidden="true">
-                    <svg
-                      width="18px"
-                      height="18px"
-                      fill="none"
-                      stroke-width="1.5"
-                      viewBox="0 0 24 24">
-                      <path
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="square"
-                        stroke-linejoin="square"
-                        d="m9 6 6 6-6 6" />
-                    </svg>
+                    <BaseIcon :size="18" icon="navigate_next" />
                   </span>
                 </div>
               </li>
             </ul>
-            <div class="text-center">
-              <NuxtLink
-                to="/"
-                class="h-10 inline-flex items-center rounded-wl-small bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900">
-                Go back home
-                <BaseIcon
-                  class="ml-1"
-                  icon="north_east"
-                  :size="18" />
-              </NuxtLink>
+            <div class="mt-10 text-center space-x-3">
+              <a
+                class="btn-wl-filled"
+                @click="$router.back()">
+                Go Back
+              </a>
             </div>
           </div>
         </div>

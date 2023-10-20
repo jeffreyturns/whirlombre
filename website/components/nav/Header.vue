@@ -3,7 +3,7 @@ const open = ref(false)
 const isScrolled = ref(false)
 
 const navigation = [
-  { name: 'Documentation', href: '/docs/get-started/introduction' },
+  { name: 'Documentation', href: '/docs' },
   { name: 'Pallete Generator', href: '/generator' },
   { name: 'Site Color', href: '/theme' },
   { name: 'Blog', href: '/blog' }
@@ -36,7 +36,7 @@ onMounted(() => {
       <div class="flex lg:hidden">
         <button
           type="button"
-          class="icon-btn-text"
+          class="icon-btn-wl-text"
           @click="open = true">
           <BaseIcon
             icon="menu"
@@ -58,7 +58,7 @@ onMounted(() => {
           href="https://github.com/jeffreyturns/whirlombre"
           target="_blank"
           rel="noopener"
-          class="btn-base btn-filled">
+          class="btn-wl-filled">
           Github
           <BaseIcon
             class="ml-1"
@@ -101,13 +101,14 @@ onMounted(() => {
               <div class="flex items-center justify-between">
                 <NuxtLink
                   to="/"
-                  class="p-1.5 -m-1.5">
+                  class="p-1.5 -m-1.5"
+                  @click="open = false">
                   <span class="sr-only">Whirlombre</span>
                   <NavLogo class="text-accent-700" />
                 </NuxtLink>
                 <button
                   type="button"
-                  class="icon-btn-text"
+                  class="icon-btn-wl-text"
                   @click="open = false">
                   <BaseIcon
                     icon="close"
@@ -121,7 +122,8 @@ onMounted(() => {
                       v-for="item in navigation"
                       :key="item.name"
                       :to="item.href"
-                      class="block rounded-wl-small px-3 py-2 text-base leading-7 text-surface-950 -mx-3 hover:bg-surface-950/12">
+                      class="block rounded-wl-small px-3 py-2 text-base leading-7 text-surface-950 -mx-3 hover:bg-surface-950/12"
+                      @click="open = false">
                       {{ item.name }}
                     </NuxtLink>
                   </div>

@@ -110,7 +110,7 @@ const themeHuesArray = [
           type="range"
           :max="360"
           :min="0"
-          class="w-full base-slider">
+          class="slider-wl-tonal w-full">
       </div>
     </div>
     <h3 class="pt-6 text-2xl">
@@ -134,7 +134,7 @@ const themeHuesArray = [
               type="range"
               :max="360"
               :min="0"
-              class="w-full base-slider">
+              class="slider-wl-tonal w-full">
           </div>
           <label for="default-range" class="mb-2 block text-sm font-medium">
             Chroma {{ theme.light.accent.chroma }}
@@ -146,7 +146,7 @@ const themeHuesArray = [
             :max="0.5"
             :min="0"
             :step="0.001"
-            class="w-full base-slider">
+            class="slider-wl-tonal w-full">
         </div>
       </div>
       <div class="group relative bg-surface-50 p-6 focus:ring-none">
@@ -167,7 +167,7 @@ const themeHuesArray = [
               type="range"
               :max="360"
               :min="0"
-              class="w-full base-slider">
+              class="slider-wl-tonal w-full">
           </div>
           <label for="default-range" class="mb-2 block text-sm font-medium">
             Chroma {{ theme.light.surface.chroma }}
@@ -179,7 +179,7 @@ const themeHuesArray = [
             :max="0.5"
             :min="0"
             :step="0.001"
-            class="w-full base-slider">
+            class="slider-wl-tonal w-full">
         </div>
       </div>
     </div>
@@ -204,7 +204,7 @@ const themeHuesArray = [
               type="range"
               :max="360"
               :min="0"
-              class="w-full base-slider">
+              class="slider-wl-tonal w-full">
           </div>
           <label for="default-range" class="mb-2 block text-sm font-medium">
             Chroma {{ theme.dark.accent.chroma }}
@@ -216,7 +216,7 @@ const themeHuesArray = [
             :max="0.5"
             :min="0"
             :step="0.001"
-            class="w-full base-slider">
+            class="slider-wl-tonal w-full">
         </div>
       </div>
       <div class="group relative bg-surface-50 p-6 focus:ring-none">
@@ -237,7 +237,7 @@ const themeHuesArray = [
               type="range"
               :max="360"
               :min="0"
-              class="w-full base-slider">
+              class="slider-wl-tonal w-full">
           </div>
           <label for="default-range" class="mb-2 block text-sm font-medium">
             Chroma {{ theme.dark.surface.chroma }}
@@ -249,7 +249,7 @@ const themeHuesArray = [
             :max="0.5"
             :min="0"
             :step="0.001"
-            class="w-full base-slider">
+            class="slider-wl-tonal w-full">
         </div>
       </div>
     </div>

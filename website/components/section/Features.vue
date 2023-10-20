@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const benefits = [
+const features = [
   {
     symbols: '𒾧 𒿇 𒿤',
     title: 'Effortless Integration',
@@ -41,20 +41,20 @@ const benefits = [
 
 <template>
   <BaseContainer>
-    <AnimFadeIn>
+    <MotionFadeIn>
       <h2 class="mb-16 text-center text-3xl leading-10 tracking-tight font-headline text-surface-900">
-        Benefits
+        Features
       </h2>
-    </AnimFadeIn>
+    </MotionFadeIn>
     <div class="overflow-hidden rounded-wl-small sm:grid sm:grid-cols-2 sm:gap-px divide-y divide-surface-200 sm:divide-y-0">
-      <AnimFadeIn
-        v-for="(it, i) in benefits"
+      <MotionFadeIn
+        v-for="(it, i) in features"
         :key="it.title"
         :class="[
           i === 0 && 'rounded-tl-sm rounded-tr-sm sm:rounded-tr-none',
           i === 1 && 'sm:rounded-tr-sm',
-          i === benefits.length - 2 && 'sm:rounded-bl-sm',
-          i === benefits.length - 1 && 'rounded-bl-sm rounded-br-sm sm:rounded-bl-none',
+          i === features.length - 2 && 'sm:rounded-bl-sm',
+          i === features.length - 1 && 'rounded-bl-sm rounded-br-sm sm:rounded-bl-none',
           'group relative rounded-wl-small bg-surface-50 p-6 focus:ring-none'
         ]">
         <div>
@@ -80,7 +80,7 @@ const benefits = [
               :size="24" />
           </span>
         </div>
-      </AnimFadeIn>
+      </MotionFadeIn>
     </div>
   </BaseContainer>
 </template>

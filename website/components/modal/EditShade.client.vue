@@ -102,7 +102,7 @@ const save = () => {
                       type="range"
                       :max="360"
                       :min="0"
-                      class="w-full base-slider">
+                      class="w-full slider-wl-tonal">
                     <label
                       for="chroma-range"
                       class="mb-2 block text-left text-sm font-medium">
@@ -115,7 +115,7 @@ const save = () => {
                       :max="0.5"
                       :min="0"
                       :step="0.001"
-                      class="w-full base-slider">
+                      class="w-full slider-wl-tonal">
 
                     <label class="flex cursor-pointer select-none items-center justify-center py-6">
                       <label
@@ -145,12 +145,12 @@ const save = () => {
               </div>
               <div class="mt-5 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:mt-6 sm:gap-3">
                 <a
-                  class="h-10 inline-flex cursor-pointer items-center justify-center rounded-wl-small bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
+                  class="inline-flex items-center justify-center btn-wl-filled"
                   @click="save()">
                   Update
                 </a>
                 <a
-                  class="h-10 inline-flex items-center justify-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
+                  class="inline-flex items-center justify-center btn-wl-outlined"
                   @click="value = false">
                   Cancel
                 </a>

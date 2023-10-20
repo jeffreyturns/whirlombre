@@ -1,5 +1,6 @@
 <!-- eslint-disable @stylistic/max-len -->
 <script lang="ts" setup>
+
 useHead({
   titleTemplate: (title) => {
     return title ? `${title} — Whirlombre` : 'Whirlombre'
@@ -36,11 +37,11 @@ useSeoMeta({
 <style>
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.2s ease-out;
+  @apply transition-[opacity] timing-out-glide-medium;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0;
+  @apply opacity-0;
 }
 </style>

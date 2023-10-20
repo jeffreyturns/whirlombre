@@ -36,8 +36,6 @@ function combineColorsWithAlpha (topHex: string, alpha: number, backHex: string)
 }
 
 const blendedColor = combineColorsWithAlpha('#e09a8d', 0.3, '#201a19')
-
-const isOpenModal = ref(false)
 </script>
 
 <template>

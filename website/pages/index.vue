@@ -1,7 +1,7 @@
 <template>
   <div>
     <SectionHero />
-    <SectionBenefits />
+    <SectionFeatures />
     <SectionFAQs />
   </div>
 </template>

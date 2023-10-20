@@ -8,8 +8,6 @@ import { presetTheme } from 'unocss-preset-theme'
 import { generateTheme } from './config/theme.config'
 import { DEFAULT } from './config/prose.config'
 
-// import { DEFAULT } from './config/prose.config'
-
 const { light, dark } = generateTheme({
   light: {
     accent: {
@@ -55,24 +53,30 @@ export default defineConfig({
       accent: light.colors.accent,
       surface: light.colors.surface
     },
-    borderRadius: { 'wl-small': '4px', 'wl-medium': '8px', 'wl-large': '12px' }
+    borderRadius: { 'wl-small': '2px', 'wl-medium': '8px', 'wl-large': '12px' }
   } as Theme,
   shortcuts: {
+    //[Category]-[Type]-[Item]-[State]
+    /*
+     *
+     * Base Components
+     *
+     */
+    'btn-wl-base': 'text-sm inline-flex items-center px-4 py-2 rounded-wl-small leading-6 transition-wl-colors focus:outline-none',
+    'icon-btn-base': 'inline-flex items-center justify-center rounded-wl-small p-2',
+    'chip-base': 'mx-0.5 mb-1 px-1.5 inline-flex rounded-wl-small items-center transition-wl-colors cursor-pointer',
     /*
      *
      * Components
      *
      */
-    'btn-base': 'text-sm inline-flex items-center px-4 py-2 rounded-wl-small leading-6 transition-colors focus:outline-none',
-    'btn-filled': 'btn-base bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900',
-    'btn-outlined': 'ring-1 ring-surface-950/12 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12',
-    'btn-text': 'btn-base bg-transparent text-surface-950 hover:bg-surface-950/12 focus:bg-surface-950/12',
-    'icon-btn-base': 'inline-flex items-center justify-center rounded-wl-small p-2',
-    'icon-btn-text': 'icon-btn-base text-surface-950 hover:bg-surface-950/12',
-    'chip-base': 'mx-0.5 mb-1 px-1.5 inline-flex rounded-wl-small items-center transition-colors',
-    'chip-active': 'chip-base bg-accent-100 text-accent-950',
-    'chip-inactive': 'chip-base ring-1 ring-surface-950/12 text-surface-950 hover:bg-surface-100',
-    'base-slider': 'appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-wl-small [&::-webkit-slider-runnabe-track]:h-auto [&::-webkit-slider-runnable-track]:p-1 [&::-webkit-slider-runnable-track]:bg-accent-500/25 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-wl-small [&::-webkit-slider-thumb]:bg-accent-500 [&::-webkit-slider-thumb]:hover:bg-accent-600 cursor-pointer focus:outline-none [&::-webkit-slider-thumb]:focus:bg-accent-600',
+    'btn-wl-filled': 'btn-wl-base bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900',
+    'btn-wl-outlined': 'btn-wl-base ring-1 ring-surface-950/12 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12',
+    'btn-wl-text': 'btn-wl-base bg-transparent text-surface-950 hover:bg-surface-950/12 focus:bg-surface-950/12',
+    'icon-btn-wl-text': 'icon-btn-base text-surface-950 hover:bg-surface-950/12 transition-wl-colors',
+    'chip-wl-active': 'chip-base bg-accent-100 text-accent-950',
+    'chip-wl-inactive': 'chip-base ring-1 ring-surface-950/12 text-surface-950 hover:bg-surface-100',
+    'slider-wl-tonal': 'appearance-none bg-transparent [&::-webkit-slider-runnable-track]:rounded-wl-small [&::-webkit-slider-runnabe-track]:h-auto [&::-webkit-slider-runnable-track]:p-1 [&::-webkit-slider-runnable-track]:bg-accent-500/25 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-wl-small [&::-webkit-slider-thumb]:bg-accent-500 [&::-webkit-slider-thumb]:hover:bg-accent-600 cursor-pointer focus:outline-none [&::-webkit-slider-thumb]:focus:bg-accent-600',
     /*
      *
      * Motion

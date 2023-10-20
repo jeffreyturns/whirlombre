@@ -113,7 +113,7 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                       type="range"
                       :max="360"
                       :min="0"
-                      class="w-full base-slider">
+                      class="w-full slider-wl-tonal">
                     <label
                       for="chroma-range"
                       class="mb-2 block text-left text-sm font-medium">
@@ -126,7 +126,7 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                       :max="0.5"
                       :min="0"
                       :step="0.001"
-                      class="w-full base-slider">
+                      class="w-full slider-wl-tonal">
 
                     <label class="flex cursor-pointer select-none items-center justify-center py-6">
                       <label
@@ -161,12 +161,12 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                       ? 'bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 cursor-pointer'
                       : 'bg-surface-950/12 text-surface-950/75 cursor-not-allowed'
                   ]"
-                  class="h-10 inline-flex items-center justify-center rounded-wl-small px-4 py-2.5 text-sm leading-6 transition-colors focus:outline-none"
+                  class="btn-wl-base inline-flex items-center justify-center"
                   @click="canAddShade && createShade()">
                   Create
                 </a>
                 <a
-                  class="h-10 inline-flex items-center justify-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
+                  class="inline-flex items-center justify-center btn-wl-outlined"
                   @click="value = false">
                   Cancel
                 </a>

@@ -2,7 +2,7 @@
 useHead({ title: 'Home' })
 definePageMeta({ layout: 'docs' })
 
-const splitPath = (path?: string) => path?.split('/').filter(item => item !== '') ?? ['']
+const docsQuery = queryContent('docs')
 </script>
 
 <template>
@@ -11,18 +11,8 @@ const splitPath = (path?: string) => path?.split('/').filter(item => item !== ''
       <article class="relative pt-10 text-base prose">
         <ContentDoc
           v-slot="{ doc }"
-          :path="$route.path.slice(6)">
+          :query="docsQuery.params">
           <article>
-            <!-- <div class="pb-8">
-                            <span
-                                v-for="(it, i) in splitPath(`${doc._path}`)"
-                                :key="i">
-                                <span class="hover:text-accent-600">
-                                    {{ it }}
-                                </span>
-                                {{ i != splitPath(`${doc._path}`).length - 1 ? '— ' : '' }}
-                            </span>
-                        </div> -->
             <ContentRenderer :value="doc" />
           </article>
         </ContentDoc>

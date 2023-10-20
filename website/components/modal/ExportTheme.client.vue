@@ -74,7 +74,7 @@ const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)'
         leave="timing-out-glide-short"
         leave-from="opacity-100"
         leave-to="opacity-0">
-        <div class="fixed inset-0 bg-surface-500 bg-opacity-75 transition-opacity" />
+        <div class="fixed inset-0 bg-surface-500 bg-opacity-75 transition-wl-opacity duration-medium" />
       </HeadlessTransitionChild>
 
       <div class="fixed inset-0 z-10 overflow-y-auto">
@@ -105,7 +105,7 @@ const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)'
                     <div
                       v-for="(it, i) in exportStyles"
                       :key="i"
-                      :class="selected == i ? 'chip-active' : 'chip-inactive'"
+                      :class="selected == i ? 'chip-wl-active' : 'chip-wl-inactive'"
                       @click="selected = i">
                       <BaseIcon
                         v-if="selected == i"
@@ -119,7 +119,7 @@ const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)'
                     <div class="relative static my-5">
                       <button
                         type="button"
-                        class="absolute right-5 top-2.5 inline-flex items-center bg-surface-50 icon-btn-text"
+                        class="icon-btn-wl-text absolute right-5 top-2.5 inline-flex items-center bg-surface-50"
                         tabindex="-1"
                         @click="copy()">
                         <Transition :duration="150" name="fade" mode="out-in">
@@ -143,7 +143,7 @@ const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)'
               </div>
               <div class="mt-5 sm:grid sm:grid-flow-row-dense sm:mt-6 sm:gap-3">
                 <a
-                  class="h-10 inline-flex items-center justify-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-accent-700 ring-1 ring-surface-950/12 transition-colors focus:bg-accent-700/12 hover:bg-accent-700/12"
+                  class="btn-wl-outlined inline-flex items-center justify-center"
                   @click="value = false">
                   Cancel
                 </a>
