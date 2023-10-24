@@ -2,7 +2,9 @@
 title: 'Theming'
 ---
 
-# Theming
+::Header
+Theming
+::
 
 ::message
 Before getting started, please **make sure to have installed the recommended setup**:

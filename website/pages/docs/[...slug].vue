@@ -2,7 +2,7 @@
 useHead({ title: 'Home' })
 definePageMeta({ layout: 'docs' })
 
-const docsQuery = queryContent('docs')
+const docsQueryParams = queryContent('docs').params
 </script>
 
 <template>
@@ -11,7 +11,7 @@ const docsQuery = queryContent('docs')
       <article class="relative pt-10 text-base prose">
         <ContentDoc
           v-slot="{ doc }"
-          :query="docsQuery.params">
+          :query="docsQueryParams">
           <article>
             <ContentRenderer :value="doc" />
           </article>

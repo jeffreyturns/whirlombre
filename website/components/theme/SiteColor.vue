@@ -7,12 +7,10 @@ const theme = useTheme()
 watch(
   () => hue.value,
   () => {
-    if (!lockHue) {
-      theme.value.light.accent.hue = hue.value
-      theme.value.light.surface.hue = hue.value
-      theme.value.dark.accent.hue = hue.value
-      theme.value.dark.surface.hue = hue.value
-    }
+    theme.value.light.accent.hue = hue.value
+    theme.value.light.surface.hue = hue.value
+    theme.value.dark.accent.hue = hue.value
+    theme.value.dark.surface.hue = hue.value
   },
   { deep: true, immediate: true }
 )
@@ -110,7 +108,7 @@ const themeHuesArray = [
           type="range"
           :max="360"
           :min="0"
-          class="slider-wl-tonal w-full">
+          class="w-full slider-wl-tonal">
       </div>
     </div>
     <h3 class="pt-6 text-2xl">
@@ -134,7 +132,7 @@ const themeHuesArray = [
               type="range"
               :max="360"
               :min="0"
-              class="slider-wl-tonal w-full">
+              class="w-full slider-wl-tonal">
           </div>
           <label for="default-range" class="mb-2 block text-sm font-medium">
             Chroma {{ theme.light.accent.chroma }}
@@ -146,7 +144,7 @@ const themeHuesArray = [
             :max="0.5"
             :min="0"
             :step="0.001"
-            class="slider-wl-tonal w-full">
+            class="w-full slider-wl-tonal">
         </div>
       </div>
       <div class="group relative bg-surface-50 p-6 focus:ring-none">
@@ -167,7 +165,7 @@ const themeHuesArray = [
               type="range"
               :max="360"
               :min="0"
-              class="slider-wl-tonal w-full">
+              class="w-full slider-wl-tonal">
           </div>
           <label for="default-range" class="mb-2 block text-sm font-medium">
             Chroma {{ theme.light.surface.chroma }}
@@ -179,7 +177,7 @@ const themeHuesArray = [
             :max="0.5"
             :min="0"
             :step="0.001"
-            class="slider-wl-tonal w-full">
+            class="w-full slider-wl-tonal">
         </div>
       </div>
     </div>
@@ -204,7 +202,7 @@ const themeHuesArray = [
               type="range"
               :max="360"
               :min="0"
-              class="slider-wl-tonal w-full">
+              class="w-full slider-wl-tonal">
           </div>
           <label for="default-range" class="mb-2 block text-sm font-medium">
             Chroma {{ theme.dark.accent.chroma }}
@@ -216,7 +214,7 @@ const themeHuesArray = [
             :max="0.5"
             :min="0"
             :step="0.001"
-            class="slider-wl-tonal w-full">
+            class="w-full slider-wl-tonal">
         </div>
       </div>
       <div class="group relative bg-surface-50 p-6 focus:ring-none">
@@ -237,7 +235,7 @@ const themeHuesArray = [
               type="range"
               :max="360"
               :min="0"
-              class="slider-wl-tonal w-full">
+              class="w-full slider-wl-tonal">
           </div>
           <label for="default-range" class="mb-2 block text-sm font-medium">
             Chroma {{ theme.dark.surface.chroma }}
@@ -249,7 +247,7 @@ const themeHuesArray = [
             :max="0.5"
             :min="0"
             :step="0.001"
-            class="slider-wl-tonal w-full">
+            class="w-full slider-wl-tonal">
         </div>
       </div>
     </div>

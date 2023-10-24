@@ -3,7 +3,7 @@ export const copyToClipboard = async (text: string): Promise<boolean> => {
     await navigator.clipboard.writeText(text)
     return true
   } catch (err) {
-    console.error('Ошибка копирования в буфер обмена:', err)
+    console.error('Error copying to the clipboard:', err)
     return false
   }
 }

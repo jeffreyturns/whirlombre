@@ -1,14 +1,4 @@
-export type MessageDuration = 1500 | 3000 | 4500 | -1
-
-export type ActionButton = { title: string, action: Function }
-
-export interface NotificationMessage {
-    id: string
-    title: string
-    message: string
-    duration: MessageDuration
-    actions: ActionButton[]
-}
+import type { NotificationMessage } from '~/types/notification'
 
 const defaultNotificationOptions = {
   title: 'Title',
@@ -18,13 +8,13 @@ const defaultNotificationOptions = {
   actions: []
 }
 
-export function createNotification (options: { id?: string; title?: string; message?: string; duration?: MessageDuration, actions?: ActionButton[] }) {
+export function createNotification (options: Partial<NotificationMessage>) {
   const _options = Object.assign({ ...defaultNotificationOptions }, options)
 
   useNotifications().value?.push(
     ...[
       {
-        id: options.id !== null ? generateID() : options.id,
+        id: options.id !== null ? generateUUID() : options.id,
         ..._options
       }
     ]

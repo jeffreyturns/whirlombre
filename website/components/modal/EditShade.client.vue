@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { reactive, watch, computed } from 'vue'
 import { ShadeItem } from '~/types/shade'
 
 type EditShadeProps = {
@@ -7,13 +6,14 @@ type EditShadeProps = {
     item: ShadeItem
 }
 
+type EmitEvents = {
+  (e: 'update:modelValue', value: boolean): void
+  (e: 'save-changes', value: ShadeItem): void
+}
+
 const props = withDefaults(defineProps<EditShadeProps>(), { modelValue: false })
 
-// eslint-disable-next-line func-call-spacing
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: boolean): void
-    (e: 'save-changes', value: ShadeItem): void
-}>()
+const emit = defineEmits<EmitEvents>()
 
 const value = computed({
   get: () => props.modelValue,
@@ -31,6 +31,9 @@ watch(
 
 const save = () => {
   emit('save-changes', { ...localData })
+  value.value = false
+}
+const close = () => {
   value.value = false
 }
 </script>
@@ -144,16 +147,8 @@ const save = () => {
                 </div>
               </div>
               <div class="mt-5 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:mt-6 sm:gap-3">
-                <a
-                  class="inline-flex items-center justify-center btn-wl-filled"
-                  @click="save()">
-                  Update
-                </a>
-                <a
-                  class="inline-flex items-center justify-center btn-wl-outlined"
-                  @click="value = false">
-                  Cancel
-                </a>
+                <BaseButton text="Save" @click="save()" />
+                <BaseButton variant="outlined" text="Cancel" @click="close()" />
               </div>
             </HeadlessDialogPanel>
           </HeadlessTransitionChild>

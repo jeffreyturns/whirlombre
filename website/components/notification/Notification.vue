@@ -1,11 +1,15 @@
 <script lang="ts" setup>
+import type { NotificationMessage } from '~/types/notification'
+
+type EmitEvents = {
+  (e: 'close'): void
+}
+
 const { notification } = defineProps<{
   notification: NotificationMessage
 }>()
 
-const emit = defineEmits<{
-  (e: 'close'): void
-}>()
+const emit = defineEmits<EmitEvents>()
 
 onMounted(() => {
   if (notification.duration !== -1) {
@@ -53,13 +57,7 @@ const close = () => {
             </div>
           </div>
           <div class="ml-4 flex flex-shrink-0">
-            <button
-              type="button"
-              class="inline-flex rounded-wl-small p-1 text-surface-600 transition-colors hover:bg-surface-700/12 hover:text-surface-900"
-              @click="close">
-              <span class="sr-only">Close</span>
-              <BaseIcon :size="18" icon="close" />
-            </button>
+            <BaseButton icon="close" :icon-size="18" />
           </div>
         </div>
       </div>

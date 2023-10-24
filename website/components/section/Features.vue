@@ -1,3 +1,4 @@
+<!-- eslint-disable @stylistic/max-len -->
 <script setup lang="ts">
 const features = [
   {
@@ -41,15 +42,16 @@ const features = [
 
 <template>
   <BaseContainer>
-    <MotionFadeIn>
+    <MotionContainer type="fade-in">
       <h2 class="mb-16 text-center text-3xl leading-10 tracking-tight font-headline text-surface-900">
         Features
       </h2>
-    </MotionFadeIn>
-    <div class="overflow-hidden rounded-wl-small sm:grid sm:grid-cols-2 sm:gap-px divide-y divide-surface-200 sm:divide-y-0">
-      <MotionFadeIn
+    </MotionContainer>
+    <div class="gap-px overflow-hidden rounded-wl-small sm:grid sm:grid-cols-2 space-y-px sm:space-y-none">
+      <MotionContainer
         v-for="(it, i) in features"
         :key="it.title"
+        type="fade-in"
         :class="[
           i === 0 && 'rounded-tl-sm rounded-tr-sm sm:rounded-tr-none',
           i === 1 && 'sm:rounded-tr-sm',
@@ -63,7 +65,7 @@ const features = [
           </div>
           <div class="mt-8">
             <h3 class="text-base font-semibold leading-6 text-surface-900">
-              <NuxtLink to="/foo/bar" class="focus:outline-none">
+              <NuxtLink to="/blog/why-whirlombre" class="focus:outline-none">
                 <span
                   class="absolute inset-0"
                   aria-hidden="true" />
@@ -80,7 +82,7 @@ const features = [
               :size="24" />
           </span>
         </div>
-      </MotionFadeIn>
+      </MotionContainer>
     </div>
   </BaseContainer>
 </template>

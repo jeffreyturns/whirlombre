@@ -1,3 +1,4 @@
+<!-- eslint-disable @stylistic/max-len -->
 <script setup lang="ts">
 const faqs = [
   {
@@ -30,16 +31,17 @@ const faqs = [
 <template>
   <BaseContainer class="mb-12">
     <div class="mx-auto max-w-4xl">
-      <MotionFadeIn>
+      <MotionContainer type="fade-in">
         <h2 class="mb-16 text-center text-3xl leading-10 tracking-tight font-headline text-surface-900">
           Frequently asked questions
         </h2>
-      </MotionFadeIn>
+      </MotionContainer>
 
       <dl class="mt-10 space-y-px">
-        <MotionFadeIn
+        <MotionContainer
           v-for="{ answer, question } in faqs"
-          :key="question">
+          :key="question"
+          type="fade-in">
           <BaseAccordion class="rounded-wl-small bg-surface-50 transition-colors hover:bg-surface-100">
             <template #header="{ isExpanded }">
               <span class="text-base font-semibold leading-7">{{ question }}</span>
@@ -56,7 +58,7 @@ const faqs = [
               </p>
             </template>
           </BaseAccordion>
-        </MotionFadeIn>
+        </MotionContainer>
       </dl>
     </div>
   </BaseContainer>

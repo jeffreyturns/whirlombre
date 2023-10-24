@@ -29,6 +29,7 @@ useSeoMeta({
 </script>
 
 <template>
+  <CommandPalette />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

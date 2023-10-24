@@ -1,7 +1,12 @@
 <script lang="ts" setup>
-type IconSize = 16 | 18 | 20 | 24
+export type IconSize = 16 | 18 | 20 | 24
 
-const props = defineProps<{ icon: string; size?: IconSize }>()
+type IconProps = {
+  icon: string;
+  size?: IconSize
+}
+
+const props = defineProps<IconProps>()
 </script>
 
 <template>

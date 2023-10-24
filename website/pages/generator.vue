@@ -77,24 +77,8 @@ const copyHEX = (hex: string) => {
 
     <BaseContainer>
       <div class="flex gap-x-3">
-        <a
-          class="btn-wl-filled"
-          @click="showCreateShade = true">
-          <BaseIcon
-            class="mr-1"
-            icon="add"
-            :size="16" />
-          Add Shade
-        </a>
-        <a
-          class="btn-wl-outlined"
-          @click="showExportTheme = true">
-          <BaseIcon
-            class="mr-1"
-            icon="download"
-            :size="16" />
-          Export
-        </a>
+        <BaseButton text="Add Shade" icon-left="add" @click="showCreateShade = true" />
+        <BaseButton text="Export" variant="outlined" icon-left="download" @click="showExportTheme = true" />
       </div>
       <div class="py-6">
         <div class="h-[1px] bg-surface-950/12" />
@@ -113,15 +97,7 @@ const copyHEX = (hex: string) => {
             <div class="w-full">
               {{ item.name }}
             </div>
-            <a
-              class="h-10 inline-flex items-center rounded-wl-small bg-accent-600 px-4 py-2.5 text-sm leading-6 text-surface-10 transition-colors focus:bg-accent-700 hover:bg-accent-700 focus:outline-none dark:hover:bg-accent-900"
-              @click="openItemEdit(item.id)">
-              <BaseIcon
-                class="mr-1"
-                icon="edit"
-                :size="16" />
-              Edit
-            </a>
+            <BaseButton icon-left="edit" text="Edit" @click="openItemEdit(item.id)" />
             <a
               class="h-10 inline-flex items-center rounded-wl-small bg-transparent px-4 py-2.5 text-sm leading-6 text-red-700 transition-colors focus:bg-red-700/12 hover:bg-red-700/12 dark:text-red-300 hover:dark:bg-red-300/12"
               @click="removeItem(item.id)">
@@ -151,13 +127,7 @@ const copyHEX = (hex: string) => {
                     </p>
                   </div>
                   <p class="text-sm font-medium text-surface-500">
-                    <button
-                      class="icon-btn-wl-text absolute bottom-2.5 right-2.5 rounded-wl-small"
-                      @click="copyHEX(it)">
-                      <BaseIcon
-                        icon="content_copy"
-                        :size="18" />
-                    </button>
+                    <BaseButton icon="content_copy" :icon-size="18" class="absolute bottom-2.5 right-2.5" @click="copyHEX(`${it}`)" />
                   </p>
                 </div>
               </div>

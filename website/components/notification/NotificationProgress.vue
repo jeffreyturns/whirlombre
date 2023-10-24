@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { MessageDuration } from '~/types/notification'
+
 const { duration } = defineProps<{
     duration: MessageDuration
 }>()

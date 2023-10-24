@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware((to, _) => {
-  if (process.client) {
+  if (process.client && !to.hash) {
     window.scroll({
       top: 0,
       left: 0,

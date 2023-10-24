@@ -53,9 +53,13 @@ const copy = () => {
   })
 }
 
-const selected = ref(0)
+// const selected = ref(0)
 
-const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)', 'SCSS (HEX)', 'CSS (HEX)', 'CSS (RGB)', 'SVG (Figma)'])
+// const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)', 'SCSS (HEX)', 'CSS (HEX)', 'CSS (RGB)', 'SVG (Figma)'])
+
+const close = () => {
+  value.value = false
+}
 </script>
 
 <template>
@@ -101,7 +105,7 @@ const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)'
                     class="text-xl font-headline text-surface-900">
                     Export Theme
                   </HeadlessDialogTitle>
-                  <div class="mt-4 flex flex-wrap text-left text-base">
+                  <!-- <div class="mt-4 flex flex-wrap text-left text-base">
                     <div
                       v-for="(it, i) in exportStyles"
                       :key="i"
@@ -114,12 +118,12 @@ const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)'
                         :size="18" />
                       {{ it }}
                     </div>
-                  </div>
+                  </div> -->
                   <div class="relative">
                     <div class="relative static my-5">
                       <button
                         type="button"
-                        class="icon-btn-wl-text absolute right-5 top-2.5 inline-flex items-center bg-surface-50"
+                        class="absolute right-5 top-2.5 inline-flex items-center bg-surface-50 icon-btn-wl-text"
                         tabindex="-1"
                         @click="copy()">
                         <Transition :duration="150" name="fade" mode="out-in">
@@ -142,11 +146,7 @@ const exportStyles = ref(['Tailwind (HEX)', 'Tailwind (OKLCH)', 'Tailwind (HSL)'
                 </div>
               </div>
               <div class="mt-5 sm:grid sm:grid-flow-row-dense sm:mt-6 sm:gap-3">
-                <a
-                  class="btn-wl-outlined inline-flex items-center justify-center"
-                  @click="value = false">
-                  Cancel
-                </a>
+                <BaseButton class="inline-flex items-center justify-center" variant="outlined" text="Cancel" @click="close()" />
               </div>
             </HeadlessDialogPanel>
           </HeadlessTransitionChild>

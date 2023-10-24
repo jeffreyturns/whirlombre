@@ -3,7 +3,9 @@ title: 'Introduction'
 foo: 'bar'
 ---
 
-# Getting Started
+::Header
+Getting Started
+::
 
 ## Installation
 

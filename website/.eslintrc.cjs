@@ -26,6 +26,7 @@ module.exports = {
       ImportDeclaration: 'never',
       ExportDeclaration: { multiline: true, minProperties: 3 }
     }],
-    '@stylistic/object-curly-spacing': ['error', 'always']
+    '@stylistic/object-curly-spacing': ['error', 'always'],
+    '@stylistic/func-call-spacing': ['error', 'never']
   }
 }

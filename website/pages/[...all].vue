@@ -73,11 +73,7 @@ const links = [
               </li>
             </ul>
             <div class="mt-10 text-center space-x-3">
-              <a
-                class="btn-wl-filled"
-                @click="$router.back()">
-                Go Back
-              </a>
+              <BaseButton text="Go Back" @click="$router.back()" />
             </div>
           </div>
         </div>

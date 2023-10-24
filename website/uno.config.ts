@@ -56,13 +56,13 @@ export default defineConfig({
     borderRadius: { 'wl-small': '2px', 'wl-medium': '8px', 'wl-large': '12px' }
   } as Theme,
   shortcuts: {
-    //[Category]-[Type]-[Item]-[State]
+    // [Category]-[Type]-[Item]-[State]
     /*
      *
      * Base Components
      *
      */
-    'btn-wl-base': 'text-sm inline-flex items-center px-4 py-2 rounded-wl-small leading-6 transition-wl-colors focus:outline-none',
+    'btn-wl-base': 'text-sm outline-none inline-flex items-center inline-flex justify-center px-4 py-2 rounded-wl-small leading-6 transition-wl-colors focus:outline-none',
     'icon-btn-base': 'inline-flex items-center justify-center rounded-wl-small p-2',
     'chip-base': 'mx-0.5 mb-1 px-1.5 inline-flex rounded-wl-small items-center transition-wl-colors cursor-pointer',
     /*
@@ -71,6 +71,7 @@ export default defineConfig({
      *
      */
     'btn-wl-filled': 'btn-wl-base bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900',
+    'btn-wl-filled-disabled': 'btn-wl-base bg-surface-950/12 text-surface-950/75 cursor-not-allowed',
     'btn-wl-outlined': 'btn-wl-base ring-1 ring-surface-950/12 bg-transparent hover:bg-accent-700/12 text-accent-700 focus:bg-accent-700/12',
     'btn-wl-text': 'btn-wl-base bg-transparent text-surface-950 hover:bg-surface-950/12 focus:bg-surface-950/12',
     'icon-btn-wl-text': 'icon-btn-base text-surface-950 hover:bg-surface-950/12 transition-wl-colors',

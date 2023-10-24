@@ -12,7 +12,6 @@ const innerDocs = computed(() => docs.value?.[0].children)
       <div class="mx-auto max-w-6xl px-4 lg:px-8 sm:px-6">
         <div class="relative gap-8 lg:grid lg:grid-cols-4">
           <aside class="mr-3 hidden overflow-y-auto px-2 pb-8 lg:sticky lg:top-[4rem] -ml-3 lg:block lg:max-h-[calc(100vh-4rem)] lg:self-start lg:pt-8 lg:-mt-8 sm:-mb-16">
-            <DocsSearchBox />
             <div class="space-y-3">
               <div
                 v-for="item of innerDocs"
@@ -55,7 +54,6 @@ const innerDocs = computed(() => docs.value?.[0].children)
                     </span>
                   </template>
                   <template #content>
-                    <DocsSearchBox class="flex flex-shrink-0" />
                     <div
                       v-for="item of innerDocs"
                       :key="item.name"

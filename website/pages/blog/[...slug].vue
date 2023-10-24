@@ -78,18 +78,8 @@ const links = [
                       </li>
                     </ul>
                     <div class="mt-10 text-center space-x-3">
-                      <a
-                        class="btn-wl-filled"
-                        @click="$router.back()">
-                        Go Back
-                      </a>
-                      <NuxtLink to="/" class="btn-wl-outlined">
-                        To Home
-                        <BaseIcon
-                          class="ml-1"
-                          icon="east"
-                          :size="16" />
-                      </NuxtLink>
+                      <BaseButton text="Go Back" @click="$router.back()" />
+                      <BaseButton text="To Home" href="/" variant="outlined" icon-right="east" />
                     </div>
                   </div>
                 </div>

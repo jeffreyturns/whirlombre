@@ -1,6 +1,7 @@
 <script setup lang="ts">
+
 const open = ref(false)
-const isScrolled = ref(false)
+const scrolled = ref(false)
 
 const navigation = [
   { name: 'Documentation', href: '/docs' },
@@ -11,14 +12,16 @@ const navigation = [
 
 onMounted(() => {
   if (process.client) {
-    window.addEventListener('scroll', () => (isScrolled.value = window.scrollY > 1))
+    window.addEventListener('scroll', () => (scrolled.value = window.scrollY > 1))
   }
 })
+
+const close = () => (open.value = false)
 </script>
 
 <template>
   <header
-    :class="isScrolled && 'bg-surface-50'"
+    :class="scrolled && 'bg-surface-50'"
     class="fixed z-10 w-full transition-colors">
     <nav
       class="mx-auto max-w-7xl flex items-center justify-between px-3 py-3 lg:px-8"
@@ -34,37 +37,27 @@ onMounted(() => {
         </NuxtLink>
       </div>
       <div class="flex lg:hidden">
-        <button
-          type="button"
-          class="icon-btn-wl-text"
-          @click="open = true">
-          <BaseIcon
-            icon="menu"
-            :size="24" />
-        </button>
+        <BaseButton icon="menu" @click="open = true" />
       </div>
       <div class="hidden lg:flex lg:gap-x-4">
         <NuxtLink
           v-for="item in navigation"
           :key="item.name"
           :to="item.href"
-          :class="item.href == $route.path ? 'bg-surface-950/12 text-surface-950' : 'text-surface-700 hover:bg-surface-900/12'"
+          :class="$route.path.startsWith(item.href) ? 'bg-surface-950/12 text-surface-950' : 'text-surface-700 hover:bg-surface-900/12'"
           class="rounded-wl-small px-3 py-2 text-sm leading-6 transition-wl-colors">
           {{ item.name }}
         </NuxtLink>
       </div>
       <div class="hidden items-center lg:flex lg:flex-1 lg:justify-end lg:space-x-3">
-        <NuxtLink
-          href="https://github.com/jeffreyturns/whirlombre"
+        <NavSearch :class="scrolled ? 'bg-surface-10': 'bg-surface-100'" />
+        <BaseButton
           target="_blank"
           rel="noopener"
-          class="btn-wl-filled">
-          Github
-          <BaseIcon
-            class="ml-1"
-            icon="north_east"
-            :size="18" />
-        </NuxtLink>
+          href="https://github.com/jeffreyturns/whirlombre"
+          variant="filled"
+          text="Github"
+          icon-right="north_east" />
       </div>
     </nav>
     <ClientOnly>
@@ -76,7 +69,7 @@ onMounted(() => {
           as="div"
           class="lg:hidden"
           :open="open"
-          @close="open = false">
+          @close="close()">
           <HeadlessTransitionChild
             as="template"
             enter="timing-out-glide-medium"
@@ -102,19 +95,13 @@ onMounted(() => {
                 <NuxtLink
                   to="/"
                   class="p-1.5 -m-1.5"
-                  @click="open = false">
+                  @click="close()">
                   <span class="sr-only">Whirlombre</span>
                   <NavLogo class="text-accent-700" />
                 </NuxtLink>
-                <button
-                  type="button"
-                  class="icon-btn-wl-text"
-                  @click="open = false">
-                  <BaseIcon
-                    icon="close"
-                    :size="24" />
-                </button>
+                <BaseButton icon="close" @click="close()" />
               </div>
+              <NavSearch class="my-4 w-full bg-surface-10" @click="close()" />
               <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-surface-950/12">
                   <div class="py-6 space-y-2">
@@ -123,7 +110,7 @@ onMounted(() => {
                       :key="item.name"
                       :to="item.href"
                       class="block rounded-wl-small px-3 py-2 text-base leading-7 text-surface-950 -mx-3 hover:bg-surface-950/12"
-                      @click="open = false">
+                      @click="close()">
                       {{ item.name }}
                     </NuxtLink>
                   </div>

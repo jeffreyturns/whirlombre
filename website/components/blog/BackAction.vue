@@ -1,13 +1,7 @@
 <template>
-  <div class="mx-auto max-w-prose">
+  <div class="mx-auto max-w-5xl">
     <div class="flex pt-12">
-      <NuxtLink to="/blog" class="btn-wl-text">
-        <BaseIcon
-          class="mr-1"
-          icon="west"
-          :size="16" />
-        Go Back
-      </NuxtLink>
+      <BaseButton variant="text" icon-left="west" text="Go Back" href="/blog" />
     </div>
   </div>
 </template>

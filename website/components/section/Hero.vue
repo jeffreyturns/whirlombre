@@ -1,6 +1,6 @@
 <template>
   <div class="relative isolate overflow-hidden">
-    <MotionFade>
+    <MotionContainer type="fade">
       <svg
         width="100%"
         height="100%"
@@ -53,18 +53,18 @@
           </filter>
         </defs>
       </svg>
-    </MotionFade>
+    </MotionContainer>
 
-    <MotionFade :delay="300">
+    <MotionContainer type="fade" :delay="300">
       <svg width="1085" height="1089" class="pattern-wl-spin absolute h-screen w-200% stroke-surface-950 -z-10 lg:h-200% lg:w-screen" viewBox="0 0 1085 1089" fill="none">
         <path opacity="0.20" d="M542.5 1088L542.443 545.04L429.5 1076.12L542.332 545.017L321.439 1041.01L542.228 544.971L223.039 984.201L542.137 544.904L138.601 908.172L542.06 544.819L71.8153 816.25L542.004 544.721L25.6008 712.451L541.969 544.613L1.97754 601.311L541.957 544.5L1.97755 487.689L541.969 544.387L25.6009 376.549L542.004 544.279L71.8153 272.75L542.06 544.18L138.601 180.827L542.137 544.096L223.039 104.799L542.228 544.029L321.439 47.988L542.332 543.983L429.5 12.8768L542.443 543.959L542.5 1L542.557 543.959L655.5 12.8768L542.668 543.983L763.562 47.9881L542.772 544.029L861.962 104.799L542.864 544.096L946.399 180.828L542.94 544.18L1013.19 272.75L542.997 544.279L1059.4 376.549L543.032 544.387L1083.02 487.689L543.044 544.5L1083.02 601.311L543.032 544.613L1059.4 712.451L542.997 544.721L1013.18 816.25L542.94 544.819L946.399 908.172L542.864 544.904L861.961 984.201L542.772 544.971L763.562 1041.01L542.668 545.017L655.5 1076.12L542.557 545.04L542.5 1088Z" stroke="currentColor" stroke-width="0.5" />
       </svg>
-    </MotionFade>
+    </MotionContainer>
 
     <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 lg:flex lg:px-8 lg:py-32 sm:pb-32">
       <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
         <div class="mt-12 sm:mt-24">
-          <MotionFadeIn>
+          <MotionContainer type="fade-in">
             <NuxtLink to="blog/introducing-whirlombre" class="inline-flex space-x-6">
               <span
                 class="flex items-center rounded-wl-small px-3 py-1 text-sm font-semibold leading-6 text-accent-600 transition-colors hover:bg-accent-600/12">
@@ -75,44 +75,34 @@
                   :size="16" />
               </span>
             </NuxtLink>
-          </MotionFadeIn>
+          </MotionContainer>
         </div>
-        <MotionFadeIn :delay="120">
+        <MotionContainer type="fade-in" :delay="120">
           <h1
             class="mt-6 from-surface-950 to-surface-500 bg-gradient-to-br bg-clip-text text-4xl tracking-tight font-headline text-transparent drop-shadow-sm sm:text-6xl">
             Elevate Your Designs with Seamless Shades
           </h1>
-        </MotionFadeIn>
-        <MotionFadeIn :delay="240">
+        </MotionContainer>
+        <MotionContainer type="fade-in" :delay="240">
           <p class="mt-6 text-lg leading-8 text-surface-600">
-            Super-minimal library empowers you to effortlessly create and generate smooth shades, elevating your projects to a new level of
+            Super-minimal library & tool empowers you to effortlessly create and generate smooth shades, elevating your projects to a new level of
             sophistication.
           </p>
-        </MotionFadeIn>
-        <MotionFadeIn :delay="360">
+        </MotionContainer>
+        <MotionContainer type="fade-in" :delay="360">
           <div class="mt-10 flex items-center gap-x-6">
-            <NuxtLink
-              to="/docs"
-              class="btn-wl-filled">
-              Get Started
-            </NuxtLink>
-            <NuxtLink to="blog/why-whirlombre" class="btn-wl-outlined">
-              Learn more
-              <BaseIcon
-                class="ml-1"
-                icon="north_east"
-                :size="16" />
-            </NuxtLink>
+            <BaseButton href="/docs" text="Get Started" />
+            <BaseButton href="/blog/why-whirlombre" icon-right="north_east" variant="outlined" text="Learn more" />
           </div>
-        </MotionFadeIn>
+        </MotionContainer>
       </div>
       <div class="mx-auto mt-24 max-w-2xl flex lg:ml-10 lg:mr-0 lg:mt-24 sm:mt-32 xl:ml-32 lg:max-w-none lg:flex-none">
         <div class="max-w-3xl flex-none lg:max-w-none sm:max-w-5xl">
-          <MotionFadeIn :delay="480">
+          <MotionContainer type="fade-in" :delay="480">
             <div class="mt-6 text-[150px] font-minoan sm:text-[300px]">
               𒾙·𒾚·𒾛·𒾜
             </div>
-          </MotionFadeIn>
+          </MotionContainer>
         </div>
       </div>
     </div>

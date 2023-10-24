@@ -7,7 +7,7 @@ const posts = computed(() => data.value?.[0].children)
 
 <template>
   <div v-for="(post, i) in posts" :key="i">
-    <MotionFadeIn :delay="120 * i">
+    <MotionContainer type="fade-in" :delay="120 * i">
       <article class="flex flex-col items-start justify-between rounded-wl-small p-4 transition-wl-colors hover:bg-surface-50">
         <NuxtLink :to="post._path">
           <div class="relative w-full">
@@ -30,6 +30,6 @@ const posts = computed(() => data.value?.[0].children)
           </div>
         </NuxtLink>
       </article>
-    </MotionFadeIn>
+    </MotionContainer>
   </div>
 </template>

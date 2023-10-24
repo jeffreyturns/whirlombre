@@ -29,7 +29,7 @@ const copy = () => {
     <div class="relative static my-5">
       <button
         type="button"
-        class="icon-btn-wl-text absolute right-2.5 top-2.5 inline-flex items-center"
+        class="absolute right-2.5 top-2.5 inline-flex items-center icon-btn-wl-text"
         tabindex="-1"
         @click="copy()">
         <Transition :duration="150" name="fade" mode="out-in">

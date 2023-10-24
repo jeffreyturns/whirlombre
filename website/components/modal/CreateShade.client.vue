@@ -20,7 +20,7 @@ const value = computed({
 const palette = usePalette()
 
 const data = ref<ShadeItem>({
-  id: generateID(),
+  id: generateUUID(),
   name: '',
   hue: 0,
   chroma: 0,
@@ -41,7 +41,9 @@ const createShade = () => {
   palette.value.push(data.value)
   value.value = false
 }
-
+const close = () => {
+  value.value = false
+}
 const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.some(shade => shade.name.toLowerCase() === data.value.name.toLowerCase()))
 </script>
 
@@ -155,21 +157,8 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                 </div>
               </div>
               <div class="mt-5 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:mt-6 sm:gap-3">
-                <a
-                  :class="[
-                    canAddShade
-                      ? 'bg-accent-600 text-surface-10 hover:bg-accent-700 focus:bg-accent-700 dark:hover:bg-accent-900 cursor-pointer'
-                      : 'bg-surface-950/12 text-surface-950/75 cursor-not-allowed'
-                  ]"
-                  class="btn-wl-base inline-flex items-center justify-center"
-                  @click="canAddShade && createShade()">
-                  Create
-                </a>
-                <a
-                  class="inline-flex items-center justify-center btn-wl-outlined"
-                  @click="value = false">
-                  Cancel
-                </a>
+                <BaseButton text="Create" :disabled="!canAddShade" @click="canAddShade && createShade()" />
+                <BaseButton variant="outlined" text="Cancel" @click="close()" />
               </div>
             </HeadlessDialogPanel>
           </HeadlessTransitionChild>
