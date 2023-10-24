@@ -53,9 +53,9 @@ export function DEFAULT () {
       color: 'rgba(var(--un-preset-theme-colors-surface-950), 1)',
       'font-size': '.875em',
       'font-weight': 600
-    //   'font-family': theme.fontFamily?.mono,
+      //   'font-family': theme.fontFamily?.mono,
     },
-    ':not(pre) > code::before,:not(pre) > code::after': { content: '"`"' },
+    ':not(pre) > code::before,:not(pre) > code::after': { content: '""' },
     pre: {
       padding: '1.25rem 1.5rem',
       'overflow-x': 'auto',
@@ -66,12 +66,14 @@ export function DEFAULT () {
       'word-spacing': 'normal',
       'word-break': 'break-word',
       'word-wrap': 'normal',
+      padding: '0.25rem 0.375rem',
       '-moz-tab-size': 4,
       '-o-tab-size': 4,
       'tab-size': 4,
       '-webkit-hyphens': 'none',
       '-moz-hyphens': 'none',
       hyphens: 'none',
+      'border-radius': '.125rem',
       background: 'rgba(var(--un-preset-theme-colors-surface-100), 1)'
     },
     'pre code': { 'font-weight': 'inherit' },
@@ -98,7 +100,8 @@ export function DEFAULT () {
       'border-collapse': 'collapse',
       'overflow-x': 'auto'
     },
-    'tr:nth-child(2n)': { background: 'var(--un-prose-bg-soft)' },
+    'tr:nth-child(2n)': { color: 'var(--un-preset-theme-colors-surface-200)' },
+    'thead > tr': { background: 'rgba(var(--un-preset-theme-colors-surface-100), 1)' },
     'td,th': {
       border: '1px solid rgba(var(--un-preset-theme-colors-surface-200), 1)',
       padding: '.625em 1em'

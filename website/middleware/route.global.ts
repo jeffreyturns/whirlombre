@@ -8,6 +8,6 @@ export default defineNuxtRouteMiddleware((to, _) => {
   }
 
   if (to.path === '/docs') {
-    return navigateTo('/docs/getting-started/introduction')
+    return navigateTo('/docs/getting-started/installation')
   }
 })

@@ -1,3 +1,0 @@
-::Header
-Test 1
-::

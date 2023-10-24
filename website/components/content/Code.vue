@@ -43,7 +43,7 @@ const copy = () => {
       </button>
       <div
         ref="codeRef"
-        class="[&>pre]:!my-0 [&>pre]:!rounded-b-wl-small [&>pre]:!rounded-t-none">
+        class="[&>pre]:!my-0 [&>pre]:!rounded-b-wl-small [&>pre]:!rounded-t-none [&>pre]:!py-4">
         <slot />
       </div>
     </div>

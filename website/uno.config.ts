@@ -35,7 +35,9 @@ export default defineConfig({
   rules: [],
   presets: [
     presetUno(),
-    presetTypography({ cssExtend: DEFAULT() }),
+    presetTypography({
+      cssExtend: DEFAULT()
+    }),
     // @ts-ignore
     presetTheme<Theme>({ theme: { dark } }),
     presetWebFonts({
