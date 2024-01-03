@@ -1,2 +1,8 @@
-*.png
-*.ico
+node_modules
+dist
+.nuxt
+coverage
+*.log*
+.DS_Store
+*.iml
+package-lock.json
