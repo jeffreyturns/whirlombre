@@ -24,15 +24,17 @@ const data = ref<ShadeItem>({
   name: '',
   hue: 0,
   chroma: 0,
+  harmonize: null,
   isDark: false
 })
 
 const clearData = () => {
   data.value = {
-    id: '',
+    id: generateUUID(),
     name: '',
     hue: 0,
     chroma: 0,
+    harmonize: null,
     isDark: false
   }
 }
@@ -130,7 +132,7 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                       :step="0.001"
                       class="w-full slider-wl-tonal">
 
-                    <label class="flex cursor-pointer select-none items-center justify-center py-6">
+                    <label class="flex cursor-pointer select-none items-center justify-center py-4">
                       <label
                         for="is-dark-checkbox"
                         class="block w-full text-left text-sm font-medium">
@@ -153,6 +155,45 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                           ]" />
                       </div>
                     </label>
+
+                    <label class="flex cursor-pointer select-none items-center justify-center py-4">
+                      <label
+                        for="harmonize-checkbox"
+                        class="block w-full text-left text-sm font-medium">
+                        Harmonize: {{ data.harmonize !== null ? 'Yes' : 'No' }}
+                      </label>
+                      <div class="relative">
+                        <input
+                          id="harmonize-checkbox"
+                          type="checkbox"
+                          :checked="data.harmonize === null"
+                          class="sr-only"
+                          @change="data.harmonize === null ? data.harmonize = 0 : data.harmonize = null">
+                        <div :class="['block h-6 w-14 rounded-wl-small', data.harmonize !== null ? 'bg-accent-300' : 'bg-surface-200']" />
+                        <div
+                          :class="[
+                            'absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-wl-small transition duration-150',
+                            data.harmonize !== null
+                              ? 'translate-x-8 bg-accent-700 hover:bg-accent-800'
+                              : 'bg-surface-500 hover:bg-surface-600'
+                          ]" />
+                      </div>
+                    </label>
+
+                    <div v-if="data.harmonize !== null">
+                      <label
+                        for="hue-harmonize-range"
+                        class="mb-2 block text-left text-sm font-medium">
+                        Hue: {{ data.harmonize }}
+                      </label>
+                      <input
+                        id="hue-harmonize-range"
+                        v-model="data.harmonize"
+                        type="range"
+                        :max="360"
+                        :min="0"
+                        class="w-full slider-wl-tonal">
+                    </div>
                   </div>
                 </div>
               </div>

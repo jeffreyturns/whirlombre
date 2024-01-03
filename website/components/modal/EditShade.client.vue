@@ -143,6 +143,45 @@ const close = () => {
                           ]" />
                       </div>
                     </label>
+
+                    <label class="flex cursor-pointer select-none items-center justify-center py-4">
+                      <label
+                        for="harmonize-checkbox"
+                        class="block w-full text-left text-sm font-medium">
+                        Harmonize: {{ localData.harmonize !== null ? 'Yes' : 'No' }}
+                      </label>
+                      <div class="relative">
+                        <input
+                          id="harmonize-checkbox"
+                          type="checkbox"
+                          :checked="localData.harmonize === null"
+                          class="sr-only"
+                          @change="localData.harmonize === null ? localData.harmonize = 0 : localData.harmonize = null">
+                        <div :class="['block h-6 w-14 rounded-wl-small', localData.harmonize !== null ? 'bg-accent-300' : 'bg-surface-200']" />
+                        <div
+                          :class="[
+                            'absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-wl-small transition duration-150',
+                            localData.harmonize !== null
+                              ? 'translate-x-8 bg-accent-700 hover:bg-accent-800'
+                              : 'bg-surface-500 hover:bg-surface-600'
+                          ]" />
+                      </div>
+                    </label>
+
+                    <div v-if="localData.harmonize !== null">
+                      <label
+                        for="hue-harmonize-range"
+                        class="mb-2 block text-left text-sm font-medium">
+                        Hue: {{ localData.harmonize }}
+                      </label>
+                      <input
+                        id="hue-harmonize-range"
+                        v-model="localData.harmonize"
+                        type="range"
+                        :max="360"
+                        :min="0"
+                        class="w-full slider-wl-tonal">
+                    </div>
                   </div>
                 </div>
               </div>

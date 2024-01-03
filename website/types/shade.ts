@@ -3,5 +3,6 @@ export type ShadeItem = {
     name: string
     hue: number
     chroma: number
+    harmonize: number | null
     isDark: boolean
 }

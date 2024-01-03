@@ -27,6 +27,6 @@ const notifications = useNotifications()
 
 .notification-group-enter-from,
 .notification-group-leave-to {
-    @apply anim-all-short opacity-0 transform translate-x-12 duration-300 ease-whirl;
+    @apply anim-all-short opacity-0 transform translate-x-12 duration-300;
 }
 </style>

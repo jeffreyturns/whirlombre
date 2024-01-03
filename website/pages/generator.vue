@@ -3,6 +3,8 @@ import { generateShades } from '../../library/src'
 
 import { ShadeItem } from '~/types/shade'
 
+useHead({ title: 'Color Generator' })
+
 const palette = usePalette()
 
 const showCreateShade = ref(false)
@@ -71,10 +73,9 @@ const copyHEX = (hex: string) => {
     <ModalCreateShade v-model="showCreateShade" />
     <ModalEditShade
       v-model="showEditShade"
-      :item="palette.find(item => item.id === editItemId) || { id: '', name: '', hue: 0, chroma: 0, isDark: false }"
+      :item="palette.find(item => item.id === editItemId) || { id: '', name: '', hue: 0, chroma: 0, harmonize: null, isDark: false }"
       @save-changes="updateItem" />
     <ModalExportTheme v-model="showExportTheme" />
-
     <BaseContainer>
       <div class="flex gap-x-3">
         <BaseButton text="Add Shade" icon-left="add" @click="showCreateShade = true" />
@@ -110,13 +111,13 @@ const copyHEX = (hex: string) => {
           </div>
           <div class="grid grid-cols-1 mt-3 gap-x-2 gap-y-3 sm:grid-cols-4 xl:grid-cols-6 2xl:mt-0 sm:mt-2">
             <div
-              v-for="(it, key) in generateShades(item.hue, item.chroma, item.isDark)"
+              v-for="(it, key) in generateShades(item.hue, item.chroma, item.isDark, item.harmonize ?? undefined)"
               :key="key"
               class="relative flex">
               <div class="w-full flex cursor-pointer items-center gap-x-3 rounded-wl-small ring-1 ring-surface-950/12 sm:block sm:space-y-1.5">
                 <div
                   class="h-full w-10 rounded-wl-small sm:h-25 sm:w-full"
-                  :style="{ backgroundColor: it }" />
+                  :style="{ backgroundColor: it === '#aN' ? '#000000': it }" />
                 <div class="mt-2 flex justify-between px-1 md:py-2">
                   <div>
                     <h3 class="w-6 text-xl font-medium text-surface-900 2xl:w-full">

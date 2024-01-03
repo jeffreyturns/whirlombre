@@ -5,7 +5,7 @@ const scrolled = ref(false)
 
 const navigation = [
   { name: 'Documentation', href: '/docs' },
-  { name: 'Pallete Generator', href: '/generator' },
+  { name: 'Palette Generator', href: '/generator' },
   { name: 'Site Color', href: '/theme' },
   { name: 'Blog', href: '/blog' }
 ]

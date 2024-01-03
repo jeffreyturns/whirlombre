@@ -21,7 +21,7 @@ watchEffect(() => {
               url: '/docs'
             },
             {
-              name: 'Pallete Generator',
+              name: 'Palette Generator',
               url: '/generator'
             },
             {
@@ -120,7 +120,7 @@ onMounted(() => {
                   v-if="filteredData.length > 0"
                   static
                   class="my-2 max-h-72 scroll-py-2 overflow-y-auto text-base text-surface-800 [&::-webkit-scrollbar]:w-2.5 lg:max-h-96 [&::-webkit-scrollbar-track]:!bg-surface-50">
-                  <template v-for="(it, i) in filteredData" :key="`header-${i}`">
+                  <template v-for="it in filteredData" :key="`header-${i}`">
                     <template v-if="it.data">
                       <div v-for="(nestedItem, ni) in it.data" :key="`nested-${ni}`">
                         <div

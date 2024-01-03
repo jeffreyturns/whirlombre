@@ -65,7 +65,7 @@ const features = [
           </div>
           <div class="mt-8">
             <h3 class="text-base font-semibold leading-6 text-surface-900">
-              <NuxtLink to="/blog/why-whirlombre" class="focus:outline-none">
+              <NuxtLink to="/blog/why-whirlombre" class="font-headline focus:outline-none">
                 <span
                   class="absolute inset-0"
                   aria-hidden="true" />
