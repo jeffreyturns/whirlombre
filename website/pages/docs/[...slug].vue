@@ -12,9 +12,8 @@ const docsQueryParams = queryContent('docs').params
         <ContentDoc
           v-slot="{ doc }"
           :query="docsQueryParams">
-          <article>
-            <ContentRenderer :value="doc" />
-          </article>
+          <DocsImageHeader />
+          <ContentRenderer :value="doc" />
         </ContentDoc>
       </article>
     </div>
