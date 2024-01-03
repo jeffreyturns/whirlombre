@@ -4,8 +4,7 @@
 useHead({
   titleTemplate: (title) => {
     return title ? `${title} — Whirlombre` : 'Whirlombre'
-  },
-  title: 'Whirlombre: Super-Minimalist Library for Smooth Shade Generation'
+  }
 })
 
 const config = useRuntimeConfig()
