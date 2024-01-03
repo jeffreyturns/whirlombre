@@ -19,18 +19,18 @@ export type XYZ = [number, number, number]
  * The number represents the intensity of the shade, where a higher value indicates a darker shade.
  */
 export enum Shade {
-    S10 = 10,
-    S50 = 50,
-    S100 = 100,
-    S200 = 200,
-    S300 = 300,
-    S400 = 400,
-    S500 = 500,
-    S600 = 600,
-    S700 = 700,
-    S800 = 800,
-    S900 = 900,
-    S950 = 950
+  S10 = 10,
+  S50 = 50,
+  S100 = 100,
+  S200 = 200,
+  S300 = 300,
+  S400 = 400,
+  S500 = 500,
+  S600 = 600,
+  S700 = 700,
+  S800 = 800,
+  S900 = 900,
+  S950 = 950
 }
 
 /**
