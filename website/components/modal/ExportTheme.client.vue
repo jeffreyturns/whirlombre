@@ -145,7 +145,7 @@ const close = () => {
                   </div>
                 </div>
               </div>
-              <div class="mt-5 sm:grid sm:grid-flow-row-dense sm:mt-6 sm:gap-3">
+              <div class="mt-5 sm:grid space-x-3 sm:space-x-0 sm:grid-flow-row-dense sm:mt-6 sm:gap-3">
                 <BaseButton class="inline-flex items-center justify-center" variant="outlined" text="Cancel" @click="close()" />
               </div>
             </HeadlessDialogPanel>
