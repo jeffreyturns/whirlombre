@@ -28,10 +28,16 @@ useSeoMeta({
 </script>
 
 <template>
-  <CommandPalette />
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <ProviderDynamicTheme>
+    <BaseLoadingIndicator />
+    <NotificationGroup />
+    <NavHeader />
+    <CommandPalette />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+    <NavFooter />
+  </ProviderDynamicTheme>
 </template>
 
 <style>

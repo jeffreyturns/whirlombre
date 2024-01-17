@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --fix --ignore-path .gitignore --ext .js,.cjs,.ts,.vue"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^0.8.5",
+    "@nuxt/devtools": "^1.0.8",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/eslint-module": "^4.1.0",
@@ -22,8 +22,8 @@
     "@unocss/transformer-directives": "^0.55.7",
     "eslint": "^8.50.0",
     "eslint-plugin-vue": "^9.17.0",
-    "nuxt": "^3.7.4",
-    "nuxt-headlessui": "^1.1.4",
+    "nuxt": "^3.9.2",
+    "nuxt-headlessui": "^1.1.5",
     "unocss-preset-theme": "^0.10.0"
   },
   "dependencies": {

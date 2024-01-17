@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import DefaultLayout from '~/layouts/default.vue'
-
 const { data: docs } = await useAsyncData('docs', () => fetchContentNavigation(queryContent('docs')))
 
 const innerDocs = computed(() => docs.value?.[0].children)
 </script>
 
 <template>
-  <DefaultLayout>
     <div class="pb-16 pt-8">
       <div class="mx-auto max-w-6xl px-4 lg:px-8 sm:px-6">
         <div class="relative gap-8 lg:grid lg:grid-cols-4">
@@ -90,5 +87,4 @@ const innerDocs = computed(() => docs.value?.[0].children)
         </div>
       </div>
     </div>
-  </DefaultLayout>
 </template>
