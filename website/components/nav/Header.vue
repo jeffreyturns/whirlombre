@@ -121,5 +121,8 @@ const close = () => (open.value = false)
         </HeadlessDialog>
       </HeadlessTransitionRoot>
     </ClientOnly>
+    <Transition name="fade">
+      <BaseLoadingIndicator />
+    </Transition>
   </header>
 </template>

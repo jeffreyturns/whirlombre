@@ -29,7 +29,6 @@ useSeoMeta({
 
 <template>
   <ProviderDynamicTheme>
-    <BaseLoadingIndicator />
     <NotificationGroup />
     <NavHeader />
     <CommandPalette />

@@ -19,7 +19,7 @@ const posts = computed(() => data.value?.[0].children)
               <time :datetime="formatDate(post.publishedAt)" class="text-accent-500">{{ formatDate(post.publishedAt) }}</time>
             </div>
             <div class="relative">
-              <h3 class="mt-3 text-lg font-headline font-300 leading-6 text-surface-800">
+              <h3 class="mt-3 text-lg font-300 leading-6 font-headline text-surface-800">
                 <span class="absolute inset-0" />
                 {{ post.title }}
               </h3>
