@@ -88,6 +88,10 @@ const themeHuesArray = [
         @click="changePreset(it.hue)">
         {{ it.title }}
       </a>
+      <a @click="changePreset(Math.floor(Math.random() * 360))" class="bg-surface-200 mt-4 inline-flex items-center rounded-wl-small px-4 py-2.5 text-sm leading-6">
+        Random
+        <BaseIcon class="ml-1" :size="18" icon="shuffle" />
+      </a>
     </div>
     <h3>Tools:</h3>
     <a
