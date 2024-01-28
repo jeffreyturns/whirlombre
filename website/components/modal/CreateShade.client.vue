@@ -1,21 +1,7 @@
 <script lang="ts" setup>
 import { ShadeItem } from '~/types/shade'
 
-type CreateShadeProps = {
-    modelValue?: boolean
-}
-
-const props = withDefaults(defineProps<CreateShadeProps>(), { modelValue: false })
-
-// eslint-disable-next-line func-call-spacing
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: boolean): void
-}>()
-
-const value = computed({
-  get: () => props.modelValue,
-  set: newValue => emit('update:modelValue', newValue)
-})
+const modelValue = defineModel<boolean>()
 
 const palette = usePalette()
 
@@ -41,10 +27,10 @@ const clearData = () => {
 
 const createShade = () => {
   palette.value.push(data.value)
-  value.value = false
+  modelValue.value = false
 }
 const close = () => {
-  value.value = false
+  modelValue.value = false
 }
 const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.some(shade => shade.name.toLowerCase() === data.value.name.toLowerCase()))
 </script>
@@ -52,12 +38,12 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
 <template>
   <HeadlessTransitionRoot
     as="template"
-    :show="value"
+    :show="modelValue"
     @after-leave="clearData()">
     <HeadlessDialog
       as="div"
       class="relative z-10"
-      @close="value = false">
+      @close="close()">
       <HeadlessTransitionChild
         as="template"
         enter="timing-out-glide-medium"
@@ -197,7 +183,7 @@ const canAddShade = computed(() => data.value.name.length > 0 && !palette.value.
                   </div>
                 </div>
               </div>
-              <div class="mt-5 sm:grid space-x-3 sm:space-x-0 sm:grid-flow-row-dense sm:grid-cols-2 sm:mt-6 sm:gap-3">
+              <div class="mt-5 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:mt-6 sm:gap-3 space-x-3 sm:space-x-0">
                 <BaseButton text="Create" :disabled="!canAddShade" @click="canAddShade && createShade()" />
                 <BaseButton variant="outlined" text="Cancel" @click="close()" />
               </div>

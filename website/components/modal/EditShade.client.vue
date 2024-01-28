@@ -1,24 +1,19 @@
 <script lang="ts" setup>
 import { ShadeItem } from '~/types/shade'
 
+const modelValue = defineModel<boolean>()
+
 type EditShadeProps = {
-    modelValue?: boolean
     item: ShadeItem
 }
 
 type EmitEvents = {
-  (e: 'update:modelValue', value: boolean): void
   (e: 'save-changes', value: ShadeItem): void
 }
 
-const props = withDefaults(defineProps<EditShadeProps>(), { modelValue: false })
+const props = defineProps<EditShadeProps>()
 
 const emit = defineEmits<EmitEvents>()
-
-const value = computed({
-  get: () => props.modelValue,
-  set: newValue => emit('update:modelValue', newValue)
-})
 
 const localData = reactive<ShadeItem>({ ...props.item })
 
@@ -31,21 +26,22 @@ watch(
 
 const save = () => {
   emit('save-changes', { ...localData })
-  value.value = false
+  modelValue.value = false
 }
 const close = () => {
-  value.value = false
+  Object.assign(localData, props.item)
+  modelValue.value = false
 }
 </script>
 
 <template>
   <HeadlessTransitionRoot
     as="template"
-    :show="value">
+    :show="modelValue">
     <HeadlessDialog
       as="div"
       class="relative z-10"
-      @close="value = false">
+      @close="close()">
       <HeadlessTransitionChild
         as="template"
         enter="timing-out-glide-medium"
