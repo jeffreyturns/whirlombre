@@ -79,7 +79,7 @@ export const hclToHex = (hue: number, chroma: number, luminance: number): string
  *
  * @returns {RGB} An array representing the RGB components of the color.
  */
-const hexToRgb = (hex: string): RGB => {
+export const hexToRgb = (hex: string): RGB => {
   const bigint = parseInt(hex.substring(1), 16)
   const r = (bigint >> 16) & 255
   const g = (bigint >> 8) & 255
@@ -114,3 +114,111 @@ export const combineColorsWithAlpha = (topHex: string, alpha: number, backHex: s
   return rgbToHex([r, g, b])
 }
 
+/**
+ * Convert RGB to HCT.
+ *
+ * @param {number} r - Red component (0 to 1).
+ * @param {number} g - Green component (0 to 1).
+ * @param {number} b - Blue component (0 to 1).
+ * @returns {Object} - Object with hue, chroma, and tone properties representing HCT values.
+ */
+export const rgbToHct = (r: number, g: number, b: number): { hue: number, chroma: number, tone: number } => {
+  // Convert RGB to HSL as an intermediate step
+  const hsl = rgbToHSL(r, g, b)
+
+  // HCT approximation based on HSL
+  const hue = hsl.h
+  const chroma = hsl.s
+  const tone = hsl.l
+
+  return { hue, chroma, tone }
+}
+
+/**
+ * Convert HCT to RGB.
+ *
+ * @param {number} hue - Hue component (0 to 1).
+ * @param {number} chroma - Chroma component (0 to 1).
+ * @param {number} tone - Tone component (0 to 1).
+ * @returns {number[]} - Array with RGB values (each component is between 0 and 1).
+ */
+export const hctToRGB = (hue: number, chroma: number, tone: number): number[] => {
+  // Convert HCT to HSL as an intermediate step
+  const hsl = { h: hue, s: chroma, l: tone }
+
+  // HSL to RGB conversion
+  const rgb = hslToRGB(hsl.h, hsl.s, hsl.l)
+
+  return rgb
+}
+
+/**
+ * Convert RGB to HSL.
+ *
+ * @param {number} r - Red component (0 to 1).
+ * @param {number} g - Green component (0 to 1).
+ * @param {number} b - Blue component (0 to 1).
+ * @returns {Object} - Object with h, s, l properties representing HSL values.
+ */
+export const rgbToHSL = (r: number, g: number, b: number): { h: number, s: number, l: number } => {
+  const max = Math.max(r, g, b)
+  const min = Math.min(r, g, b)
+
+  let h = 0
+  let s = 0
+  const l = (max + min) / 2
+
+  if (max !== min) {
+    s = l > 0.5 ? (max - min) / (2 - max - min) : (max - min) / (max + min)
+
+    switch (max) {
+      case r:
+        h = (g - b) / (max - min) + (g < b ? 6 : 0)
+        break
+      case g:
+        h = (b - r) / (max - min) + 2
+        break
+      case b:
+        h = (r - g) / (max - min) + 4
+        break
+    }
+
+    h /= 6
+  }
+
+  return { h, s, l }
+}
+
+/**
+ * Convert HSL to RGB.
+ *
+ * @param {number} h - Hue component (0 to 1).
+ * @param {number} s - Saturation component (0 to 1).
+ * @param {number} l - Lightness component (0 to 1).
+ * @returns {number[]} - Array with RGB values (each component is between 0 and 1).
+ */
+export const hslToRGB = (h: number, s: number, l: number): number[] => {
+  let r, g, b
+
+  if (s === 0) {
+    r = g = b = l // achromatic
+  } else {
+    const hue2rgb = (p: number, q: number, t: number): number => {
+      if (t < 0) t += 1
+      if (t > 1) t -= 1
+      if (t < 1 / 6) return p + (q - p) * 6 * t
+      if (t < 1 / 2) return q
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6
+      return p
+    }
+
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s
+    const p = 2 * l - q
+
+    r = hue2rgb(p, q, h + 1 / 3)
+    g = hue2rgb(p, q, h)
+    b = hue2rgb(p, q, h - 1 / 3)
+  }
+
+  return [r, g, b]
+}

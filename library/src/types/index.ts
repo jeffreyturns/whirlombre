@@ -14,6 +14,14 @@ export type LAB = [number, number, number]
  */
 export type XYZ = [number, number, number]
 
+export type HCT = {
+  hue: number
+  chroma: number
+  tone: number
+}
+
+export type HEX = string
+
 /**
  * Enumerates various shade intensities, commonly used for theme color definitions.
  * The number represents the intensity of the shade, where a higher value indicates a darker shade.

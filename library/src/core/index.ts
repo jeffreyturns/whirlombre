@@ -1,6 +1,8 @@
-import { combineColorsWithAlpha, hclToHex } from '../utils'
+import { hclToHex } from '../utils'
 import type { Shades } from '../types'
 import { Shade } from '../types'
+
+import { harmonize } from '../utils/harmonize'
 
 /**
  * Generates a series of color shades based on the given hue, chroma, and theme (dark/light).
@@ -64,22 +66,26 @@ export const generateShades = (
   const shades: Shades = {}
 
   // Harmonize colors if hueToHarmonize is provided
-  if (hueToHarmonize) {
-    const harmonizePrimaryHex = generateShades(hueToHarmonize, chroma, isDark)
+if (hueToHarmonize) {
+  // Apply harmonization to primary shades
+  for (const shade of requiredShades) {
+    const luminance = isDark ? luminancesDark[shade]! : luminancesLight[shade]!
+    const sourceHex = hclToHex(hueToHarmonize, chroma, luminance)
     
-    // Apply harmonization to primary shades
-    for (const shade of requiredShades) {
-      const currentShadeHex = shades[shade] ?? '#FFFFFF'
-      const harmonizedShadeHex = harmonizePrimaryHex[shade] ?? '#FFFFFF'
-      shades[shade] = combineColorsWithAlpha(currentShadeHex, 0.6, harmonizedShadeHex)
-    }
-  } else {
-    // Generate shades without harmonization
-    for (const shade of requiredShades) {
-      const luminance = isDark ? luminancesDark[shade]! : luminancesLight[shade]!
-      shades[shade] = hclToHex(hue, chroma, luminance)
-    }
+    const currentShadeHex = shades[shade] = hclToHex(hue, chroma, luminance)
+
+    const harmonizedShadeHex = harmonize(currentShadeHex, sourceHex)
+
+    shades[shade] = harmonizedShadeHex
   }
+} else {
+  // Generate shades without harmonization
+  for (const shade of requiredShades) {
+    const luminance = isDark ? luminancesDark[shade]! : luminancesLight[shade]!
+    shades[shade] = hclToHex(hue, chroma, luminance)
+  }
+}
+
 
   return shades
 }
