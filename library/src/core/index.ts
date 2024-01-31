@@ -2,7 +2,7 @@ import { hclToHex } from '../utils'
 import type { Shades } from '../types'
 import { Shade } from '../types'
 
-import { harmonize } from '../utils/harmonize'
+import { harmonize } from '../core/harmonize'
 
 /**
  * Generates a series of color shades based on the given hue, chroma, and theme (dark/light).
@@ -67,16 +67,11 @@ export const generateShades = (
 
   // Harmonize colors if hueToHarmonize is provided
 if (hueToHarmonize) {
+  
   // Apply harmonization to primary shades
   for (const shade of requiredShades) {
-    const luminance = isDark ? luminancesDark[shade]! : luminancesLight[shade]!
-    const sourceHex = hclToHex(hueToHarmonize, chroma, luminance)
-    
-    const currentShadeHex = shades[shade] = hclToHex(hue, chroma, luminance)
-
-    const harmonizedShadeHex = harmonize(currentShadeHex, sourceHex)
-
-    shades[shade] = harmonizedShadeHex
+    const luminance = isDark ? luminancesDark[shade]! : luminancesLight[shade]!    
+    shades[shade] = hclToHex(harmonize(hueToHarmonize, hue), chroma, luminance)
   }
 } else {
   // Generate shades without harmonization
@@ -85,8 +80,6 @@ if (hueToHarmonize) {
     shades[shade] = hclToHex(hue, chroma, luminance)
   }
 }
-
-
   return shades
 }
 
