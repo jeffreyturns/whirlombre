@@ -18,5 +18,5 @@ export default defineNuxtConfig({
     pageTransition: { name: 'fade', mode: 'out-in' },
     layoutTransition: { name: 'fade', mode: 'out-in' }
   },
-  runtimeConfig: { public: { baseURL: process.env.BASE_URL || 'https://example.com' } }
+  runtimeConfig: { public: { baseURL: process.env.BASE_URL || 'https://whirlombre.vercel.app' } }
 })
