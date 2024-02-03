@@ -37,7 +37,7 @@ watch(
   () => [palette.value],
   () => {
     shades.value = ''
-    palette.value.forEach(it => (shades.value += shadesToString(it.name, generateShades(it.hue, it.chroma, it.isDark, it.harmonize ?? undefined))))
+    palette.value.forEach(it => (shades.value += shadesToString(it.name, generateShades(it.hue, it.chroma, it.isDark, it.harmonize ?? undefined)) + '\n'))
   },
   { deep: true, immediate: true }
 )

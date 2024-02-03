@@ -56,7 +56,7 @@ const close = () => {
               </button>
             </div>
           </div>
-          <div class="ml-4 flex flex-shrink-0">
+          <div @click="dismissNotification(notification.id)" class="ml-4 flex flex-shrink-0">
             <BaseButton icon="close" :icon-size="18" />
           </div>
         </div>
