@@ -12,7 +12,7 @@ const docsQueryParams = queryContent('docs').params
         <ContentDoc
           v-slot="{ doc }"
           :query="docsQueryParams">
-          <DocsImageHeader />
+          <DocsImageHeader :emoji="doc.emoji" />
           <ContentRenderer :value="doc" />
         </ContentDoc>
       </article>
