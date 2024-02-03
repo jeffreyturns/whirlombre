@@ -62,7 +62,7 @@ export default defineConfig({
      * Base Components
      *
      */
-    'btn-wl-base': 'text-sm outline-none inline-flex items-center justify-center px-4 py-2 rounded-wl-small leading-6 transition-wl-colors focus:outline-none',
+    'btn-wl-base': 'text-sm cursor-pointer outline-none inline-flex items-center justify-center px-4 py-2 rounded-wl-small leading-6 transition-wl-colors focus:outline-none',
     'icon-btn-base': 'inline-flex items-center justify-center rounded-wl-small p-2',
     'chip-base': 'mx-0.5 mb-1 px-1.5 inline-flex rounded-wl-small items-center transition-wl-colors cursor-pointer',
     /*
