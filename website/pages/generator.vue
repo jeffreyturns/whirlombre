@@ -3,7 +3,7 @@ import { generateShades } from '../../library/src'
 
 import { ShadeItem } from '~/types/shade'
 
-useHead({ title: 'Color Generator' })
+useHead({ title: 'Palette Generator' })
 
 const palette = usePalette()
 
@@ -77,16 +77,18 @@ const copyHEX = (hex: string) => {
       @save-changes="updateItem" />
     <ModalExportTheme v-model="showExportTheme" />
     <BaseContainer>
-      <div class="flex gap-x-3">
-        <BaseButton text="Add Shade" icon-left="add" @click="showCreateShade = true" />
+      <div class="sm:flex flex-auto sm:gap-x-3">
+        <BaseButton class="mr-3 sm:mr-0" text="Add Shade" icon-left="add" @click="showCreateShade = true" />
         <BaseButton text="Export" variant="outlined" icon-left="download" @click="showExportTheme = true" />
+        <div class="sm:flex-1 flex-auto" />
+        <BaseButton class="mt-3 sm:mt-0" text="Add Random" icon-right="shuffle" @click="addRandom()" />
       </div>
       <div class="py-6">
         <div class="h-[1px] bg-surface-950/12" />
       </div>
       <div class="grid grid-cols-1 gap-x-2 gap-y-8">
         <div
-          v-if="palette.length <= 0"
+          v-if="palette.length === 0"
           class="py-64 text-center">
           No Shades!
         </div>
@@ -117,7 +119,7 @@ const copyHEX = (hex: string) => {
               <div class="w-full flex cursor-pointer items-center gap-x-3 rounded-wl-small ring-1 ring-surface-950/12 sm:block sm:space-y-1.5">
                 <div
                   class="h-full w-10 rounded-wl-small sm:h-25 sm:w-full"
-                  :style="{ backgroundColor: it === '#aN' ? '#000000': it }" />
+                  :style="{ backgroundColor: it }" />
                 <div class="mt-2 flex justify-between px-1 md:py-2">
                   <div>
                     <h3 class="w-6 text-xl font-medium text-surface-900 2xl:w-full">
