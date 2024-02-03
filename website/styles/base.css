@@ -9,18 +9,20 @@ body {
     @apply bg-surface-10 text-surface-950 transition-wl-colors;
 }
 
-::-webkit-scrollbar {
-    width: 12px;
-    height: 10px;
-}
-::-webkit-scrollbar-track {
-    @apply bg-surface-10 rounded-wl-small;
-}
-::-webkit-scrollbar-thumb {
-    @apply bg-surface-300 rounded-wl-small;
-}
-::-webkit-scrollbar-thumb:hover {
-    @apply bg-surface-500;
+.styled-scrollbars {
+    &::-webkit-scrollbar {
+        width: 12px;
+        height: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        @apply bg-surface-10 rounded-wl-small;
+    }
+    &::-webkit-scrollbar-thumb {
+        @apply bg-surface-300 rounded-wl-small;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        @apply bg-surface-500;
+    }
 }
 
 ::selection {

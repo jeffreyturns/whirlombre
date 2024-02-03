@@ -8,6 +8,7 @@ useHead({
 })
 
 const config = useRuntimeConfig()
+const macOS = computed(() => process.client && navigator && navigator.userAgent && navigator.userAgent.match(/Macintosh;/))
 
 useSeoMeta({
   ogTitle: 'Whirlombre: Super-Minimalist Library for Smooth Shade Generation',
@@ -24,6 +25,12 @@ useSeoMeta({
   twitterTitle: 'Whirlombre: Super-Minimalist Library for Smooth Shade Generation',
   twitterDescription: 'Whirlombre is a lightweight tool and library designed to simplify and enhance the shading process in various design projects. Generate smooth shades effortlessly and quickly!',
   twitterImage: config.public.baseURL + '/og_image.png'
+})
+
+onMounted(() => {
+  if (!macOS) {
+    document.body.classList.add('styled-scrollbars')
+  }
 })
 </script>
 
