@@ -28,8 +28,10 @@ useSeoMeta({
 })
 
 onMounted(() => {
-  if (!macOS) {
-    document.body.classList.add('styled-scrollbars')
+  if (process.client) {
+    if (!macOS) {
+      document.body.classList.add('styled-scrollbars')
+    }
   }
 })
 </script>
