@@ -1,22 +1,32 @@
+import { getIconCollections } from '@egoist/tailwindcss-icons'
+
 export default defineNuxtConfig({
-  ssr: true,
-  devtools: { enabled: false },
   devServer: { port: 5000 },
-  modules: ['@unocss/nuxt', '@nuxtjs/color-mode', 'nuxt-headlessui', '@nuxt/content'],
-  css: ['@unocss/reset/tailwind.css', '@/styles/base.css'],
-  colorMode: { classSuffix: '' },
-  content: { navigation: { fields: ['desc', 'cover', 'publishedAt'] } },
-  app: {
-    head: {
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-      link: [
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' }
-      ],
-      htmlAttrs: { lang: 'en' }
-    },
-    pageTransition: { name: 'fade', mode: 'out-in' },
-    layoutTransition: { name: 'fade', mode: 'out-in' }
+  devtools: { enabled: true },
+  modules: [
+    '@nuxt/content',
+    '@nuxt/ui',
+    '@nuxt/image',
+    '@nuxtjs/fontaine',
+    '@nuxtjs/google-fonts',
+    'nuxt-og-image'
+  ],
+  ui: {
+    icons: {
+      extraProperties: {
+        height: '24px',
+        width: '24px'
+      },
+      ...getIconCollections(['material-symbols'])
+    }
   },
-  runtimeConfig: { public: { baseURL: process.env.BASE_URL || 'https://whirlombre.vercel.app' } }
+  googleFonts: {
+    families: {
+      'Inclusive Sans': 400,
+      'Dela Gothic One': 400,
+      'Noto Sans Cypro Minoan': 400
+    }
+  },
+  app: { head: { htmlAttrs: { class: 'ui-scrollbars' } } },
+  css: ['~/styles/base.css']
 })

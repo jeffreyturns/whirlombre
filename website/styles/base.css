@@ -1,38 +1,39 @@
-:root {
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-text-size-adjust: 100%;
-    @apply font-base antialiased;
-}
-
 body {
-    @apply bg-surface-10 text-surface-950 transition-wl-colors;
-}
+    font-synthesis: none;
+    @apply bg-gray-50 dark:bg-gray-900 antialiased text-balance transition-colors;
 
-.styled-scrollbars {
-    &::-webkit-scrollbar {
-        width: 12px;
-        height: 10px;
-    }
-    &::-webkit-scrollbar-track {
-        @apply bg-surface-10 rounded-wl-small;
-    }
-    &::-webkit-scrollbar-thumb {
-        @apply bg-surface-300 rounded-wl-small;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-        @apply bg-surface-500;
+    ::selection {
+        @apply bg-primary-500/25;
     }
 }
 
-::selection {
-    @apply bg-accent-200/55 text-accent-950;
+.ui-scrollbars ::-webkit-scrollbar-track,
+.ui-scrollbars.dark ::-webkit-scrollbar-track {
+    @apply border-s border-solid border-e-0 border-b-0 border-t-0 border-gray-200;
 }
 
-.material-symbols-rounded {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 300,
-  'GRAD' 0,
-  'opsz' 24
+.ui-scrollbars ::-webkit-scrollbar-thumb,
+.ui-scrollbars.dark ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-sm;
+}
+
+.ui-scrollbars ::-webkit-scrollbar-thumb:hover,
+.ui-scrollbars.dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+}
+
+.ui-scrollbars.dark ::-webkit-scrollbar-track {
+    @apply border-gray-800;
+}
+
+.ui-scrollbars.dark ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700;
+}
+
+.ui-scrollbars.dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600;
+}
+
+.ui-scrollbars ::-webkit-scrollbar {
+    @apply h-2.5 w-2.5;
 }

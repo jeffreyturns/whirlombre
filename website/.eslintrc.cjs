@@ -1,7 +1,7 @@
 module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: { parser: '@typescript-eslint/parser' },
-  extends: ['@nuxtjs/eslint-config-typescript', '@unocss', 'plugin:vue/vue3-recommended'],
+  extends: ['@nuxtjs/eslint-config-typescript', 'plugin:vue/vue3-recommended', 'plugin:tailwindcss/recommended'],
   plugins: ['@stylistic'],
   rules: {
     'no-console': 'off',
