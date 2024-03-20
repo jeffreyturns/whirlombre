@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 import { generateShades } from '../library/src'
 
 export default <Partial<Config>>{
@@ -10,9 +11,10 @@ export default <Partial<Config>>{
       }
     },
     fontFamily: {
-      sans: ['Inclusive Sans', 'sans-serif'],
-      headline: ['Dela Gothic One', 'sans-serif'],
-      minoan: ['Noto Sans Cypro Minoan', 'sans-serif']
+      sans: ['Inclusive Sans', ...defaultTheme.fontFamily.sans],
+      headline: ['Dela Gothic One', ...defaultTheme.fontFamily.sans],
+      minoan: ['Noto Sans Cypro Minoan', ...defaultTheme.fontFamily.sans],
+      mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono]
     },
     borderRadius: {
       none: '0px',

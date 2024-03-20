@@ -2,7 +2,7 @@ import { getIconCollections } from '@egoist/tailwindcss-icons'
 
 export default defineNuxtConfig({
   devServer: { port: 5000 },
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
     '@nuxt/content',
     '@nuxt/ui',
@@ -11,6 +11,14 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'nuxt-og-image'
   ],
+  hooks: {
+    'components:extend': (components) => {
+      const globals = components.filter(c => ['UButton', 'UIcon', 'UAlert'].includes(c.pascalName))
+
+      // eslint-disable-next-line no-return-assign
+      globals.forEach(c => c.global = true)
+    }
+  },
   ui: {
     icons: {
       extraProperties: {
@@ -24,7 +32,8 @@ export default defineNuxtConfig({
     families: {
       'Inclusive Sans': 400,
       'Dela Gothic One': 400,
-      'Noto Sans Cypro Minoan': 400
+      'Noto Sans Cypro Minoan': 400,
+      'IBM Plex Mono': 400
     }
   },
   app: { head: { htmlAttrs: { class: 'ui-scrollbars' } } },

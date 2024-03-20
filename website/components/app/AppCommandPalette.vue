@@ -1,49 +1,130 @@
 <script setup lang="ts">
-const { metaSymbol } = useShortcuts()
+const commandPaletteRef = ref()
 
-const isOpen = ref(false)
+const commandPalette = useCommandPallette()
+const router = useRouter()
 
 defineShortcuts({
   meta_k: {
     usingInput: true,
     handler: () => {
-      isOpen.value = !isOpen.value
+      commandPalette.value = !commandPalette.value
     }
   }
 })
 
+function onSelect (option: any) {
+  commandPalette.value = false
+  if (option.click) {
+    option.click()
+  } else if (option.to) {
+    router.push(option.to)
+  } else if (option.href) {
+    window.open(option.href, '_blank')
+  }
+}
+
+const suggestions = [
+  { id: 'linear', label: 'Linear' },
+  { id: 'figma', label: 'Figma' },
+  { id: 'slack', label: 'Slack' },
+  { id: 'youtube', label: 'YouTube' },
+  { id: 'github', label: 'GitHub' }
+]
+
+const pages = [
+  { id: 'docs', label: 'Documentation', to: '/docs' },
+  { id: 'generator', label: 'Palette Generator', to: '/generator' },
+  { id: 'theme', label: 'Site Color', to: '/theme' },
+  { id: 'blog', label: 'Blog', to: '/blog' }
+]
+
+const groups = [{
+  key: 'suggestions',
+  label: 'Suggestions',
+  inactive: 'Application',
+  commands: suggestions
+}, {
+  key: 'pages',
+  label: 'Pages',
+  inactive: 'Page',
+  commands: pages
+}]
+
+const ui = {
+  wrapper: 'flex flex-col flex-1 min-h-0 divide-y divide-gray-200 dark:divide-gray-700 bg-gray-100 dark:bg-gray-800',
+  container: 'relative flex-1 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-700 scroll-py-2',
+  input: { base: 'w-full h-14 px-4 placeholder-gray-400 dark:placeholder-gray-500 bg-transparent border-0 text-gray-900 dark:text-white focus:ring-0 focus:outline-none' },
+  group: {
+    label: 'px-2 my-2 text-xs font-semibold text-gray-500 dark:text-gray-400',
+    command: {
+      base: 'flex justify-between select-none cursor-default items-center rounded-md px-2 py-2 gap-2 relative',
+      active: 'bg-gray-200 dark:bg-gray-700/50 text-gray-900 dark:text-white',
+      container: 'flex items-center gap-3 min-w-0',
+      icon: {
+        base: 'flex-shrink-0 w-5 h-5',
+        active: 'text-gray-900 dark:text-white',
+        inactive: 'text-gray-400 dark:text-gray-500'
+      },
+      avatar: { size: '2xs' }
+    }
+  }
+}
+
+const cardUi = { base: 'border-t border-gray-200 dark:border-gray-700', background: 'bg-gray-100 dark:bg-gray-800', ring: 'ring-0' }
 </script>
 
 <template>
-  <div class="relative">
-    <UInput
-      class="hidden w-64 xl:flex"
+  <UModal v-model="commandPalette">
+    <UCommandPalette
+      ref="commandPaletteRef"
+      class="max-h-96"
+      :groups="groups"
       icon="i-material-symbols-search"
-      placeholder="Search...">
-      <template #trailing>
-        <div class="flex items-center gap-0.5">
-          <UKbd>{{ metaSymbol }}</UKbd>
-          <UKbd>K</UKbd>
+      :ui="ui"
+      :autoselect="false"
+      placeholder="Search for apps and commands"
+      @update:model-value="onSelect">
+      <template #empty-state>
+        <div class="flex h-96 flex-col items-center justify-center gap-3 py-6 text-center">
+          <span class="text-base text-gray-900 dark:text-gray-100">No Results Found.</span>
+          <span class="text-sm text-gray-700 dark:text-gray-300">Oops! It seems there's nothing matching your criteria. Try refining your search or entering a different command.</span>
         </div>
       </template>
-    </UInput>
+    </UCommandPalette>
 
-    <UButton  class=" xl:hidden" icon="i-material-symbols-search" />
-
-    <span class="absolute inset-0 cursor-pointer" @click="isOpen = true" />
-
-    <UModal v-model="isOpen">
-      <div class="h-96 overflow-auto p-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut eu sem integer vitae justo eget magna. Consectetur libero id faucibus nisl tincidunt eget. Enim lobortis scelerisque fermentum dui faucibus in ornare quam. Libero id faucibus nisl tincidunt eget nullam. Adipiscing enim eu turpis egestas pretium aenean pharetra magna. Vulputate eu scelerisque felis imperdiet proin fermentum. Volutpat consequat mauris nunc congue nisi vitae suscipit. Commodo odio aenean sed adipiscing diam donec. Viverra orci sagittis eu volutpat odio facilisis mauris sit amet. Eu non diam phasellus vestibulum lorem sed. Etiam sit amet nisl purus in mollis nunc. Sit amet purus gravida quis blandit turpis cursus in hac. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Blandit aliquam etiam erat velit scelerisque. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Risus ultricies tristique nulla aliquet enim tortor at auctor. Tristique senectus et netus et malesuada fames ac turpis.
-
-        Ullamcorper sit amet risus nullam eget. Porttitor leo a diam sollicitudin. Rhoncus est pellentesque elit ullamcorper dignissim. Ipsum faucibus vitae aliquet nec ullamcorper sit amet. Velit aliquet sagittis id consectetur purus ut faucibus. Nunc eget lorem dolor sed. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Velit dignissim sodales ut eu sem integer. Sed vulputate mi sit amet. Porttitor leo a diam sollicitudin tempor id eu. At elementum eu facilisis sed odio morbi quis commodo odio. Rhoncus est pellentesque elit ullamcorper. At auctor urna nunc id cursus metus aliquam eleifend. Aliquam nulla facilisi cras fermentum. Lectus mauris ultrices eros in cursus turpis. Pellentesque diam volutpat commodo sed egestas egestas fringilla. Porttitor eget dolor morbi non. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit.
-
-        Dolor purus non enim praesent elementum facilisis leo. Sit amet massa vitae tortor condimentum. Iaculis nunc sed augue lacus viverra vitae congue eu. Est placerat in egestas erat imperdiet sed. Libero id faucibus nisl tincidunt eget. Euismod lacinia at quis risus. Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Et odio pellentesque diam volutpat commodo sed. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Vulputate odio ut enim blandit volutpat maecenas volutpat. Nulla facilisi etiam dignissim diam quis enim. Ac felis donec et odio pellentesque diam volutpat commodo. Viverra mauris in aliquam sem fringilla ut morbi tincidunt. Arcu odio ut sem nulla pharetra diam sit amet nisl. Cursus in hac habitasse platea dictumst quisque sagittis purus sit. Venenatis a condimentum vitae sapien pellentesque. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero.
-
-        Pellentesque habitant morbi tristique senectus et netus. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Volutpat diam ut venenatis tellus in. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Ornare lectus sit amet est placerat. In ante metus dictum at tempor commodo ullamcorper. Dui id ornare arcu odio ut sem. Dui nunc mattis enim ut tellus elementum. Ac orci phasellus egestas tellus rutrum tellus. Amet massa vitae tortor condimentum lacinia quis. Consectetur purus ut faucibus pulvinar elementum integer enim neque. Mollis aliquam ut porttitor leo a diam sollicitudin. Sodales ut eu sem integer vitae justo eget magna fermentum. Adipiscing vitae proin sagittis nisl. Platea dictumst vestibulum rhoncus est pellentesque elit. Nunc non blandit massa enim nec dui nunc mattis enim.
-
-        Condimentum vitae sapien pellentesque habitant morbi tristique. Eu ultrices vitae auctor eu augue. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Eget egestas purus viverra accumsan in nisl. Egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam. Viverra nibh cras pulvinar mattis nunc sed. Quis commodo odio aenean sed adipiscing diam. Et leo duis ut diam quam nulla. Aliquam sem fringilla ut morbi. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Egestas egestas fringilla phasellus faucibus scelerisque. Quisque id diam vel quam elementum. Nec sagittis aliquam malesuada bibendum arcu. Bibendum est ultricies integer quis auctor elit sed vulputate. Sed vulputate odio ut enim blandit volutpat maecenas volutpat. In arcu cursus euismod quis viverra nibh cras. Vestibulum rhoncus est pellentesque elit. Pellentesque elit eget gravida cum sociis.
-      </div>
-    </UModal>
-  </div>
+    <UCard :ui="cardUi">
+      <template #footer>
+        <div class="inline-flex items-stretch space-x-2 text-sm">
+          <span>
+            <UKbd>
+              <UIcon class="size-3" name="i-material-symbols-arrow-upward" />
+            </UKbd>
+            <UKbd>
+              <UIcon class="size-3" name="i-material-symbols-arrow-downward" />
+            </UKbd>
+            to navigate
+          </span>
+          <span>
+            <UKbd>
+              <UIcon class="size-3" name="i-material-symbols-subdirectory-arrow-left" />
+            </UKbd>
+            to select
+          </span>
+          <span>
+            <UKbd>
+              esc
+            </UKbd>
+            to close
+          </span>
+          <span>
+            <UKbd>
+              <UIcon class="size-3" name="i-material-symbols-arrow-back" />
+            </UKbd>
+            return to parent
+          </span>
+        </div>
+      </template>
+    </UCard>
+  </UModal>
 </template>

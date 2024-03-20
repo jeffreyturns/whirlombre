@@ -1,9 +1,10 @@
 <template>
   <AppHeader />
-  <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
+
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
+
+  <AppCommandPalette />
   <AppFooter />
 </template>

@@ -45,7 +45,7 @@ const items = [
 
               <template #trailing>
                 <UIcon
-                  name="i-material-symbols-arrow-downward-alt"
+                  name="i-material-symbols-keyboard-arrow-down"
                   class="ms-auto size-5 transition-transform duration-200"
                   :class="[open && 'rotate-180']" />
               </template>

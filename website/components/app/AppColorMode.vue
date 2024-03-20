@@ -25,7 +25,7 @@ const uppercaseFirstLetter = (str: string) =>
         <UButton
           class="flex-1 justify-between">
           {{ currentMode }}
-          <UIcon name="i-material-symbols-arrow-upward-alt" class="size-5 flex-none transition-transform" :class="{ 'rotate-180': open }" aria-hidden="true" />
+          <UIcon name="i-material-symbols-keyboard-arrow-down" class="size-5 flex-none transition-transform" :class="{ 'rotate-180': open }" aria-hidden="true" />
         </UButton>
       </USelectMenu>
     </ColorScheme>

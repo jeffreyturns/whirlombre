@@ -57,7 +57,7 @@ const features = [
           i === 1 && 'sm:rounded-tr-sm',
           i === features.length - 2 && 'sm:rounded-bl-sm',
           i === features.length - 1 && 'rounded-b-sm sm:rounded-bl-none',
-          'group relative rounded-sm bg-gray-100 p-6 focus:ring-0 dark:bg-gray-800'
+          'group relative rounded-sm bg-gray-100 p-6 transition-colors hover:bg-gray-200 focus:ring-0 dark:bg-gray-800 dark:hover:bg-gray-700'
         ]">
         <div>
           <div>
