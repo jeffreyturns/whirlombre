@@ -58,7 +58,7 @@ const ui = {
   group: {
     label: 'px-2 my-2 text-xs font-semibold text-gray-500 dark:text-gray-400',
     command: {
-      base: 'flex justify-between select-none cursor-default items-center rounded-md px-2 py-2 gap-2 relative',
+      base: 'flex justify-between transition-colors select-none cursor-default items-center rounded-md px-2 py-2 gap-2 relative',
       active: 'bg-gray-200 dark:bg-gray-700/50 text-gray-900 dark:text-white',
       container: 'flex items-center gap-3 min-w-0',
       icon: {

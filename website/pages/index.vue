@@ -1,5 +1,7 @@
 <template>
-  <LandingHeroSection />
-  <LandingFeatures />
-  <LandingFAQ />
+  <div>
+    <LandingHeroSection />
+    <LandingFeatures />
+    <LandingFAQ />
+  </div>
 </template>

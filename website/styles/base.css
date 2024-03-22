@@ -7,11 +7,6 @@ body {
     }
 }
 
-.ui-scrollbars ::-webkit-scrollbar-track,
-.ui-scrollbars.dark ::-webkit-scrollbar-track {
-    @apply border-s border-solid border-e-0 border-b-0 border-t-0 border-gray-200;
-}
-
 .ui-scrollbars ::-webkit-scrollbar-thumb,
 .ui-scrollbars.dark ::-webkit-scrollbar-thumb {
     @apply bg-gray-300 rounded-sm;
@@ -35,5 +30,5 @@ body {
 }
 
 .ui-scrollbars ::-webkit-scrollbar {
-    @apply h-2.5 w-2.5;
+    @apply size-2.5;
 }

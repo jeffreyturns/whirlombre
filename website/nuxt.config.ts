@@ -36,6 +36,9 @@ export default defineNuxtConfig({
       'IBM Plex Mono': 400
     }
   },
-  app: { head: { htmlAttrs: { class: 'ui-scrollbars' } } },
+  app: {
+    head: { htmlAttrs: { class: 'ui-scrollbars' } },
+    pageTransition: { name: 'fade', mode: 'out-in' }
+  },
   css: ['~/styles/base.css']
 })

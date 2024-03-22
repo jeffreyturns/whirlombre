@@ -49,21 +49,17 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .fade-in-hidden {
-    opacity: 0;
-    transform: translateY(24px);
+  @apply opacity-0 translate-y-6;
 }
 
 .fade-in-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s, transform 0.5s cubic-bezier(.4, 0, .2, 1);
+  @apply opacity-100 translate-y-0 transition-all duration-500 ease-out-glide
 }
 .fade-hidden {
-    opacity: 0;
+    @apply opacity-0;
 }
 
 .fade-visible {
-    opacity: 1;
-    transition: opacity 0.5s cubic-bezier(.4, 0, .2, 1);
+  @apply opacity-100 transition-opacity duration-500 ease-out-glide;
 }
 </style>

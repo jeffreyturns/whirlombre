@@ -17,7 +17,7 @@ export default defineAppConfig({
     alert: {
       title: 'my-0',
       rounded: 'rounded-sm',
-      variant: { soft: 'bg-primary-500 dark:bg-primary-200 bg-opacity-10 text-gray-900 dark:text-gray-100' },
+      variant: { soft: 'bg-primary-500 dark:bg-primary-200 bg-opacity-35 text-gray-900 dark:text-gray-100' },
       default: { variant: 'soft' }
     },
     button: {

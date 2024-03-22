@@ -7,7 +7,7 @@ export default <Partial<Config>>{
     extend: {
       colors: {
         foo: generateShades(35, 0.4),
-        bar: generateShades(35, 0.03)
+        bar: generateShades(35, 0.055)
       }
     },
     fontFamily: {
@@ -18,7 +18,7 @@ export default <Partial<Config>>{
     },
     borderRadius: {
       none: '0px',
-      sm: '2px'
+      sm: '0.125rem'
     },
     transitionTimingFunction: {
       'quick-snap': 'cubic-bezier(.87,0,.13,1)',
