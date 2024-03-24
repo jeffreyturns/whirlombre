@@ -1,5 +1,6 @@
 <template>
   <AppHeader />
+  <UNotifications />
 
   <NuxtLayout>
     <NuxtPage />

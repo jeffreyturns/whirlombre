@@ -51,15 +51,15 @@ const features = [
       <MotionContainer
         v-for="(it, i) in features"
         :key="it.title"
-        type="fade-in"
-        :class="[
-          i === 0 && 'rounded-t-sm sm:rounded-tr-none',
-          i === 1 && 'sm:rounded-tr-sm',
-          i === features.length - 2 && 'sm:rounded-bl-sm',
-          i === features.length - 1 && 'rounded-b-sm sm:rounded-bl-none',
-          'group relative rounded-sm bg-gray-100 p-6 transition-colors hover:bg-gray-200 focus:ring-0 dark:bg-gray-800 dark:hover:bg-gray-700'
-        ]">
-        <div>
+        type="fade-in">
+        <div
+          :class="[
+            i === 0 && 'rounded-t-sm sm:rounded-tr-none',
+            i === 1 && 'sm:rounded-tr-sm',
+            i === features.length - 2 && 'sm:rounded-bl-sm',
+            i === features.length - 1 && 'rounded-b-sm sm:rounded-bl-none',
+            'group relative rounded-sm bg-gray-100 p-6 transition-colors hover:bg-gray-200 focus:ring-0 dark:bg-gray-800 dark:hover:bg-gray-700'
+          ]">
           <div>
             <span class="bg-primary-100 dark:bg-primary-600 inline-flex rounded-sm p-3 font-minoan text-gray-900 dark:text-gray-50">{{ it.symbols }}</span>
           </div>

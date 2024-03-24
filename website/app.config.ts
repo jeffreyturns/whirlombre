@@ -61,6 +61,7 @@ export default defineAppConfig({
       default: { selectedIcon: 'i-material-symbols-check' }
     },
     container: { constrained: 'max-w-screen-2xl' },
-    modal: { rounded: 'rounded-sm', overlay: { background: 'bg-gray-200/75 dark:bg-gray-800/75' } }
+    modal: { rounded: 'rounded-sm', overlay: { background: 'bg-gray-200/75 dark:bg-gray-800/75' } },
+    notification: { background: 'bg-gray-100 dark:bg-gray-800' }
   }
 })

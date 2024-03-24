@@ -9,8 +9,10 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
-    'nuxt-og-image'
+    'nuxt-og-image',
+    '@pinia/nuxt'
   ],
+  pinia: { storesDirs: ['./stores/**', './custom-folder/stores/**'] },
   hooks: {
     'components:extend': (components) => {
       const globals = components.filter(c => ['UButton', 'UIcon', 'UAlert'].includes(c.pascalName))

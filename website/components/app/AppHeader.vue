@@ -6,7 +6,7 @@ const commandPalette = useCommandPallette()
 
 const navigation = [
   { name: 'Documentation', href: '/docs' },
-  { name: 'Palette Generator', href: '/generator' },
+  { name: 'Palette Generator', href: '/palette' },
   { name: 'Site Color', href: '/theme' },
   { name: 'Blog', href: '/blog' }
 ]
@@ -24,7 +24,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="fixed top-0 z-50 w-full transition-colors" :class="scrolled ? 'bg-gray-200 dark:bg-gray-700' : 'bg-transparent'">
+  <header class="fixed top-0 z-50 w-full transition-colors" :class="scrolled ? 'bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700' : 'bg-transparent border-none border-transparent'">
     <UContainer as="nav" class="flex w-full items-center justify-between py-4" aria-label="Global">
       <div class="flex items-center gap-x-12">
         <a href="#" class="-m-1.5 p-1.5">

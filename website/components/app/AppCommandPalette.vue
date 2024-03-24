@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 const commandPaletteRef = ref()
 
 const commandPalette = useCommandPallette()
@@ -39,17 +40,20 @@ const pages = [
   { id: 'blog', label: 'Blog', to: '/blog' }
 ]
 
-const groups = [{
-  key: 'suggestions',
-  label: 'Suggestions',
-  inactive: 'Application',
-  commands: suggestions
-}, {
-  key: 'pages',
-  label: 'Pages',
-  inactive: 'Page',
-  commands: pages
-}]
+const groups = [
+  {
+    key: 'pages',
+    label: 'Pages',
+    inactive: 'Page',
+    commands: pages
+  },
+  {
+    key: 'suggestions',
+    label: 'Suggestions',
+    inactive: 'Application',
+    commands: suggestions
+  }
+]
 
 const ui = {
   wrapper: 'flex flex-col flex-1 min-h-0 divide-y divide-gray-200 dark:divide-gray-700 bg-gray-100 dark:bg-gray-800',

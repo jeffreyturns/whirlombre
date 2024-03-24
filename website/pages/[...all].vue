@@ -10,7 +10,7 @@ const links = [
   },
   {
     name: 'Palette Magic',
-    href: '/generator',
+    href: '/palette',
     symbols: '𒿓',
     description: 'Craft stunning palettes instantly. Bring colors to life, everywhere!'
   },
