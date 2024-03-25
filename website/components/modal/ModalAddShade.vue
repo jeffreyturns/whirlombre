@@ -38,9 +38,12 @@ watch(() => isOpen.value, () => {
 </script>
 
 <template>
-  <UButton label="Add Shade" icon="i-material-symbols-add" @click="isOpen = true" />
+  <UButton @click="isOpen = true">
+    <UIcon name="i-material-symbols-add" class="size-4" />
+    Add Shade
+  </UButton>
 
-  <UModal v-model="isOpen" @close="clear">
+  <UModal v-model="isOpen">
     <UCard :ui="uiCard" class="w-full">
       <template #header>
         <div class="flex items-center justify-center">

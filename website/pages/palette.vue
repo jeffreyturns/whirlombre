@@ -9,7 +9,8 @@ const paletteStore = usePaletteStore()
         <div class="flex min-w-0 space-x-3">
           <ModalAddShade />
 
-          <UButton variant="outline" label="Export" icon="i-material-symbols-download" />
+          <!-- <UButton variant="outline" label="Export" icon="i-material-symbols-download" /> -->
+          <ModalExportShades />
         </div>
         <div class="mt-3 flex lg:ml-4 lg:mt-0">
           <UButton label="Add Random" icon="i-material-symbols-shuffle" @click="paletteStore.addRandomShade()" />

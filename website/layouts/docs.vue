@@ -86,11 +86,11 @@ const symbols = '𒾙 𒾚 𒾛 𒾜 𒾝 𒾞 𒾟 𒾠 𒾡 𒾢 𒾣 𒾤 �
         </main>
       </MotionContainer>
 
-      <MotionContainer type="fade-in" :delay="300">
-        <aside class="sticky top-[calc(var(--header-height))] hidden h-[calc(100vh-var(--header-height))] w-96 shrink-0 border-l border-gray-200 px-3 xl:block dark:border-gray-800">
+      <aside class="sticky top-[calc(var(--header-height))] hidden h-[calc(100vh-var(--header-height))] w-96 shrink-0 border-l border-gray-200 px-3 xl:block dark:border-gray-800">
+        <MotionContainer type="fade-in" :delay="300">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas non pariatur vel doloremque enim eius! Vitae possimus maxime nisi alias incidunt consequatur doloribus aliquid illo quidem sint. Odio, labore at?
-        </aside>
-      </MotionContainer>
+        </MotionContainer>
+      </aside>
     </div>
   </UContainer>
 </template>

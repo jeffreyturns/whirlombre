@@ -39,8 +39,8 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    head: { htmlAttrs: { class: 'ui-scrollbars' } },
-    pageTransition: { name: 'fade', mode: 'out-in' }
+    head: { htmlAttrs: { class: 'ui-scrollbars' } }
+    // pageTransition: { name: 'fade', mode: 'out-in' }
   },
   css: ['~/styles/base.css']
 })

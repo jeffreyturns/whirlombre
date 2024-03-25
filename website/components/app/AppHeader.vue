@@ -4,7 +4,6 @@ import { Dialog, DialogPanel } from '@headlessui/vue'
 const { metaSymbol } = useShortcuts()
 const commandPalette = useCommandPallette()
 const route = useRoute()
-const router = useRouter()
 
 const headerRef = ref<HTMLElement | null>(null)
 const gradientHeight = ref('20px')
@@ -62,18 +61,12 @@ const items = [
     content: '/blog'
   }
 ]
-
-function onChange (index: number) {
-  router.push(items[index].content)
-}
-
-const ui = { list: { base: 'gap-x-2', background: 'bg-transparent', marker: { background: 'bg-gray-200 dark:bg-gray-900' } } }
 </script>
 
 <template>
   <header ref="headerRef" class="fixed top-0 z-50 w-full transition-colors" :class="scrolled ? 'bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700' : 'bg-transparent border-none border-transparent'">
     <div class="gradient transition-[height] duration-150 ease-out-glide" :style="gradientStyles" />
-    <UContainer as="nav" class="flex w-full items-center justify-between py-4" aria-label="Global">
+    <UContainer as="nav" class="flex w-full items-center justify-between py-4" aria-label="Global"> 
       <div class="flex items-center gap-x-12">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Whirlombre</span>
@@ -83,19 +76,6 @@ const ui = { list: { base: 'gap-x-2', background: 'bg-transparent', marker: { ba
           <UButton v-for="item in navigation" :key="item.name" variant="nav" :to="item.href">
             {{ item.name }}
           </UButton>
-          <!-- <UTabs :ui="ui" :items="items" @change="onChange">
-            <template #default="{ item, selected }">
-              <div class="relative flex items-center gap-2 truncate">
-                <span class="truncate">{{ item.label }}</span>
-
-                <span v-if="selected" class="rounded-full bg-primary-500 dark:bg-primary-400 absolute -right-4 size-2" />
-              </div>
-            </template>
-
-            <template #item>
-              {{ }}
-            </template>
-          </UTabs> -->
         </div>
       </div>
       <div class="flex lg:hidden">

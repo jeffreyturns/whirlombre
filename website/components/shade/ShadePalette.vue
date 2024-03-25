@@ -51,7 +51,7 @@ function copyColor (text: string | undefined) {
     <li
       v-for="(color, key) in colors"
       :key="color"
-      class="bg-gray-100 p-4 ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700">
+      class="rounded-sm bg-gray-100 p-4 ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700">
       <div class="block w-full">
         <div class="h-32 rounded-sm ring-1 ring-gray-200 dark:ring-gray-800" :style="{ backgroundColor: color }" />
       </div>
