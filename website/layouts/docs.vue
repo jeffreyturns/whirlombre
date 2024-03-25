@@ -6,14 +6,15 @@ const innerDocs = computed(() => docs.value?.[0].children)
 const ui = { item: { padding: '!px-0 space-y-px !py-px' } }
 
 const symbols = '𒾙 𒾚 𒾛 𒾜 𒾝 𒾞 𒾟 𒾠 𒾡 𒾢 𒾣 𒾤 𒾥 𒾦 𒾧 𒾨 𒾩 𒾪 𒾫 𒾬 𒾭 𒾮 𒾯 𒾰 𒾱 𒾲 𒾳 𒾴 𒾵 𒾶 𒾷 𒾸 𒾹 𒾺 𒾻 𒾼 𒾽 𒾾 𒾿 𒿀 𒿁 𒿂 𒿃 𒿄 𒿅 𒿆 𒿇 𒿈'.split(' ')
+
 </script>
 
 <template>
-  <UContainer class="mt-20">
+  <UContainer class="mt-[--header-height]">
     <div class="mx-auto w-full items-start lg:flex">
-      <aside class="sticky top-20 hidden h-[calc(100vh-70px)] w-72 shrink-0 lg:block">
+      <aside class="sticky top-[calc(var(--header-height))] hidden h-[calc(100vh-var(--header-height))] w-72 shrink-0 border-r border-gray-200 px-3 lg:block dark:border-gray-800">
         <MotionContainer type="fade-in">
-          <UAccordion multiple :ui="ui" :items="innerDocs" default-open>
+          <UAccordion class="mt-4" multiple :ui="ui" :items="innerDocs" default-open>
             <template #default="{ item, index, open }">
               <UButton class="my-px" variant="ghost">
                 <span class="bg-primary-100 dark:bg-primary-600 flex size-4 items-center justify-center">
@@ -45,7 +46,7 @@ const symbols = '𒾙 𒾚 𒾛 𒾜 𒾝 𒾞 𒾟 𒾠 𒾡 𒾢 𒾣 𒾤 �
         </MotionContainer>
       </aside>
 
-      <div class="mx-auto flex max-w-3xl py-3 lg:hidden">
+      <div class="mx-auto flex max-w-3xl border-b border-gray-200 py-3 lg:hidden dark:border-gray-800">
         <MotionContainer type="fade-in" :delay="150" class="w-full">
           <UAccordion multiple :ui="ui" :items="innerDocs" default-open>
             <template #default="{ item, index, open }">
@@ -85,7 +86,11 @@ const symbols = '𒾙 𒾚 𒾛 𒾜 𒾝 𒾞 𒾟 𒾠 𒾡 𒾢 𒾣 𒾤 �
         </main>
       </MotionContainer>
 
-      <!-- <aside class="sticky top-20 hidden w-96 shrink-0 xl:block" /> -->
+      <MotionContainer type="fade-in" :delay="300">
+        <aside class="sticky top-[calc(var(--header-height))] hidden h-[calc(100vh-var(--header-height))] w-96 shrink-0 border-l border-gray-200 px-3 xl:block dark:border-gray-800">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas non pariatur vel doloremque enim eius! Vitae possimus maxime nisi alias incidunt consequatur doloribus aliquid illo quidem sint. Odio, labore at?
+        </aside>
+      </MotionContainer>
     </div>
   </UContainer>
 </template>

@@ -3,6 +3,13 @@ import { Dialog, DialogPanel } from '@headlessui/vue'
 
 const { metaSymbol } = useShortcuts()
 const commandPalette = useCommandPallette()
+const route = useRoute()
+const router = useRouter()
+
+const headerRef = ref<HTMLElement | null>(null)
+const gradientHeight = ref('20px')
+
+const gradientStyles = computed(() => ({ height: gradientHeight.value }))
 
 const navigation = [
   { name: 'Documentation', href: '/docs' },
@@ -19,12 +26,53 @@ onMounted(() => {
     window.addEventListener('scroll', () => {
       scrolled.value = window.scrollY > 1
     })
+
+    document.body.style.setProperty('--header-height', `${headerRef.value?.clientHeight}px`)
+    nextTick(() => changeHeight())
   }
 })
+
+const changeHeight = () => {
+  if (route.path !== '/') {
+    gradientHeight.value = '20px'
+  } else {
+    gradientHeight.value = '0px'
+  }
+}
+
+watch(() => route.path, () => {
+  changeHeight()
+})
+
+const items = [
+  {
+    label: 'Documentation',
+    content: '/docs'
+  },
+  {
+    label: 'Palette Generator',
+    content: '/palette'
+  },
+  {
+    label: 'Site Color',
+    content: '/theme'
+  },
+  {
+    label: 'Blog',
+    content: '/blog'
+  }
+]
+
+function onChange (index: number) {
+  router.push(items[index].content)
+}
+
+const ui = { list: { base: 'gap-x-2', background: 'bg-transparent', marker: { background: 'bg-gray-200 dark:bg-gray-900' } } }
 </script>
 
 <template>
-  <header class="fixed top-0 z-50 w-full transition-colors" :class="scrolled ? 'bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700' : 'bg-transparent border-none border-transparent'">
+  <header ref="headerRef" class="fixed top-0 z-50 w-full transition-colors" :class="scrolled ? 'bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700' : 'bg-transparent border-none border-transparent'">
+    <div class="gradient transition-[height] duration-150 ease-out-glide" :style="gradientStyles" />
     <UContainer as="nav" class="flex w-full items-center justify-between py-4" aria-label="Global">
       <div class="flex items-center gap-x-12">
         <a href="#" class="-m-1.5 p-1.5">
@@ -35,6 +83,19 @@ onMounted(() => {
           <UButton v-for="item in navigation" :key="item.name" variant="nav" :to="item.href">
             {{ item.name }}
           </UButton>
+          <!-- <UTabs :ui="ui" :items="items" @change="onChange">
+            <template #default="{ item, selected }">
+              <div class="relative flex items-center gap-2 truncate">
+                <span class="truncate">{{ item.label }}</span>
+
+                <span v-if="selected" class="rounded-full bg-primary-500 dark:bg-primary-400 absolute -right-4 size-2" />
+              </div>
+            </template>
+
+            <template #item>
+              {{ }}
+            </template>
+          </UTabs> -->
         </div>
       </div>
       <div class="flex lg:hidden">
@@ -121,3 +182,11 @@ onMounted(() => {
     <AppLoadingIndicator />
   </header>
 </template>
+
+<style scoped>
+.gradient {
+  opacity: 25%;
+
+  background-image: linear-gradient(to right, #0a7cff, #ff469d, #ff7847, #00dfdf, #7733ff, #00dfdf);
+}
+</style>

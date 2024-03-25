@@ -5,8 +5,12 @@ export const usePaletteStore = defineStore('palette', () => {
   const randomChroma = () => Number((Math.random() * 0.5).toFixed(2))
 
   const shades = ref<ShadeItem[]>(
-    [{ id: generateUUID(), name: 'Example Color 1', hue: randomHue(), chroma: 0.45, harmonize: null, isDark: false }]
+    [{ id: generateUUID(), name: 'Example Color 1', hue: randomHue(), chroma: 0.45, harmonize: null, reverse: false }]
   )
+
+  function addShade (shade: ShadeItem) {
+    shades.value.push(shade)
+  }
 
   function addRandomShade () {
     shades.value.push({
@@ -15,7 +19,7 @@ export const usePaletteStore = defineStore('palette', () => {
       hue: randomHue(),
       chroma: randomChroma(),
       harmonize: null,
-      isDark: false
+      reverse: false
     })
   }
 
@@ -25,6 +29,7 @@ export const usePaletteStore = defineStore('palette', () => {
 
   return {
     shades,
+    addShade,
     addRandomShade,
     removeShade
   }

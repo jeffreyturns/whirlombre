@@ -7,9 +7,15 @@ const toast = useToast()
 
 const props = defineProps<{ shade: ShadeItem }>()
 
-const colors = computed(() => generateShades(props.shade.hue, props.shade.chroma))
+const colors = computed(() =>
+  generateShades({
+    hue: props.shade.hue,
+    chroma: props.shade.chroma
+  })
+)
 
-function copyColor (text: string) {
+function copyColor (text: string | undefined) {
+  if (!text) { return }
   navigator.clipboard.writeText(text)
     .then(() => {
       toast.add({
@@ -33,7 +39,7 @@ function copyColor (text: string) {
 <template>
   <div class="py-6 lg:flex lg:items-center lg:justify-between">
     <div class="flex min-w-0">
-      <span>{{ shade.name }}</span>
+      <span class="text-gray-900 dark:text-gray-100">{{ shade.name }}</span>
     </div>
     <div class="mt-3 flex space-x-3 lg:ml-4 lg:mt-0">
       <UButton label="Delete" variant="outline" icon="i-material-symbols-delete-outline" @click="paletteStore.removeShade(props.shade.id)" />
@@ -45,7 +51,7 @@ function copyColor (text: string) {
     <li
       v-for="(color, key) in colors"
       :key="color"
-      class="p-4 ring-1 ring-gray-200 dark:ring-gray-800">
+      class="bg-gray-100 p-4 ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700">
       <div class="block w-full">
         <div class="h-32 rounded-sm ring-1 ring-gray-200 dark:ring-gray-800" :style="{ backgroundColor: color }" />
       </div>

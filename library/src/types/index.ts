@@ -27,7 +27,6 @@ export type HEX = string
  * The number represents the intensity of the shade, where a higher value indicates a darker shade.
  */
 export enum Shade {
-  S10 = 10,
   S50 = 50,
   S100 = 100,
   S200 = 200,

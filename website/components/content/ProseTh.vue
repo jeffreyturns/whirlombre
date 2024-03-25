@@ -1,5 +1,5 @@
 <template>
-  <th class="text-gray-900 dark:text-gray-100 font-headline">
+  <th class="font-headline text-gray-900 dark:text-gray-100">
     <slot />
   </th>
 </template>

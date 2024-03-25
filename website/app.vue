@@ -7,6 +7,7 @@
   </NuxtLayout>
 
   <AppCommandPalette />
+  <UDivider />
   <AppFooter />
 </template>
 

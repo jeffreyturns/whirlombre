@@ -29,7 +29,7 @@ const items = [
 </script>
 
 <template>
-  <UContainer class="pb-16">
+  <UContainer class="py-16">
     <div class="mx-auto max-w-4xl">
       <MotionContainer type="fade-in">
         <h2 class="mb-8 text-center font-headline text-3xl leading-10 tracking-tight text-gray-900 dark:text-gray-100">
@@ -40,7 +40,7 @@ const items = [
       <MotionContainer type="fade-in">
         <UAccordion :items="items" :ui="{ wrapper: 'flex flex-col w-full' }">
           <template #default="{ item, open }">
-            <UButton color="gray" variant="soft" class="mb-px py-4">
+            <UButton color="gray" variant="soft" class="py-4 ring-1 ring-gray-200 dark:ring-gray-700">
               <span class="truncate text-base">{{ item.label }}</span>
 
               <template #trailing>

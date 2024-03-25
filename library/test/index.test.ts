@@ -4,7 +4,10 @@ import { Shade, generateShades } from '../src'
 
 describe('generateShades function', () => {
   it('should generate shades with valid HEX values for default requiredShades', () => {
-    const result = generateShades(240, 1)
+    const result = generateShades({
+      hue: 240,
+      chroma: 0.5
+    })
     //@ts-ignore
     console.log('Default requiredShades:', result)
 

@@ -1,5 +1,5 @@
 <template>
-  <pre :class="$props.class" class="rounded-sm bg-gray-100 font-mono text-sm leading-6 tracking-wide dark:bg-gray-800"><slot /></pre>
+  <pre :class="$props.class" class="rounded-sm bg-gray-100 font-mono text-sm leading-6 tracking-wide ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-700"><slot /></pre>
 </template>
 
 <script setup lang="ts">

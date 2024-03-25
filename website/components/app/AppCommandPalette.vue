@@ -35,7 +35,7 @@ const suggestions = [
 
 const pages = [
   { id: 'docs', label: 'Documentation', to: '/docs' },
-  { id: 'generator', label: 'Palette Generator', to: '/generator' },
+  { id: 'generator', label: 'Palette Generator', to: '/palette' },
   { id: 'theme', label: 'Site Color', to: '/theme' },
   { id: 'blog', label: 'Blog', to: '/blog' }
 ]

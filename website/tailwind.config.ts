@@ -6,8 +6,14 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
-        foo: generateShades(35, 0.4),
-        bar: generateShades(35, 0.055)
+        foo: generateShades({
+          hue: 35,
+          chroma: 0.45
+        }),
+        bar: generateShades({
+          hue: 35,
+          chroma: 0.075
+        })
       }
     },
     fontFamily: {
